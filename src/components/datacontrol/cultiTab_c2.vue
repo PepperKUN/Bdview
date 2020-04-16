@@ -2,7 +2,9 @@
     <div class="colum">
         <div class="row">
             <DataFrame :width='1304' :height='410' frameTitle="工单概况" rightFunc>
-                
+                <ul class="fall_wrap">
+                    <li class="fall_box"></li>
+                </ul>
             </DataFrame>
             <DataFrame :width='570' :height='410' frameTitle="工单处理状态" rightFunc>
                 
