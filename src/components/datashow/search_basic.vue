@@ -30,7 +30,7 @@
                     </tr>
                 </tbody>
             </table>
-            <el-pagination background layout="total, .el-pagination__totalprev, pager, next" :total="1000" :pager-count="17"></el-pagination>
+            <el-pagination background layout="total, prev, pager, next" :total="1000" :pager-count="17"></el-pagination>
         </div>
     </div>
 </template>

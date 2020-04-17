@@ -60,7 +60,7 @@ const router = new Router({
       component: contentShowreel
     },
     {
-      path: '/showreel/seachBasic',
+      path: '/showreel/searchBasic',
       component: searchBasic
     },
     {

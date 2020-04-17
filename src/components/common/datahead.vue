@@ -132,7 +132,7 @@ export default {
                                 url: '#',
                             },{ 
                                 title: '基本查询',
-                                url: '/showreel/seachBasic',
+                                url: '/showreel/searchBasic',
                                 childs:[
                                     {
                                         title: '市场主体查询',

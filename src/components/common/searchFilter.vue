@@ -35,7 +35,6 @@ export default {
     name: 'FilterForm',
     props: {
         form: Array,
-        result: Array,
         withReset: Boolean,
         withExport: Boolean,
     },
