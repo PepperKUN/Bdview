@@ -14,6 +14,7 @@ import perspectiveUser from '../components/dataexchange/perspective-user.vue'
 import perspectivePort from '../components/dataexchange/perspective-port.vue'
 import errorRouter from '../components/common/errorRouter.vue'
 import dataInfo from '../components/datadir/cataInfo.vue'
+import searchBasic from '../components/datashow/search_basic.vue'
 
 const router = new Router({
   mode:"history", //路由模式，无#
@@ -57,6 +58,10 @@ const router = new Router({
     {
       path: '/showreel',
       component: contentShowreel
+    },
+    {
+      path: '/showreel/seachBasic',
+      component: searchBasic
     },
     {
       path: '/errorRouter',

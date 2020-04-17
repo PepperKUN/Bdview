@@ -924,7 +924,9 @@ table.simple td{
     background-color: #163d8f;
     color: #7fd4fc;
 }
-
+.el-pagination__total{
+    color: #409eff;
+}
 .history_list{
     margin-bottom: 10px;
 }
@@ -1276,8 +1278,10 @@ table.simple td{
     border-color: #328bea !important;
 }
 
+.filter_form{
+    margin: 0 14px;
+}
 .search_filter{
-    margin: 14px 0 0 14px;
     background-color: rgba(0, 254, 238, 0.2);
     padding: 10px 0;
 }
@@ -1356,8 +1360,7 @@ table.simple td{
 }
 .search_submit{
     text-align: center;
-    margin-left: 14px;
-    margin-top: 10px;
+    margin-top: 24px;
 }
 .search_submit button{
     font-size: 16px;
@@ -2625,4 +2628,12 @@ ol.tree_wrap>li::before{
 }
 .table_wrap{
     height: 100%;
+}
+.normal_result{
+    margin: 0 14px;
+}
+
+.normal_result .el-pagination{
+    margin-top: 10px;
+    text-align: right;
 }
