@@ -58,7 +58,7 @@ export default {
                             model: ''
                         },{
                             name: '资源提供方',
-                            select: ['名称登记','1','2'],
+                            datePicker: 'date',
                             model: ''
                         }
                     ]
@@ -69,7 +69,7 @@ export default {
                             radio: ['是','否'],
                         },{
                             name: '资源所属分类',
-                            select: ['字符串','1','2'],
+                            datePicker: 'daterange',
                             model: ''
                         },{
                             name: '资源采集应用',

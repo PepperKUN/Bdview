@@ -17,6 +17,7 @@
                                 <input type="radio" :value="item.radio[1]" :id="'rd2_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model">
                                 <label :for="'rd2_'+index1+'_'+index2">{{item.radio[1]}}</label>
                             </template>
+                            <el-date-picker v-if="item.datePicker" v-model="item.model" :type="item.datePicker" placeholder="选择日期"></el-date-picker>
                         </td>
                     </template>
                 </tr>
