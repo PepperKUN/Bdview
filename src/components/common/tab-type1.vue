@@ -20,12 +20,13 @@ export default {
     },
     props: {
         tabs: Array,
-        index: Number
+        index: Object
     },
     
     data: function(){
         return{
             tabIndex: 0,
+            lastIndex: 0,
             gapWidth: '',
         }
     },
@@ -35,7 +36,11 @@ export default {
     methods: {
         indexChange(index){
             this.tabIndex = index;
-            this.$emit('change', this.tabIndex);
+            this.$emit('change', {
+                index: this.tabIndex,
+                diff: (this.tabIndex - this.lastIndex)>0,
+            });
+            this.lastIndex = index;
         },
         calcGapWidth(){
             const n = this.tabs.length;

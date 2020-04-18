@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <Tab v-model="cultiTabIndex" :tabs="tabs"></Tab>
-        <component :is="currentTabComponent"></component>
+        <component :is="currentTabComponent" :class="[cultiTabIndex.diff?'tab_right':'tab_left']"></component>
     </div>
 </template>
 
@@ -17,19 +17,23 @@ export default {
     },
     data() {
         return {
-            cultiTabIndex: 0,
+            cultiTabIndex: {
+                index: 0,
+                diff: true
+            },
             tabs: ['数据治理', '工单处理', '数据标签']
         };
     },
     computed: {
         currentTabComponent: function(){
-            return 'cultiTab_c' + (this.cultiTabIndex + 1);
+            return 'cultiTab_c' + (this.cultiTabIndex.index + 1);
         }
     },
     created() {
 
     },
     mounted() {
+        
     },
     watch: {
 

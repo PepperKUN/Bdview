@@ -495,7 +495,7 @@ table{
 }
 
 .content{
-    /* height: calc(100% - 122px); */
+    overflow: hidden;
     padding-bottom: 14px;
 }
 .row{
@@ -2729,4 +2729,33 @@ ol.tree_wrap>li::before{
 .el-date-table td.end-date span, .el-date-table td.start-date span {
     background-color: #fbe26e;
     color: #000;
+}
+
+.tab_left{
+    width: 100%;
+    animation: left 400ms ease-out;
+}
+.tab_right{
+    width: 100%;
+    animation: right 400ms ease-out;
+}
+@keyframes left{
+    from{
+        padding-left: 100px;
+        opacity: 0;
+    }
+    to{
+        padding-left: 0;
+        opacity: 1;
+    }
+}
+@keyframes right{
+    from{
+        margin-left: -100px;
+        opacity: 0;
+    }
+    to{
+        margin-right: 0;
+        opacity: 1;
+    }
 }

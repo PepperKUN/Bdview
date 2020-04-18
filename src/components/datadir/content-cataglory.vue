@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <Tab v-model="cataTabIndex" :tabs="tabs"></Tab>
-        <component :is="currentTabComponent"></component>
+        <component :is="currentTabComponent" :class="[cataTabIndex.diff?'tab_right':'tab_left']"></component>
     </div>
 </template>
 
@@ -22,13 +22,16 @@ export default {
     },
     data:function(){
         return{
-            cataTabIndex: 0,
+            cataTabIndex: {
+                index: 0,
+                diff: true
+            },
             tabs: ['资源目录概况', '资源目录展示', '资源目录查询']
         }
     },
     computed: {
         currentTabComponent: function(){
-            return 'cataTab_c' + (this.cataTabIndex + 1);
+            return 'cataTab_c' + (this.cataTabIndex.index + 1);
         }
     },
     methods: {
