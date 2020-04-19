@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content content_rise">
         <div class="breadCrumb">
             <span class="crumb_head">当前层级：</span>
             <template v-for="(crumb, index) in crumbs">

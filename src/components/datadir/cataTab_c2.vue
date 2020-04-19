@@ -1,15 +1,15 @@
 <template>
     <div class="row flag_wrap">
-        <DataFlag flag='按基础目录分类查看' width="calc((100% - 160px)/4)">
+        <DataFlag flag='按基础目录分类查看' :width="flagWidth">
             <tree class="flag_tree" :nodes="nodes" :setting="setting"/>
         </DataFlag>
-        <DataFlag flag='按基础目录分类查看' width="calc((100% - 160px)/4)">
+        <DataFlag flag='按基础目录分类查看' :width="flagWidth">
             <tree class="flag_tree" :nodes="nodes" :setting="setting"/>
         </DataFlag>
-        <DataFlag flag='按基础目录分类查看' width="calc((100% - 160px)/4)">
+        <DataFlag flag='按基础目录分类查看' :width="flagWidth">
             <tree class="flag_tree" :nodes="nodes" :setting="setting"/>
         </DataFlag>
-        <DataFlag flag='按基础目录分类查看' width="calc((100% - 160px)/4)">
+        <DataFlag flag='按基础目录分类查看' :width="flagWidth">
             <tree class="flag_tree" :nodes="nodes" :setting="setting"/>
         </DataFlag>
     </div>
@@ -28,6 +28,7 @@ export default {
     data() {
                
         return {
+            flagWidth: 'calc((100% - 160px)/4)',
             setting: {
                 check: {
                     enable: false
@@ -35,8 +36,8 @@ export default {
                 data: {
                     simpleData: {
                         enable: true,
-                        pIdKey: "pid"
-                    }
+                        pIdKey: "pid",
+                    },
                 },
                 view: {
                     showIcon: true,

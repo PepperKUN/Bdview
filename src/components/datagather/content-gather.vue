@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content content_rise">
       <div class="row">
           <DataFrame :width='1892' :height='165' frameTitle="数据汇聚总览" rightFunc>
               <DataBulbs :data='bulbs'></DataBulbs>

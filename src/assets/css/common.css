@@ -1125,36 +1125,25 @@ table.simple td{
     position: relative;
 }
 .flag_body{
-    position: relative;
-    z-index: 1;
-}
-.flag_bg{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
     width: 100%;
+    font-size: 0;
+    white-space: normal;
 }
-.flag_bg>li{
-    position: absolute;
+.flag_body>li{
+    display: inline-block;
+    vertical-align: top;
 }
 .flag_corner{
     width: 10px;
     height: 10px;
     background-image: url(../images/tree_corner.png);
-    top: 0;
-}
-.flag_corner.c_left{
-    left: 0;
 }
 .flag_corner.c_right{
-    right: 0;
     transform: scaleX(-1);
 }
 
 
 .flag_border.b_top{
-    top: 0;
     height: 9px;
     width: calc(100% - 20px);
     left: 10px;
@@ -1180,20 +1169,16 @@ table.simple td{
     top: 10px;
     background-image: url(../images/tree_border.png);
 }
-.flag_border.b_left{
-    left: 0;
-}
 .flag_border.b_right{
-    right: 0;
     transform: scaleX(-1);
 }
-.flag_border.b_bg{
-    width: calc(100% - 20px);
-    height: 546px;
+.flag_border.b_wrap{
+    width: calc(100% - 40px);
+    padding: 10px;
+    min-height: 526px;
     background-image: url(../images/tree_bg.png);
     background-repeat: repeat-x;
-    top: 10px;
-    left: 10px;
+    font-size: 16px;
 }
 
 .flag_wrap>.flag{
@@ -1201,9 +1186,6 @@ table.simple td{
     vertical-align: top;
 }
 
-.flag_body{
-    padding: 20px;
-}
 
 .flag_tree .button{
     height: 30px!important;
@@ -2739,6 +2721,9 @@ ol.tree_wrap>li::before{
     width: 100%;
     animation: right 400ms ease-out;
 }
+.content_rise{
+    animation: rise 400ms ease-out;
+}
 @keyframes left{
     from{
         padding-left: 100px;
@@ -2756,6 +2741,16 @@ ol.tree_wrap>li::before{
     }
     to{
         margin-right: 0;
+        opacity: 1;
+    }
+}
+@keyframes rise{
+    from{
+        margin-top: 20px;
+        opacity: 0;
+    }
+    to{
+        margin-top: 0;
         opacity: 1;
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content content_rise">
         <div class="content_title"><span>{{contentTitle}}</span></div>
         <div class="dataTree">
             <div class="tree_block blue">

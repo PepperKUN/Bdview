@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content content_rise">
       <div class="row">
         <DataFrame :width='518' :height='264' frameTitle="数据资源项统计（单位：个）" rightFunc>
           <v-chart :options="bar1" :autoresize='true'/>

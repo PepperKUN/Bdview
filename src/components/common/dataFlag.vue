@@ -5,16 +5,15 @@
             <span class="flag_name">{{flag}}</span>
         </div>
         <div class="flag_content">
-            <div class="flag_body">
-                <slot></slot>
-            </div>
-            <ul class="flag_bg">
-                <li class="flag_border b_top"></li>
+            <ul class="flag_body">
                 <li class="flag_corner c_left"></li>
+                <li class="flag_border b_top"></li>
                 <li class="flag_corner c_right"></li>
                 <li class="flag_border b_left"></li>
+                <li class="flag_border b_wrap">
+                    <slot></slot>
+                </li>
                 <li class="flag_border b_right"></li>
-                <li class="flag_border b_bg"></li>
             </ul>
         </div>
     </div>
