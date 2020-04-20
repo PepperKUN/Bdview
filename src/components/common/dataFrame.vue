@@ -7,7 +7,7 @@
             <i class="arrow_right"></i>
         </a>
         <span class="dateDes" v-if="rightFunc.date!=null">{{rightFunc.date}}</span>
-        <select class="frame_option" v-if="rightFunc.drops!=null">
+        <select class="frame_option" v-if="rightFunc.drops!=null" v-model="dropvalue" @change="dropSelect(dropvalue)">
             <option v-for="drop in rightFunc.drops" :key="drop.id" :value="drop.optionVal">{{drop.optionText}}</option>
         </select>
       </div>
@@ -30,21 +30,31 @@
 <script>
 export default {
     name: 'dataFrame',
+    model: {
+        prop: 'val',
+        event: 'select'
+    },
     data: function(){
         return{
-
+            dropvalue: '1',
         }
     },
     props: {
         width: Number,
         height: Number,
         frameTitle: String,
+        val: String,
         rightFunc:{
             btnTitle: String,
             url: String,
             date: String,
             drops: Array,
         }
+    },
+    methods: {
+        dropSelect(dropVal){
+            this.$emit('select', dropVal);
+        },
     }   
 }
 </script>

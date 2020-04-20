@@ -18,7 +18,7 @@
             </DataFrame>
         </div>
         <div class="row">
-            <DataFrame :width='1889' :height='442' frameTitle="工单详细数据" :rightFunc='frameSet1'>
+            <DataFrame :width='1889' :height='442' frameTitle="工单详细数据" :rightFunc='frameSet1' v-model="dropValue">
                 <Tab2 v-model="showTab2Index" :tabs="tabs"></Tab2>
                 <div class="tab_content">
                     <component :is="currentTabComponent"></component>
@@ -45,6 +45,7 @@ export default {
         ]
         return {
             showTab2Index: 0,
+            dropValue: '',
             tabs: ['数据采集质量问题', '数据传输质量问题', '数据共享质量问题'],
             frameSet1: {
                 drops: [{
@@ -167,15 +168,12 @@ export default {
         this.boxWidth();
     },
     watch: {
-
     },
     methods: {
         boxWidth(){
             const n = this.boxes.length;
             this.box_width = 'calc('+100/n+'% - '+(n-1)*40/n+'px)';
-            // console.log(this.box_width);
-            
-        }
+        },
     },
     components: {
         Tab2,
