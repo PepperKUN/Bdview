@@ -32,7 +32,7 @@ export default {
     name: 'dataFrame',
     model: {
         prop: 'val',
-        event: 'select'
+        event: 'change'
     },
     data: function(){
         return{
@@ -53,7 +53,7 @@ export default {
     },
     methods: {
         dropSelect(dropVal){
-            this.$emit('select', dropVal);
+            this.$emit('change', dropVal);
         },
     }   
 }

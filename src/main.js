@@ -9,6 +9,7 @@ import router from "./router";
 import dataFrame from './components/common/dataFrame.vue'
 
 import 'element-ui/lib/theme-chalk/index.css';
+import './assets/css/font-icon.css'
 import './assets/css/common.css'
 
 import yunnan from './assets/js/yunnan.json'

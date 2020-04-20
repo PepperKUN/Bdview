@@ -78,5 +78,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="css" scoped>
+    .flag_wrap>>>.flag_name{
+        color: #fff;
+        font-weight: normal;
+    }
 </style>

@@ -1,7 +1,7 @@
 <template>
-    <div class="flag" :style="{width:width}">
+    <div class="flag" :style="{width:width}" :class="color">
         <div class="flag_title">
-            <i class="flag_icon" v-show="icon"></i>
+            <i class="flag_icon iconfont" v-if="icon" :class="icon"></i>
             <span class="flag_name">{{flag}}</span>
         </div>
         <div class="flag_content">
@@ -26,6 +26,7 @@ export default {
         flag: String,
         icon: String,
         width: String,
+        color: String
     },
     data() {
         return {

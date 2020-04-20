@@ -168,6 +168,9 @@ export default {
         this.boxWidth();
     },
     watch: {
+        dropValue(value){
+            console.log(value);
+        }
     },
     methods: {
         boxWidth(){

@@ -1117,10 +1117,61 @@ table.simple td{
     margin-bottom: 20px;
     text-align: center;
 }
-.flag_name{
+.flag_icon{
+    display: inline-block;
+    vertical-align: middle;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    margin-right: 20px;
+    background-color: #3689fd;
     color: #fff;
     font-size: 24px;
+    position: relative;
 }
+.flag_icon::before{
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+}
+.pink .flag_icon{
+    background-color: #fc3e80;
+    color: #fff;
+}
+.yellow .flag_icon{
+    background-color: #fed217;
+    color: #000;
+}
+.purple .flag_icon{
+    background-color: #ac53fd;
+    color: #fff;
+}
+.cyan .flag_icon{
+    background-color: #39b8af;
+    color: #000;
+}
+
+
+.flag_name{
+    color: #3689fd;
+    font-weight: bold;
+    font-size: 24px;
+    vertical-align: middle;
+}
+.pink .flag_name{
+    color: #fc3e80;
+}
+.yellow .flag_name{
+    color: #fed41d;
+}
+.purple .flag_name{
+    color: #be79fd;
+}
+.cyan .flag_name{
+    color: #53dbd2;
+}
+
 .flag_content{
     position: relative;
 }
@@ -1136,8 +1187,21 @@ table.simple td{
 .flag_corner{
     width: 10px;
     height: 10px;
-    background-image: url(../images/tree_corner.png);
+    background-image: url(../images/blue_corner.png);
 }
+.pink .flag_corner{
+    background-image: url(../images/pink_corner.png);
+}
+.yellow .flag_corner{
+    background-image: url(../images/yellow_corner.png);
+}
+.purple .flag_corner{
+    background-image: url(../images/purple_corner.png);
+}
+.cyan .flag_corner{
+    background-image: url(../images/cyan_corner.png);
+}
+
 .flag_corner.c_right{
     transform: scaleX(-1);
 }
@@ -1150,25 +1214,69 @@ table.simple td{
     background-color: #07327a;
     border-top: 1px solid #6dabfa;
 }
+.pink .flag_border.b_top{
+    background-color: #58103b;
+    border-color: #f773a0 ;
+}
+.yellow .flag_border.b_top{
+    background-color: #43411b;
+    border-color: #bda533;
+}
+.purple .flag_border.b_top{
+    background-color: #371970;
+    border-color: #bf81f8;
+}
+.cyan .flag_border.b_top{
+    background-color: #003947;
+    border-color: #47c6bd;
+}
+
 .flag_border.b_top::after{
     content: '';
     display: block;
     position: absolute;
     width: 22px;
     height: 20px;
-    background-image: url(../images/tree_tri.png);
+    background-image: url(../images/blue_tri.png);
     background-repeat: no-repeat;
     background-position: center;
     transform: translateX(-50%);
     left: 50%;
     top: -12px;
 }
+.pink .flag_border.b_top::after{
+    background-image: url(../images/pink_tri.png);
+}
+.yellow .flag_border.b_top::after{
+    background-image: url(../images/yellow_tri.png);
+}
+.purple .flag_border.b_top::after{
+    background-image: url(../images/purple_tri.png);
+}
+.cyan .flag_border.b_top::after{
+    background-image: url(../images/cyan_tri.png);
+}
+
 .flag_border.b_left, .flag_border.b_right{
     width: 10px;
     height: 546px;
     top: 10px;
-    background-image: url(../images/tree_border.png);
+    background-image: url(../images/blue_border.png);
+    background-position: top center;
 }
+.pink .flag_border.b_left, .pink .flag_border.b_right{
+    background-image: url(../images/pink_border.png);
+}
+.yellow .flag_border.b_left, .yellow .flag_border.b_right{
+    background-image: url(../images/yellow_border.png);
+}
+.purple .flag_border.b_left, .purple .flag_border.b_right{
+    background-image: url(../images/purple_border.png);
+}
+.cyan .flag_border.b_left, .cyan .flag_border.b_right{
+    background-image: url(../images/cyan_border.png);
+}
+
 .flag_border.b_right{
     transform: scaleX(-1);
 }
@@ -1176,9 +1284,22 @@ table.simple td{
     width: calc(100% - 40px);
     padding: 10px;
     min-height: 526px;
-    background-image: url(../images/tree_bg.png);
+    background-image: url(../images/blue_bg.png);
+    background-position: top center;
     background-repeat: repeat-x;
     font-size: 16px;
+}
+.pink .flag_border.b_wrap{
+    background-image: url(../images/pink_bg.png);
+}
+.yellow .flag_border.b_wrap{
+    background-image: url(../images/yellow_bg.png);
+}
+.purple .flag_border.b_wrap{
+    background-image: url(../images/purple_bg.png);
+}
+.cyan .flag_border.b_wrap{
+    background-image: url(../images/cyan_bg.png);
 }
 
 .flag_wrap>.flag{
