@@ -7,7 +7,7 @@
                 <div class="title_wing w_right"></div>
             </div>
             <ul class="menu">
-                <li :class="{ current : menuIndex===index}" v-for="(menu, index) in menus" :key="menu.id" @mouseenter="menuDrop(index)" @click="menuSelect()">
+                <li :class="{ current : menuIndex===index}" v-for="(menu, index) in menus" :key="menu.id" @mouseenter="menuDrop(index)" @click="menuSelect()" @mouseleave="clearTimer">
                     <router-link :to="menu.url">
                         <i :class="menu.icon"></i>
                         <span>{{menu.name}}</span>
@@ -43,6 +43,7 @@ export default {
         return{
             menuIndex: 0,
             hoverIndex: 0,
+            timer: null,
             menus:[{
                     name: '首页',
                     icon: 'menuIcon_1',
@@ -203,7 +204,7 @@ export default {
                             },
                             {
                                 title: '一门式查询',
-                                url: '#',
+                                url: '/showreel/searchOverall',
                             },{
                                 title: '企业大事记',
                                 url: '#',
@@ -224,17 +225,28 @@ export default {
         this.menuActiveDetect();
     },
     methods: {
-        menuDrop(index){
+        slide(index){
             const css = document.getElementsByClassName("submenu_wrap")[0].style;
             if(index>0){
                 css.maxHeight = 1000+'px';
             }else{
                  css.maxHeight = 0 +'px';
             }
+        },
+        menuDrop(index){
             this.hoverIndex=index;
+            this.timer = setTimeout(() => {
+                this.slide(index)
+            }, 1000);
         },
         menuClose(){
              document.getElementsByClassName("submenu_wrap")[0].style.maxHeight = 0+'px';
+             this.clearTimer;
+        },
+        clearTimer(){
+            if (this.timer) {
+                clearTimeout(this.timer);
+            }
         },
         menuSelect(){
             this.menuActiveDetect();
@@ -244,7 +256,6 @@ export default {
             for(let i=0; i<this.menus.length; i++){
                 if(this.getSlashString(this.$route.path)===this.menus[i].url){
                     this.menuIndex = i;
-                    
                 }
             }
         },

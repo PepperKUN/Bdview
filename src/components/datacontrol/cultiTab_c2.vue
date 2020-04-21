@@ -196,7 +196,10 @@ export default {
     .tab_content>>>.normal_table{
         margin: 0 20px;
         width: calc(100% - 40px);
-        height: calc(100% - 52px);
+        /* height: calc(100% - 52px); */
+    }
+    .tab_content>>>.normal_table td{
+        padding: 10px 0;
     }
     .tab_content>>>.el-pagination{
         margin-top: 10px;
