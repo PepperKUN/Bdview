@@ -224,6 +224,11 @@ export default {
     mounted(){
         this.menuActiveDetect();
     },
+    watch: {
+        $route(){
+            this.menuActiveDetect()
+        }
+    },
     methods: {
         slide(index){
             const css = document.getElementsByClassName("submenu_wrap")[0].style;
@@ -249,7 +254,6 @@ export default {
             }
         },
         menuSelect(){
-            this.menuActiveDetect();
             this.menuClose();
         },
         menuActiveDetect(){
