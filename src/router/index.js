@@ -16,6 +16,7 @@ import errorRouter from '../components/common/errorRouter.vue'
 import dataInfo from '../components/datadir/cataInfo.vue'
 import searchBasic from '../components/datashow/search_basic.vue'
 import searchOverall from '../components/datashow/search_overall.vue'
+import memorabilia from '../components/datashow/memorabilia.vue'
 
 const router = new Router({
   mode:"history", //路由模式，无#
@@ -67,6 +68,10 @@ const router = new Router({
     {
       path: '/showreel/searchOverall',
       component: searchOverall
+    },
+    {
+      path: '/showreel/memorabilia',
+      component: memorabilia
     },
     {
       path: '/errorRouter',

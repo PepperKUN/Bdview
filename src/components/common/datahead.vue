@@ -207,7 +207,7 @@ export default {
                                 url: '/showreel/searchOverall',
                             },{
                                 title: '企业大事记',
-                                url: '#',
+                                url: '/showreel/memorabilia',
                             },{
                                 title: '数据报表展示',
                                 url: '#',
