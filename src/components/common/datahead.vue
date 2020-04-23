@@ -161,7 +161,7 @@ export default {
                             },
                             { 
                                 title: '组合查询',
-                                url: '#',
+                                url: '/showreel/searchCombination',
                                 childs:[
                                     {
                                         title: '企业信息查询',

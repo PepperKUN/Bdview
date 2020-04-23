@@ -16,6 +16,7 @@ import errorRouter from '../components/common/errorRouter.vue'
 import dataInfo from '../components/datadir/cataInfo.vue'
 import searchBasic from '../components/datashow/search_basic.vue'
 import searchOverall from '../components/datashow/search_overall.vue'
+import searchCombination from '../components/datashow/search_combination.vue'
 import memorabilia from '../components/datashow/memorabilia.vue'
 
 const router = new Router({
@@ -68,6 +69,10 @@ const router = new Router({
     {
       path: '/showreel/searchOverall',
       component: searchOverall
+    },
+    {
+      path: '/showreel/searchCombination',
+      component: searchCombination
     },
     {
       path: '/showreel/memorabilia',
