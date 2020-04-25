@@ -6,7 +6,6 @@
     </el-scrollbar>
   </div>
 </template>
-
 <script>
 import dataHead from './components/common/datahead.vue'
 

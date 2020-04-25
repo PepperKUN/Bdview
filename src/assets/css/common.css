@@ -1472,7 +1472,7 @@ table.simple td{
     color: #fbe26f;
     padding: 6px 0;
     text-align: center;
-    width: 100px;
+    min-width: 100px;
     border-radius: 100px;
     background: none;
     border:1px solid #fbe26f;
@@ -1483,6 +1483,10 @@ table.simple td{
 .search_submit button.submit{
     background-color: #fbe26f;
     color: #001032;
+}
+.search_submit button.reset{
+    padding: 6px 20px;
+    width: auto;
 }
 
 .search_result{
@@ -3392,4 +3396,97 @@ table.form_complex{
 @keyframes fadeIn{
     from{opacity: 0;}
     to{opacity: 1;}
+}
+
+/*-pop-*/
+.pop_wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.pop_standard{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.pop_mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.pop_standard .frame_bg{
+    background-color: #041338;
+}
+.pop_standard .data-block{
+    width: 100%;
+    height: 100%;
+    animation: pop_show 400ms ease-out;
+}
+.pop_close{
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    float: right;
+    padding: 4px;
+    margin-right: 10px;
+}
+@keyframes pop_show{
+    from{
+        margin-top: -100px;
+        opacity: 0;
+    }
+    to{
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+.drag_wrap{
+    height: calc(100% - 120px);
+    padding: 20px;
+}
+.drag_des{
+    display: inline-block;
+    width: 200px;
+}
+.dragList{
+    display: inline-block;
+    width: calc(50% - 100px);
+    height: 100%;
+    vertical-align: top;
+    background-color: #0b224e;
+}
+.dragList>div{
+    min-height: 300px;
+}
+.dragList div>li{
+    padding: 10px 20px;
+    padding-right: 10px;
+    color: #5cfaeb;
+    background-color: rgba(96, 124, 183, 0.25);
+    border-radius: 6px;
+    margin: 4px;
+}
+.dragList li.title{
+    padding: 10px;
+    color: #fff;
+    background-color: #1e4495;
+    height: 20px;
+}
+.drag_content{
+    min-height: 400px;
+}
+.sortable-ghost{
+    opacity: 0.4;
+}
+.dragList .icon-close{
+    font-size: 8px;
+    float: right;
+    padding: 4px;
+    cursor: pointer;
 }

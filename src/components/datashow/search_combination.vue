@@ -22,7 +22,7 @@
                     <th>查询结果列：</th>
                     <td>
                         <input type="text" v-model="tableColum" class="complex_full" placeholder="选择结果列">
-                        <button>选择查询结果</button>
+                        <button @click="popShow">选择查询结果</button>
                     </td>
                 </tr>
                 <tr>
@@ -47,10 +47,44 @@
                 </tr>
             </table>
         </div>
+        <div class="search_submit">
+            <button class="submit">查询</button>
+            <button class="reset">保存查询模板</button>
+            <button class="reset">导出</button>
+        </div>
+        <Pop v-model="show" :title="title" width="930px" height="650px">
+            <div class="drag_wrap">
+                <ul class="dragList">
+                    <li class="title">待选择</li>
+                    <el-scrollbar :native="false" style="height:calc(100% - 40px)">
+                        <draggable :list="originArray" :group="{ name: 'people', pull: 'clone', put: false }">
+                            <li v-for="element in originArray" :key="element.id">{{element.name}}</li>
+                        </draggable>
+                    </el-scrollbar>
+                </ul>
+                <div class="drag_des">
+                    {{resultArray}}
+                </div>
+                <ul class="dragList">
+                    <li class="title">已选择</li>
+                    <el-scrollbar :native="false" style="height:calc(100% - 40px)">
+                        <draggable :list="resultArray" group="people" class="drag_content">
+                            <li v-for="(element, index3) in resultArray" :key="element.id">
+                                {{element.name}}
+                                <i class="iconfont icon-close" @click="removeAt(index3)"></i>
+                            </li>
+                        </draggable>
+                    </el-scrollbar>
+                </ul>
+            </div>
+        </Pop>
     </div>
 </template>
 
 <script>
+import Pop from '../common/pop'
+import draggable from 'vuedraggable'
+
 export default {
     props: {
 
@@ -61,10 +95,8 @@ export default {
             crumbs: ['数据展示','组合查询','企业信息查询'],
             formName: '企业信息查询',
             tableColum: [],
-            refresh: false,
-            condition: [
-
-            ],
+            show: true,
+            title: '选择查询结果数据项',
             conditions: [
                 [
                     {
@@ -87,7 +119,126 @@ export default {
                         model: ''
                     }
                 ]
-            ]
+            ],
+            originArray: [
+                {
+                    "name": "vue.draggable",
+                    "order": 1,
+                    "fixed": false
+                },
+                {
+                    "name": "draggable",
+                    "order": 2,
+                    "fixed": false
+                },
+                {
+                    "name": "component",
+                    "order": 3,
+                    "fixed": false
+                },
+                {
+                    "name": "for",
+                    "order": 4,
+                    "fixed": false
+                },
+                {
+                    "name": "vue.js 2.0",
+                    "order": 5,
+                    "fixed": false
+                },
+                {
+                    "name": "based",
+                    "order": 6,
+                    "fixed": false
+                },
+                {
+                    "name": "on",
+                    "order": 7,
+                    "fixed": false
+                },
+                {
+                    "name": "Sortablejs",
+                    "order": 8,
+                    "fixed": false
+                },
+                {
+                    "name": "for",
+                    "order": 4,
+                    "fixed": false
+                },
+                {
+                    "name": "vue.js 2.0",
+                    "order": 5,
+                    "fixed": false
+                },
+                {
+                    "name": "based",
+                    "order": 6,
+                    "fixed": false
+                },
+                {
+                    "name": "on",
+                    "order": 7,
+                    "fixed": false
+                },
+                {
+                    "name": "Sortablejs",
+                    "order": 8,
+                    "fixed": false
+                },
+                {
+                    "name": "for",
+                    "order": 4,
+                    "fixed": false
+                },
+                {
+                    "name": "vue.js 2.0",
+                    "order": 5,
+                    "fixed": false
+                },
+                {
+                    "name": "based",
+                    "order": 6,
+                    "fixed": false
+                },
+                {
+                    "name": "on",
+                    "order": 7,
+                    "fixed": false
+                },
+                {
+                    "name": "Sortablejs",
+                    "order": 8,
+                    "fixed": false
+                },
+                {
+                    "name": "for",
+                    "order": 4,
+                    "fixed": false
+                },
+                {
+                    "name": "vue.js 2.0",
+                    "order": 5,
+                    "fixed": false
+                },
+                {
+                    "name": "based",
+                    "order": 6,
+                    "fixed": false
+                },
+                {
+                    "name": "on",
+                    "order": 7,
+                    "fixed": false
+                },
+                {
+                    "name": "Sortablejs",
+                    "order": 8,
+                    "fixed": false
+                }
+                
+            ],
+            resultArray: [],
         };
     },
     computed: {
@@ -112,14 +263,23 @@ export default {
         },
         listDelete(index){
             this.conditions.splice(index,1);
-        }
+        },
+        popShow(){
+            this.show = true;
+        },
+        removeAt(idx) {
+            this.resultArray.splice(idx, 1);
+        },
     },
     components: {
-
+        Pop,
+        draggable,
     },
 };
 </script>
 
 <style lang="css">
-
+    div.content{
+        overflow: initial;
+    }
 </style>

@@ -10,6 +10,7 @@
         <select class="frame_option" v-if="rightFunc.drops!=null" v-model="dropvalue" @change="dropSelect(dropvalue)">
             <option v-for="drop in rightFunc.drops" :key="drop.id" :value="drop.optionVal">{{drop.optionText}}</option>
         </select>
+        <slot name='title_corner'></slot>
       </div>
       <div class="frame_body" :class="{'fullHeight':frameTitle==null}">
           <slot></slot>

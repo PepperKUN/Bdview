@@ -125,5 +125,7 @@ export default {
 </script>
 
 <style scoped lang="css">
-
+    div.content{
+        overflow: initial;
+    }
 </style>
