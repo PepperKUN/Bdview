@@ -10,6 +10,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.4",
+    "createjs": "^1.0.1",
     "echarts": "^4.7.0",
     "echarts-amap": "^1.4.15-rc.1",
     "echarts-wordcloud": "^1.1.3",

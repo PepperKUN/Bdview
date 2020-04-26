@@ -54,7 +54,16 @@ export default {
                             model: ''
                         },{
                             name: '数据类型',
-                            select: ['字符串','1','2'],
+                            select: [{
+                                        key: 1,
+                                        value:'字符串'
+                                    },{
+                                        key: 2,
+                                        value:'1'
+                                    },{
+                                        key: 3,
+                                        value: '2'
+                                    }],
                             model: ''
                         },{
                             name: '资源提供方',
@@ -73,7 +82,16 @@ export default {
                             model: ''
                         },{
                             name: '资源采集应用',
-                            select: ['名称登记','1','2'],
+                            select: [{
+                                        key: 1,
+                                        value:'名称登记'
+                                    },{
+                                        key: 2,
+                                        value:'1'
+                                    },{
+                                        key: 3,
+                                        value: '2'
+                                    }],
                             model: ''
                         }
                     ]

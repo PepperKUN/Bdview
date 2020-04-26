@@ -9,7 +9,7 @@
                             <input type="text" v-if="item.input" :placeholder="item.input" v-model="item.model">
                             <select v-if="item.select" v-model="item.model">
                                 <option value="">请选择{{item.name}}</option>
-                                <option v-for="opt in item.select" :key="opt.id" :value="opt">{{opt}}</option>
+                                <option v-for="opt in item.select" :key="opt.id" :value="opt.key">{{opt.value}}</option>
                             </select>
                             <template v-if="item.radio">
                                 <input type="radio" :value="item.radio[0]" :id="'rd1_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model">
