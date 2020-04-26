@@ -3453,8 +3453,14 @@ table.form_complex{
 }
 .drag_des{
     display: inline-block;
-    width: 200px;
+    width: 160px;
     user-select: none;
+    color: #fee56f;
+    text-align: center;
+    margin: 160px 20px;
+    padding-top: 80px;
+    background-image: url(../images/drag_des.png);
+    background-position: top center;
 }
 .dragList{
     display: inline-block;
@@ -3483,6 +3489,7 @@ table.form_complex{
 }
 .drag_content{
     min-height: 400px;
+    user-select: none;
 }
 .sortable-ghost{
     opacity: 0.4;

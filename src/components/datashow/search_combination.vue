@@ -62,9 +62,7 @@
                         </draggable>
                     </el-scrollbar>
                 </ul>
-                <div class="drag_des">
-                    {{resultArray}}
-                </div>
+                <div class="drag_des">左右列表可以拖拽<br>并且可以上下排序</div>
                 <ul class="dragList">
                     <li class="title">已选择</li>
                     <el-scrollbar :native="false" style="height:calc(100% - 40px)">
