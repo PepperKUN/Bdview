@@ -21,7 +21,7 @@
                 <tr>
                     <th>查询结果列：</th>
                     <td>
-                        <input type="text" v-model="tableColum" class="complex_full" placeholder="选择结果列">
+                        <input type="text" v-model="tableColum" class="complex_full" placeholder="选择结果列" @click="popShow">
                         <button @click="popShow">选择查询结果</button>
                     </td>
                 </tr>
@@ -57,7 +57,7 @@
                 <ul class="dragList">
                     <li class="title">待选择</li>
                     <el-scrollbar :native="false" style="height:calc(100% - 40px)">
-                        <draggable :list="originArray" :group="{ name: 'people', pull: 'clone', put: false }">
+                        <draggable :list="originArray" :group="{ name: 'people'}" class="drag_content">
                             <li v-for="element in originArray" :key="element.id">{{element.name}}</li>
                         </draggable>
                     </el-scrollbar>
@@ -69,13 +69,16 @@
                     <li class="title">已选择</li>
                     <el-scrollbar :native="false" style="height:calc(100% - 40px)">
                         <draggable :list="resultArray" group="people" class="drag_content">
-                            <li v-for="(element, index3) in resultArray" :key="element.id">
+                            <li v-for="(element, index3) in resultArray" :key="index3">
                                 {{element.name}}
                                 <i class="iconfont icon-close" @click="removeAt(index3)"></i>
                             </li>
                         </draggable>
                     </el-scrollbar>
                 </ul>
+            </div>
+            <div class="search_submit">
+                <button class="submit" @click="arraySubmit">确定</button>
             </div>
         </Pop>
     </div>
@@ -122,121 +125,65 @@ export default {
             ],
             originArray: [
                 {
-                    "name": "vue.draggable",
+                    "name": "企业状态",
                     "order": 1,
                     "fixed": false
                 },
                 {
-                    "name": "draggable",
+                    "name": "统一社会信用代码",
                     "order": 2,
                     "fixed": false
                 },
                 {
-                    "name": "component",
+                    "name": "注册号",
                     "order": 3,
                     "fixed": false
                 },
                 {
-                    "name": "for",
+                    "name": "企业名称",
                     "order": 4,
                     "fixed": false
                 },
                 {
-                    "name": "vue.js 2.0",
+                    "name": "企业类别",
                     "order": 5,
                     "fixed": false
                 },
                 {
-                    "name": "based",
+                    "name": "企业类型",
                     "order": 6,
                     "fixed": false
                 },
                 {
-                    "name": "on",
+                    "name": "法定代表人或负责人",
                     "order": 7,
                     "fixed": false
                 },
                 {
-                    "name": "Sortablejs",
+                    "name": "核准日期",
                     "order": 8,
                     "fixed": false
                 },
                 {
-                    "name": "for",
+                    "name": "成立日期",
                     "order": 4,
                     "fixed": false
                 },
                 {
-                    "name": "vue.js 2.0",
+                    "name": "城市",
                     "order": 5,
                     "fixed": false
                 },
                 {
-                    "name": "based",
+                    "name": "区县",
                     "order": 6,
                     "fixed": false
                 },
                 {
-                    "name": "on",
+                    "name": "住所",
                     "order": 7,
-                    "fixed": false
-                },
-                {
-                    "name": "Sortablejs",
-                    "order": 8,
-                    "fixed": false
-                },
-                {
-                    "name": "for",
-                    "order": 4,
-                    "fixed": false
-                },
-                {
-                    "name": "vue.js 2.0",
-                    "order": 5,
-                    "fixed": false
-                },
-                {
-                    "name": "based",
-                    "order": 6,
-                    "fixed": false
-                },
-                {
-                    "name": "on",
-                    "order": 7,
-                    "fixed": false
-                },
-                {
-                    "name": "Sortablejs",
-                    "order": 8,
-                    "fixed": false
-                },
-                {
-                    "name": "for",
-                    "order": 4,
-                    "fixed": false
-                },
-                {
-                    "name": "vue.js 2.0",
-                    "order": 5,
-                    "fixed": false
-                },
-                {
-                    "name": "based",
-                    "order": 6,
-                    "fixed": false
-                },
-                {
-                    "name": "on",
-                    "order": 7,
-                    "fixed": false
-                },
-                {
-                    "name": "Sortablejs",
-                    "order": 8,
                     "fixed": false
                 }
-                
             ],
             resultArray: [],
         };
@@ -268,8 +215,14 @@ export default {
             this.show = true;
         },
         removeAt(idx) {
+            const result = this.resultArray.slice(idx, idx+1)[0];
             this.resultArray.splice(idx, 1);
+            this.originArray.push(result);
         },
+        arraySubmit(){
+            this.tableColum = this.resultArray.map(n => n.name);
+            this.show = false;
+        }
     },
     components: {
         Pop,

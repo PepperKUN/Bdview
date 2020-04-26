@@ -3449,10 +3449,12 @@ table.form_complex{
 .drag_wrap{
     height: calc(100% - 120px);
     padding: 20px;
+    padding-bottom: 0;
 }
 .drag_des{
     display: inline-block;
     width: 200px;
+    user-select: none;
 }
 .dragList{
     display: inline-block;
@@ -3471,6 +3473,7 @@ table.form_complex{
     background-color: rgba(96, 124, 183, 0.25);
     border-radius: 6px;
     margin: 4px;
+    cursor: default;
 }
 .dragList li.title{
     padding: 10px;
@@ -3489,4 +3492,5 @@ table.form_complex{
     float: right;
     padding: 4px;
     cursor: pointer;
+    color: #6e90ef;
 }
