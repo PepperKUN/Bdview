@@ -49,13 +49,38 @@
         </div>
         <div class="colum">
             <DataFrame :width='518' :height='312' frameTitle="今日上报总局、省政府数据分类统计" rightFunc>
-
+                <v-chart :options="pie" :autoresize='true'/>
             </DataFrame><br>
             <DataFrame :width='518' :height='286' frameTitle="今日与委办局交换数据统计" :rightFunc="frameSet">
-
+                <table class="simple">
+                    <thead>
+                    <tr>
+                        <th style="text-align:left;">单位</th>
+                        <th>双告知</th>
+                        <th>多证合一</th>
+                        <th>简易注销</th>
+                        <th>一窗通</th>
+                        <th>数据归集</th>
+                        <th style="text-align:right">合计</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="item in table_simple2" :key="item.id">
+                        <td style="text-align:left; color:#fff">{{item[0]}}</td>
+                        <td>{{item[1]}} </td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}}</td>
+                        <td>{{item[4]}}</td>
+                        <td>{{item[5]}}</td>
+                        <td style="text-align:right">{{item[6]}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <el-pagination small background layout="prev, pager, next" :total="1000" :pager-count="13"></el-pagination>
             </DataFrame><br>
             <DataFrame :width='518' :height='242' frameTitle="昨日数据落地统计" rightFunc>
-                
+                <v-chart :options="bar" :autoresize='true' style="height:calc(100% - 35px)"/>
+                <el-pagination small background layout="prev, pager, next" :total="1000" :pager-count="13"></el-pagination>
             </DataFrame>
         </div>
     </div>
@@ -65,12 +90,65 @@
 import Lottie from 'vue-lottie';
 import * as animationData from '../../assets/js/test.json';
 import DataFlow from '../common/dataFlow'
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/component/title'
 
 export default {
     props: {
 
     },
     data() {
+        const pieData1 = [
+            { value: 5206, name: '登记', },
+            { value: 30210, name: '年报', },
+            { value: 182, name: '案件', },
+            { value: 29561, name: '其他', },
+            { value: 477, name: '12315', }
+        ]
+        const pieData2 = [
+            { value: 2259, name: '名称', },
+            { value: 2074, name: '个体', },
+            { value: 1351, name: '主体', }
+        ]
+        let total_datas1 = 0, 
+        total_datas2 = 0;
+        for (let i = 0; i < pieData1.length; i++) {
+            total_datas1 += pieData1[i].value
+        }
+        for (let i = 0; i < pieData2.length; i++) {
+            total_datas2 += pieData2[i].value
+        }
+        const barData = [
+            ['name', 'value'],
+            ['成都', 140],
+            ['自贡', 32],
+            ['攀枝花', 58],
+            ['泸州', 64],
+            ['德阳', 130],
+            ['绵阳', 125],
+            ['广元', 100],
+            ['遂宁', 80],
+            ['内江', 30],
+            ['乐山', 10],
+            ['南充', 70],
+            ['眉山', 118],
+        ]
+        console.log(total_datas1);
+        const rich = {
+                bold: {
+                    fontSize: 14,
+                    fontWeight: 'bold',
+                    padding: [0, 4],
+                    align: 'left',
+                    lineHeight: 10,
+                },
+                normal: {
+                    fontSize: 12,
+                    align: 'left',
+                    width: 50,
+                    lineHeight: 10,
+                },
+            }
         return {
             frameSet: {
                 drops: [
@@ -167,6 +245,243 @@ export default {
                 }
                 ]
             },
+            pie:{
+                title: [{
+                    text: '上报总局总数：'+total_datas1+'条',
+                    textStyle: {
+                        fontSize: 16,
+                        color: '#fff',
+                        align: 'center',
+                        width: '45%',
+                    },
+                    left: 20,
+                    y: 10,
+                },{
+                    text: '上报省政府总数：'+total_datas2+'条',
+                    textStyle: {
+                        color: '#fff',
+                        fontSize: 16,
+                        align: 'center',
+                        width: '45%',
+                    },
+                    right: 20,
+                    y: 10,
+                }],
+                legend: [{
+                    orient: 'horizontal',
+                    left: 20,
+                    top: '76%',
+                    width: '45%',
+                    icon: 'rect',
+                    itemWidth: 14,
+                    itemHeight: 14,
+                    itemGap: 4,
+                    textStyle: {
+                        color: '#a3fff7',
+                        rich: rich,
+                    },
+                    data:['登记','年报','案件','其他','12315'],
+                    formatter: function(params) {
+                        let res = pieData1.filter(v => v.name === params);
+                        res = res[0];
+                        return '{bold|' + res.name + '}{normal|' + res.value + '条}'
+                    },
+                },{
+                    orient: 'horizontal',
+                    right: 20,
+                    top: '76%',
+                    width: '45%',
+                    icon: 'rect',
+                    itemWidth: 14,
+                    itemHeight: 14,
+                    textStyle: {
+                        color: '#a3fff7',
+                        rich: rich,
+                    },
+                    data:['名称','个体','主体'],
+                    formatter: function(params) {
+                        let res = pieData2.filter(v => v.name === params);
+                        res = res[0];
+                        return '{bold|' + res.name + '}{normal|' + res.value + '条}'
+                    },
+                }
+                ],
+                series: [
+                    {
+                        name: '各百分比1',
+                        id: 1,
+                        type: 'pie',
+                        center: ['25%', '45%'],
+                        radius: ['20%', '50%'],
+                        roseType: 'radius',
+                        startAngle: 90,
+                        color: ['#f03877', '#5dc7bd', '#4180fa', '#fbe26f', '#8dce2e'],
+                        label: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            },
+
+                        },
+                        data: pieData1,
+                    },
+                    {
+                        name: '总数1',
+                        type: 'pie',
+                        center: ['25%', '45%'],
+                        z: 4,
+                        radius: ['19%', '25%'],
+                        clockWise: true,
+                        hoverAnimation: false,
+                        label: {
+                            normal: {
+                                position: 'center'
+                            }
+                        },
+                        data: '100',
+                        itemStyle: {
+                            normal: {
+                                color: 'rgba(0,0,0,0.2)',
+                            }
+                        },
+                    },
+                    {
+                        name: '各百分比2',
+                        id: 2,
+                        type: 'pie',
+                        center: ['75%', '45%'],
+                        radius: ['20%', '50%'],
+                        roseType: 'radius',
+                        startAngle: 90,
+                        color: ['#f03877', '#fbe26f', '#5dc7bd'],
+                        label: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            },
+
+                        },
+                        data: pieData2,
+                    },
+                    {
+                        name: '总数2',
+                        type: 'pie',
+                        center: ['75%', '45%'],
+                        z: 4,
+                        radius: ['19%', '25%'],
+                        clockWise: true,
+                        hoverAnimation: false,
+                        label: {
+                            normal: {
+                                position: 'center'
+                            }
+                        },
+                        data: '1',
+                        itemStyle: {
+                            normal: {
+                                color: 'rgba(0,0,0,0.2)',
+                            }
+                        },
+                    }
+                ]
+            },
+            table_simple2: [
+                ['发改委','0','13','-','-','0','13'],
+                ['公安','0','1360','-','52','0','1412'],
+                ['住建','0','1360','-','-','0','1360'],
+                ['税务','-','1360','0','52','0','1412'],
+                ['统计','0','1360','-','-','-','1360'],
+                ['其他','1445','0','-','-','0','1445'],
+            ],
+            bar: {
+                dataset: {
+                    source: barData
+                },
+                encode: {
+                    x: 0,
+                    y: 1
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: 40,
+                    right: 20,
+                    bottom: 30,
+                    top: 40,
+                },
+                xAxis: {
+                    type: 'category',
+                    axisTick: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#a3fff7'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#a3fff7',
+                        interval: 0,
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '千件',
+                    nameTextStyle: {
+                        color: '#a3fff7'
+                    },
+                    splitNumber: 4,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#a3fff7'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#a3fff7',
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'dashed',
+                            color: 'rgba(82, 157,255, 0.35)'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '直接访问',
+                        type: 'bar',
+                        barWidth: 10,
+                        itemStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 1,
+                                    color: '#7a3afd' // 0% 处的颜色
+                                }, {
+                                    offset: 0,
+                                    color: '#67b6fb' // 100% 处的颜色
+                                }], false),
+                            }
+                        },
+                        label: {
+                            show: true,
+                            color: '#a3fff7',
+                            position: 'top'
+                        }
+                    }
+                ]
+            },
       }
     },
     computed: {
@@ -218,6 +533,6 @@ export default {
         z-index: 2;
     }
     table.simple{
-        height: calc(100% - 50px);
+        height: calc(100% - 45px);
     }
 </style>
