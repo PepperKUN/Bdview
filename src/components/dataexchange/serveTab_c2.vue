@@ -2,7 +2,7 @@
   <div class="colum">
       <div class="row">
             <DataFrame :width='1892' :height='122' frameTitle="接口服务总览" rightFunc>
-                <DataFlow :flowData="flow" @update-data='update' :dataGap='100'></DataFlow>
+                <DataFlow :flowData="flow" @update-data='update' :dataGap='200'></DataFlow>
             </DataFrame>
       </div>
       <div class="row">
