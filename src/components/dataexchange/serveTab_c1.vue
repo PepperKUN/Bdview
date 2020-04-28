@@ -4,7 +4,7 @@
             <DataFrame :width='518' :height='94' frameTitle="交换预警" rightFunc>
                 <DataFlow :flowData="flow" @update-data='update' :dataGap='100'></DataFlow>
             </DataFrame><br>
-            <DataFrame :width='518' :height='376' frameTitle="今日各类业务交换情况" rightFunc>
+            <DataFrame :width='518' :height='376' frameTitle="今日各类业务交换情况" :rightFunc="frameSet2">
                 <table class="simple">
                     <thead>
                     <tr>
@@ -27,16 +27,16 @@
                 </table>
                 <el-pagination small background layout="prev, pager, next" :total="1000" :pager-count="13"></el-pagination>
             </DataFrame><br>
-            <DataFrame :width='518' :height='370' frameTitle="今日与外部单位的数据交换总量" rightFunc>
+            <DataFrame :width='518' :height='370' frameTitle="今日与外部单位的数据交换总量" :rightFunc="frameSet3">
                 <div class="process_wrap">
                     <span class="process_center">{{process_data.name}}</span>
                     <ul class="process_list">
                         <template v-for="(process, index) in process_data.outer" >
-                        <li class="process_outer" :key="'name_'+index">{{process.name}}</li>
-                        <li class="process_line" :key="'line_'+index">
-                            <span class="in_data">{{process.in}}</span>
-                            <span class="out_data">{{process.out}}</span>
-                        </li>
+                            <li class="process_outer" :key="'name_'+index">{{process.name}}</li>
+                            <li class="process_line" :key="'line_'+index">
+                                <span class="in_data">{{process.in}}</span>
+                                <span class="out_data">{{process.out}}</span>
+                            </li>
                         </template>
                     </ul>
                 </div>
@@ -64,7 +64,7 @@
             </DataFrame>
         </div>
         <div class="colum">
-            <DataFrame :width='518' :height='312' frameTitle="今日上报总局、省政府数据分类统计" rightFunc>
+            <DataFrame :width='518' :height='312' frameTitle="今日上报总局、省政府数据分类统计" :rightFunc="frameSet4">
                 <v-chart :options="pie" :autoresize='true'/>
             </DataFrame><br>
             <DataFrame :width='518' :height='286' frameTitle="今日与委办局交换数据统计" :rightFunc="frameSet">
@@ -182,6 +182,21 @@ export default {
                         optionVal: '3',
                     }
                 ]
+            },
+            frameSet2:{
+                btnTitle: '查看更多',
+                url: '/service/exchangeList',
+                target: 'blank',
+            },
+            frameSet3:{
+                btnTitle: '查看更多',
+                url: '/service/exchangeTrace',
+                target: 'blank',
+            },
+            frameSet4:{
+                btnTitle: '查看更多',
+                url: '/service/exchangeStatics',
+                target: 'blank',
             },
             defaultOptions: {animationData: animationData.default},
             animationSpeed: 1,

@@ -18,6 +18,9 @@ import searchBasic from '../components/datashow/search_basic.vue'
 import searchOverall from '../components/datashow/search_overall.vue'
 import searchCombination from '../components/datashow/search_combination.vue'
 import memorabilia from '../components/datashow/memorabilia.vue'
+import exchangeList from '../components/dataexchange/exchangeList.vue'
+import exchangeTrace from '../components/dataexchange/exchangeTrace.vue'
+import exchangeStatics from '../components/dataexchange/exchangeStatics.vue'
 
 const router = new Router({
   mode:"history", //路由模式，无#
@@ -57,6 +60,18 @@ const router = new Router({
     {
       path: '/service/perspetive_port',
       component: perspectivePort
+    },
+    {
+      path: '/service/exchangeList',
+      component: exchangeList
+    },
+    {
+      path: '/service/exchangeTrace',
+      component: exchangeTrace
+    },
+    {
+      path: '/service/exchangeStatics',
+      component: exchangeStatics
     },
     {
       path: '/showreel',

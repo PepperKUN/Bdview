@@ -2,10 +2,14 @@
   <div class="data-block" :style="{width: width+'px', height: height+'px'}">
       <div class="frame_head" v-if="frameTitle!=null">
         <h4 class="frame_title">{{frameTitle}}</h4>
-        <a class="frame_more" v-if="rightFunc.btnTitle!=null" :href="rightFunc.url">
+        <a class="frame_more" v-if="linkDetect()===2" :href="rightFunc.url" target="_blank">
             <span>{{rightFunc.btnTitle}}</span>
             <i class="arrow_right"></i>
         </a>
+        <router-link class="frame_more" v-if="linkDetect()===1" :to="rightFunc.url">
+            <span>{{rightFunc.btnTitle}}</span>
+            <i class="arrow_right"></i>
+        </router-link>
         <span class="dateDes" v-if="rightFunc.date!=null">{{rightFunc.date}}</span>
         <select class="frame_option" v-if="rightFunc.drops!=null" v-model="dropvalue" @change="dropSelect(dropvalue)">
             <option v-for="drop in rightFunc.drops" :key="drop.id" :value="drop.optionVal">{{drop.optionText}}</option>
@@ -56,6 +60,15 @@ export default {
         dropSelect(dropVal){
             this.$emit('change', dropVal);
         },
+        linkDetect(){
+            if(this.rightFunc.btnTitle===undefined){
+                return false;
+            }else if(this.rightFunc.url.startsWith("/")&&(this.rightFunc.target!=='blank')){
+                return 1;
+            }else{
+                return 2;
+            }
+        }
     }   
 }
 </script>
