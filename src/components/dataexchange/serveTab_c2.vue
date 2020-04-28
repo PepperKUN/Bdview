@@ -89,6 +89,7 @@ export default {
                 unit: '个'
             },{
                 name: '使用者',
+                isHead: true,
                 ico: 'user',
                 color: 'yellow',
                 add1: '内部',
@@ -98,12 +99,14 @@ export default {
                 unit: '个'
             },{
                 name: '今日接口调用次数',
+                isHead: true,
                 ico: 'chip',
                 color: 'blue',
                 amount: '82360',
                 unit: '个'
             },{
                 name: '今年接口调用总次数 ',
+                isHead: true,
                 ico: 'chip',
                 color: 'pink',
                 amount: '31201',

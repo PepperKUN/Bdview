@@ -2764,6 +2764,7 @@ ol.tree_wrap>li::before{
     width: 100%;
 }
 
+
 /*-datePicker样式-*/
 .el-picker-panel{
     border: 1px solid #03fded;
@@ -3502,4 +3503,111 @@ table.form_complex{
     padding: 4px;
     cursor: pointer;
     color: #6e90ef;
+}
+
+.topData_wrap{
+    position: relative;
+}
+.topData{
+    background-image: url(../images/topData.png);
+    height: 120px; 
+    padding: 1px;
+}
+.topData>h2{
+    font-size: 24px;
+    color: #00fdeb;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+.topData>h4{
+    font-size: 36px;
+    font-weight: bold;
+    color: #fee56f;
+    text-align: center;
+}
+.topData>h4::after{
+    content: '条';
+}
+.modules_name{
+    position: absolute;
+    width: 500px;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 2;
+}
+.modules_name>li{
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    transform: translateX(-50%);
+}
+.animationWrap{
+    position: relative;
+    z-index: 1;
+}
+.modules_name>li:nth-child(n-6){
+    top: 0;
+}
+.modules_name>li:nth-child(5), .modules_name>li:nth-child(6){
+    top: 90px;
+}
+.modules_name>li:nth-child(n+7){
+    top: 176px;
+}
+.modules_name>li:nth-child(1),
+.modules_name>li:nth-child(5),
+.modules_name>li:nth-child(7){
+    left: 0;
+}
+
+.modules_name>li:nth-child(2),
+.modules_name>li:nth-child(8){
+    left: 33.3%;
+}
+.modules_name>li:nth-child(3),
+.modules_name>li:nth-child(9){
+    left: 65.6%;
+}
+.modules_name>li:nth-child(4),
+.modules_name>li:nth-child(6),
+.modules_name>li:nth-child(10){
+    left: 98%;
+}
+
+.govern_unit_name{
+    position: absolute;
+    top: 510px;
+    width: 538px;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 2;
+}
+.govern_unit_name>li{
+    position: absolute;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 22px;
+}
+.govern_unit_name>li:nth-child(n+3){
+    top: 140px;
+}
+.govern_unit_name>li:nth-child(5){
+    top: 200px;
+}
+.govern_unit_name>li:nth-child(1){
+    left: 0;
+}
+.govern_unit_name>li:nth-child(2){
+    left: 98%;
+}
+.govern_unit_name>li:nth-child(3){
+    left: 10%;
+}
+.govern_unit_name>li:nth-child(4){
+    left: 88%;
+}
+.govern_unit_name>li:nth-child(5){
+    left: 49%;
 }

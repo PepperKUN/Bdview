@@ -44,7 +44,23 @@
         </div>
         <div class="colum">
             <DataFrame :width='826' :height='868' rightFunc>
-                <lottie :options="defaultOptions" :width="818" :height="736" v-on:animCreated="handleAnimation"/>
+                <div class="topData_wrap">
+                    <div class="topData">
+                        <h2>今日交换量</h2>
+                        <h4>{{todayAmount}}</h4>
+                    </div>
+                    <div class="health_rate">
+                        <span>{{health}}</span>
+                        <p>健康度</p>
+                    </div>
+                </div>
+                <ul class="modules_name">
+                    <li v-for="module in modules_name" :key="module.id">{{module}}</li>
+                </ul>
+                <ul class="govern_unit_name">
+                    <li v-for="unit in units_name" :key="unit.id">{{unit}}</li>
+                </ul>
+                <lottie class="animationWrap" :options="defaultOptions" :width="818" :height="736" v-on:animCreated="handleAnimation"/>
             </DataFrame>
         </div>
         <div class="colum">
@@ -88,7 +104,7 @@
 
 <script>
 import Lottie from 'vue-lottie';
-import * as animationData from '../../assets/js/test.json';
+import * as animationData from '../../assets/js/animation.json';
 import DataFlow from '../common/dataFlow'
 import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/component/title'
@@ -133,7 +149,6 @@ export default {
             ['南充', 70],
             ['眉山', 118],
         ]
-        console.log(total_datas1);
         const rich = {
                 bold: {
                     fontSize: 14,
@@ -150,6 +165,10 @@ export default {
                 },
             }
         return {
+            health: 90,
+            todayAmount: 386914,
+            modules_name: ['名称数据交换','数据上报','省政务平台','一窗通','多证合一','联合惩戒','简易注销','双告知','数据归集','数据落地市州'],
+            units_name: ['总局','市州局','委办局','银行','省政府'],
             frameSet: {
                 drops: [
                     {
@@ -512,6 +531,13 @@ export default {
 </script>
 
 <style scoped lang="css">
+    .health_rate{
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
     .flow_wrap{
         margin: 10px;
         height: calc(100% - 20px);
