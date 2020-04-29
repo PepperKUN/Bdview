@@ -13,19 +13,8 @@
                     </div>
                 </template>
                 <DataBase :data="dataBase" v-show="checkDetect(checks, 'showIcon')"></DataBase>
-                <el-scrollbar :native="false" style="height:calc(100% - 140px)">
-                    <ul class="result_list">
-                        <li v-for="list in result_lists" :key="list.id">
-                            <div class="corp_name">
-                                <span>{{list.name}}</span><span class="corp_type">{{list.type}}</span>
-                            </div>
-                            <div class="info">
-                                <span class="code">{{list.info.code}}</span>
-                                <span class="date">{{list.info.date}}</span>
-                                <span class="department">{{list.info.department}}</span>
-                            </div>
-                        </li>
-                    </ul>
+                <el-scrollbar :native="false" :class="checkDetect(checks, 'showIcon')?'normalH':'fullH'">
+                    <list :data="result_lists" :listName="listName" v-show="checkDetect(checks, 'showList')" ></list>
                 </el-scrollbar>
           </DataFrame>
       </div>
@@ -36,6 +25,7 @@
 import Crumb from '../common/crumb'
 import TableInfo from '../common/table_info'
 import DataBase from '../common/dataBase'
+import List from '../common/modernList'
 export default {
     name: 'ExchangeList_info',
     props: {
@@ -99,14 +89,104 @@ export default {
                     time: '2019-01-17 13:25'
                 }
             ],
+            listName: {
+                tool: '交换工具',
+                path: '交换途径',
+                endTime: '交换结束时间',
+                batchAmount: '批次推送数量',
+                nodeAmount: '节点推送数量'
+            },
             result_lists:[
                 {
                     name: '节点：增量ID抽取',
                     type: '交换无异常',
                     info: {
-                        code: '915306306908883682',
-                        date: '2013-12-20',
-                        department: '盘龙区市场监督管理局'
+                        tool: 'DM',
+                        path: '内网业务库 ===> 落地库_生产同构表',
+                        endTime: '2019-01-17 13:25:53',
+                        batchAmount: '1122',
+                        nodeAmount: '1122'
+                    }
+                },{
+                    name: '节点：增量ID抽取',
+                    type: '交换异常',
+                    labelColor: 'pink',
+                    info: {
+                        tool: 'DM',
+                        path: '内网业务库 ===> 落地库_生产同构表',
+                        endTime: '2019-01-17 13:25:53',
+                        batchAmount: '1122',
+                        nodeAmount: '1122'
+                    }
+                },{
+                    name: '节点：增量ID抽取',
+                    type: '交换无异常',
+                    info: {
+                        tool: 'DM',
+                        path: '内网业务库 ===> 落地库_生产同构表',
+                        endTime: '2019-01-17 13:25:53',
+                        batchAmount: '1122',
+                        nodeAmount: '1122'
+                    }
+                },{
+                    name: '节点：增量ID抽取',
+                    type: '交换无异常',
+                    info: {
+                        tool: 'DM',
+                        path: '内网业务库 ===> 落地库_生产同构表',
+                        endTime: '2019-01-17 13:25:53',
+                        batchAmount: '1122',
+                        nodeAmount: '1122'
+                    }
+                },{
+                    name: '节点：增量ID抽取',
+                    type: '交换无异常',
+                    info: {
+                        tool: 'DM',
+                        path: '内网业务库 ===> 落地库_生产同构表',
+                        endTime: '2019-01-17 13:25:53',
+                        batchAmount: '1122',
+                        nodeAmount: '1122'
+                    }
+                },{
+                    name: '节点：增量ID抽取',
+                    type: '交换无异常',
+                    info: {
+                        tool: 'DM',
+                        path: '内网业务库 ===> 落地库_生产同构表',
+                        endTime: '2019-01-17 13:25:53',
+                        batchAmount: '1122',
+                        nodeAmount: '1122'
+                    }
+                },{
+                    name: '节点：增量ID抽取',
+                    type: '交换无异常',
+                    info: {
+                        tool: 'DM',
+                        path: '内网业务库 ===> 落地库_生产同构表',
+                        endTime: '2019-01-17 13:25:53',
+                        batchAmount: '1122',
+                        nodeAmount: '1122'
+                    }
+                },{
+                    name: '节点：增量ID抽取',
+                    type: '交换无异常',
+                    info: {
+                        tool: 'DM',
+                        path: '内网业务库 ===> 落地库_生产同构表',
+                        endTime: '2019-01-17 13:25:53',
+                        batchAmount: '1122',
+                        nodeAmount: '1122'
+                    }
+                },{
+                    name: '节点：增量ID抽取',
+                    type: '交换无异常',
+                    info: {
+                        tool: 'DM',
+                        path: '内网业务库 ===> 落地库_生产同构表',
+                        endTime: '2019-01-17 13:25:53',
+                        batchAmount: '1122',
+                        nodeAmount: '1122'
                     }
                 }
             ],
@@ -132,7 +212,8 @@ export default {
     components: {
         Crumb,
         TableInfo,
-        DataBase
+        DataBase,
+        List
     },
 };
 </script>
@@ -151,7 +232,22 @@ export default {
         text-align: right;
         margin-right: 10px;
     }
-    .el-scrollbar{
+    .data-block>>>.result_list>li{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .data-block>>>.result_list>li:nth-child(2n) {
+        border: 1px dashed #173566;
+        border-left: none;
+        border-right: none;
+        background-color: rgba(54, 137, 253, 0.05);
+    }
+    .normalH{
         margin-top: 34px;
+        height:calc(100% - 140px);
+    }
+    .fullH{
+        margin-top: 0;
+        height: 100%;
     }
 </style>

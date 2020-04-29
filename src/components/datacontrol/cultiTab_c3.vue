@@ -18,18 +18,7 @@
             <DataFrame :width='818' :height='868' frameTitle="信息查询" rightFunc>
                 <SearchInput v-model="inputText" placeholder="输入查询项"></SearchInput>
                 <el-scrollbar :native="false" style="height:calc(100% - 86px)">
-                    <ul class="result_list">
-                        <li v-for="list in result_lists" :key="list.id">
-                            <div class="corp_name">
-                                <span>{{list.name}}</span><span class="corp_type">{{list.type}}</span>
-                            </div>
-                            <div class="info">
-                                <span class="code">{{list.info.code}}</span>
-                                <span class="date">{{list.info.date}}</span>
-                                <span class="department">{{list.info.department}}</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <List :data="result_lists" :listName="infoName"></List>
                 </el-scrollbar>
             </DataFrame>
             <DataFrame :width='572' :height='868' frameTitle="热门标签" rightFunc>
@@ -58,7 +47,7 @@
 
 <script>
 import SearchInput from '../common/searchInput'
-
+import List from '../common/modernList'
 export default {
     props: {
 
@@ -171,6 +160,11 @@ export default {
                         color: 'label_blue'
                     }
                 ]
+            },
+            infoName: {
+                code: '统一信用代码',
+                date: '成立时间',
+                department: '登记机关'
             },
             result_lists:[
                 {
@@ -315,6 +309,7 @@ export default {
     },
     components: {
         SearchInput,
+        List
     },
 };
 </script>

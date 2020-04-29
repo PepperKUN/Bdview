@@ -107,11 +107,6 @@ export default {
                     name: 'name',
                     value: 'value'
                 },
-                title: {
-                    text: '某站点用户访问来源',
-                    subtext: '纯属虚构',
-                    left: 'center'
-                },
                 tooltip: {
                     trigger: 'item',
                     formatter: '{b} :{d}%'

@@ -10,7 +10,7 @@
                 </div>
                 <ul class="exchangeInfo_list" v-for="infoList in list.info" :key="infoList.id">
                     <li v-for="(info, index3) in infoList" :key="index3">
-                        <span class="property">{{propertyName(index3)}}</span>
+                        <span class="property">{{infoLabel[index3]}}</span>
                         <span  v-if="index3!=='operation'">{{info}}</span>
                         <router-link v-else :to="info.url">{{info.name}}</router-link>
                     </li>
@@ -254,9 +254,7 @@ export default {
 
     },
     methods: {
-        propertyName(key){
-            return this.infoLabel[key];
-        }
+
     },
     components: {
         FilterForm,

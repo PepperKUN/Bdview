@@ -2161,12 +2161,18 @@ button.close{
     margin: 20px;
     /* margin-top: 40px; */
 }
-.corp_name>span{
+.result_list>li{
+    padding: 20px 0;
+}
+.label_name{
+    margin-bottom: 16px;
+}
+.label_name>span{
     font-size: 18px;
     font-weight: bold;
     color: #fff;
 }
-.corp_name>span.corp_type{
+.label_name>span.label_type{
     font-size: 14px;
     font-weight: normal;
     color: #fee470;
@@ -2174,8 +2180,11 @@ button.close{
     border: 1px solid #fee470;
     margin-left: 20px;
 }
+.label_name>span.pink{
+    border-color: #f13752;
+    color: #f13752;
+}
 .result_list .info{
-    margin: 15px 0 40px 0;
     display: flex;
     justify-content: space-between;
 }
@@ -2190,15 +2199,13 @@ button.close{
 .result_list .info>span::before{
     color: #9dbae0;
 }
-.info>.code::before{
-    content: '统一社会信用代码：';
+.result_list .info span.span_name{
+    color: #9dbae0;
 }
-.info>.date::before{
-    content: '成立时间：';
+.result_list .info span.span_name::after{
+    content: '：';
 }
-.info>.department::before{
-    content: '登记机关：';
-}
+
 .top3{
     position: relative;
     margin: 20px;
