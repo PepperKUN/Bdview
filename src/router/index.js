@@ -19,6 +19,7 @@ import searchOverall from '../components/datashow/search_overall.vue'
 import searchCombination from '../components/datashow/search_combination.vue'
 import memorabilia from '../components/datashow/memorabilia.vue'
 import exchangeList from '../components/dataexchange/exchangeList.vue'
+import exchangeList_info from '../components/dataexchange/exchangeList_info.vue'
 import exchangeTrace from '../components/dataexchange/exchangeTrace.vue'
 import exchangeStatics from '../components/dataexchange/exchangeStatics.vue'
 
@@ -64,6 +65,10 @@ const router = new Router({
     {
       path: '/service/exchangeList',
       component: exchangeList
+    },
+    {
+      path: '/service/exchangeList/info',
+      component: exchangeList_info
     },
     {
       path: '/service/exchangeTrace',

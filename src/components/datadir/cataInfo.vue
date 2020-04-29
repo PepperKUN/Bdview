@@ -1,16 +1,7 @@
 <template>
     <div class="content content_rise">
         <crumb :crumbs="crumbs"></crumb>
-        <div class="info_table">
-            <table>
-                <tr v-for="(line, index) in table" :key="'line_'+index">
-                    <template v-for="(colum, index) in line">
-                        <th :key="'th_'+index">{{colum.th}}</th>
-                        <td :key="'td_'+index" :colspan="colum.span"><span>{{colum.td.text?colum.td.text:colum.td}}</span><span class="stat" :class="{'checked':colum.td.check.stat}" v-if="colum.td.check">{{colum.td.check.name}}</span></td>
-                    </template>
-                </tr>
-            </table>
-        </div>
+        <TableInfo :data="table"></TableInfo>
         <div class="btn_wrap">
             <button class="close" @click="this.closeTab">关闭</button>
         </div>
@@ -18,6 +9,7 @@
 </template>
 <script>
 import Crumb from '../common/crumb'
+import TableInfo from '../common/table_info'
 export default {
   name: "dataInfo",
   data () {
@@ -113,7 +105,8 @@ export default {
       }
   },
   components: {
-      Crumb
+      Crumb,
+      TableInfo
   }
 }
 </script>

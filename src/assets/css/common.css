@@ -1387,6 +1387,7 @@ table.simple td{
 
 .filter_form{
     margin: 0 14px;
+    position: relative;
 }
 .search_filter{
     background-color: rgba(43, 93, 202, 0.5);
@@ -3610,4 +3611,197 @@ table.form_complex{
 }
 .govern_unit_name>li:nth-child(5){
     left: 49%;
+}
+
+
+.exchangeList_type1{
+    margin: 0 14px;
+    margin-top: 20px;
+}
+.exchangeList_type1>li{
+    position: relative;
+    margin-bottom: 20px;
+    background-image: url(../images/list_pattern.png);
+    background-repeat: repeat;
+    height: 183px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.exchangeList_type1>li::before, .exchangeList_type1>li::after{
+    content: '';
+    background-image: url(../images/list_edge.png);
+    width: 30px;
+    height: calc(100% + 3px);
+    display: block;
+    position: absolute;
+    top: -2px;
+}
+.exchangeList_type1>li::before{
+    left: 0;
+}
+.exchangeList_type1>li::after{
+    right: 0;
+    transform: scaleX(-1);
+}
+.listHead{
+    display: inline-block;
+    vertical-align: top;
+    width: 54%;
+    height: 100%;
+    position: relative;
+}
+.listHead::after{
+    content: '';
+    display: block;
+    position: absolute;
+    background-image: url(../images/list_shadow.png);
+    height: 100%;
+    width: 466px;
+    top: -1px;
+    right: -190px;
+}
+.listHead>h4{
+    margin: 20px 40px;
+    color: #30e6d9;
+    margin-bottom: 0;
+}
+.dataBase_list{
+    margin-top: 10px;
+    text-align: center;
+}
+.dataBase_list>li.dataBase{
+    display: inline-block;
+    width: 110px;
+    height: 95px;
+    background-image: url(../images/database1.png);
+    vertical-align: middle;
+    position: relative;
+    margin: 0 40px;
+}
+.dataBase_list>li.dType2{
+    background-image: url(../images/database2.png);
+}
+.dataBase_list>li.dataStream{
+    width: 220px;
+    height: 30px;
+    background-image: url(../images/arrow.png);
+    background-repeat: repeat-x;
+    text-align: center;
+    animation: arrow2 2s linear infinite;
+}
+@keyframes arrow2{
+    from{background-position-x: 0;}
+    to{background-position: 168px;}
+}
+li.dataStream>span{
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #fedc4b;
+    color: #000;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: bold;
+}
+li.dataStream>span::before{
+    content: '数据量: ';
+}
+li.dataBase>div{
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    text-align: center;
+    bottom: -20px;
+}
+li.dataBase>div>span{
+    white-space: nowrap;
+    display: inline-block;
+}
+li.dataBase span.dataBase_name{
+    padding: 4px 10px;
+    border: 1px solid #3affff;
+    border-left: none;
+    border-right: none;
+    position: relative;
+    color: #3affff;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+span.dataBase_name::before, span.dataBase_name::after{
+    content: '';
+    width: 1px;
+    height: calc(100% - 12px);
+    position: absolute;
+    top: 0;
+    border: 6px solid #3affff;
+    border-left: none;
+    border-right: none;
+    display: inline-block;
+}
+span.dataBase_name::before{
+    left: 0;
+}
+span.dataBase_name::after{
+    right: 0;
+}
+span.dataBase_time{
+    color: #fff;
+    font-size: 14px;
+}
+.dataBase_list>li.dataStream{
+    display: inline-block;
+    vertical-align: middle;
+}
+.exchangeInfo_list{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    position: relative;
+    padding-left: 150px;
+    overflow: hidden;
+    margin-right: 40px;
+}
+.exchangeInfo_list::before{
+    content: '';
+    display: block;
+    width: 143px;
+    height: 135px;
+    position: absolute;
+    left: 0;
+    top: 15px;
+    background-image: url(../images/list_order.png);
+}
+.exchangeInfo_list>li{
+    margin: 10px 0;
+    color: #fff;
+}
+.exchangeInfo_list>li>span.property{
+    color: #00feff;
+}
+.exchangeInfo_list>li>span.property::after{
+    content: ':';
+    margin-right: 20px;
+}
+.exchangeInfo_list>li>a{
+    text-decoration: none;
+    color: #fbe26f;
+}
+
+.checkGroup{
+    float: right;
+    margin-right: 10px;
+}
+.checkGroup input[type=checkbox]{
+    display: none;
+}
+.checkGroup input[type=checkbox] + label{
+    display: inline-block;
+    color: #01f5fe;
+    font-size: 14px;
+    padding-left: 20px;
+    margin-left: 20px;
+    background-position: left center;
+    cursor: pointer;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyAKIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgogd2lkdGg9IjEzcHgiIGhlaWdodD0iMTNweCI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgIGZpbGw9InJnYigwLCAyNDYsIDI1NSkiCiBkPSJNLTAuMDAwLDEzLjAwMCBMLTAuMDAwLC0wLjAwMCBMMTMuMDAwLC0wLjAwMCBMMTMuMDAwLDEzLjAwMCBMLTAuMDAwLDEzLjAwMCBaTTExLjcxOSwxLjI4MSBMMS4yODEsMS4yODEgTDEuMjgxLDExLjcxOSBMMTEuNzE5LDExLjcxOSBMMTEuNzE5LDEuMjgxIFoiLz4KPC9zdmc+);
+}
+
+.checkGroup input[type=checkbox]:checked + label{
+    background-image: url(data:image/svg+xml;base64,PHN2ZyAKIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgogd2lkdGg9IjE2cHgiIGhlaWdodD0iMTVweCI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgIGZpbGw9InJnYigwLCAyNDYsIDI1NSkiCiBkPSJNNS43MDcsMTEuNzA3IEw0LjI5MywxMC4yOTMgTDQuNTg2LDEwLjAwMCBMMi4yOTMsNy43MDcgTDMuNzA3LDYuMjkzIEw2LjAwMCw4LjU4NiBMMTQuMjkzLDAuMjkzIEwxNS43MDcsMS43MDcgTDUuNzA3LDExLjcwNyBaTTEuMjgxLDMuMjgxIEwxLjI4MSwxMy43MTkgTDExLjcxOSwxMy43MTkgTDExLjcxOSw4LjY2NyBMMTMuMDAwLDcuNjQyIEwxMy4wMDAsMTUuMDAwIEwtMC4wMDAsMTUuMDAwIEwtMC4wMDAsMi4wMDAgTDEwLjQ0OCwyLjAwMCBMOC44NDYsMy4yODEgTDEuMjgxLDMuMjgxIFoiLz4KPC9zdmc+);
 }
