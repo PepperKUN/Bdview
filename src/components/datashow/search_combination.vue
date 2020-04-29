@@ -1,13 +1,7 @@
 <template>
     <div class="content content_rise">
         <div class="content_title"><span>{{contentTitle}}</span></div>
-        <div class="breadCrumb">
-            <span class="crumb_head">当前层级：</span>
-            <template v-for="(crumb, index) in crumbs">
-                <a href="###" class="crumb_item" :key="'item_'+index">{{crumb}}</a>
-                <span class="crumb_gap" :key="'gap_'+index" v-if="crumbs[index+1]">></span>
-            </template>
-        </div>
+        <crumb :crumbs="crumbs"></crumb>
         <div class="form_complex_wrap">
             <table class="form_complex">
                 <colgroup>
@@ -85,7 +79,7 @@
 <script>
 import Pop from '../common/pop'
 import draggable from 'vuedraggable'
-
+import Crumb from '../common/crumb'
 export default {
     props: {
 
@@ -225,6 +219,7 @@ export default {
     components: {
         Pop,
         draggable,
+        Crumb
     },
 };
 </script>

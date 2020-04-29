@@ -1,12 +1,6 @@
 <template>
     <div class="content content_rise">
-        <div class="breadCrumb">
-            <span class="crumb_head">当前层级：</span>
-            <template v-for="(crumb, index) in crumbs">
-                <a href="###" class="crumb_item" :key="'item_'+index">{{crumb}}</a>
-                <span class="crumb_gap" :key="'gap_'+index" v-if="crumbs[index+1]">></span>
-            </template>
-        </div>
+        <crumb :crumbs="crumbs"></crumb>
         <div class="info_table">
             <table>
                 <tr v-for="(line, index) in table" :key="'line_'+index">
@@ -23,7 +17,7 @@
     </div>
 </template>
 <script>
-
+import Crumb from '../common/crumb'
 export default {
   name: "dataInfo",
   data () {
@@ -119,6 +113,7 @@ export default {
       }
   },
   components: {
+      Crumb
   }
 }
 </script>
