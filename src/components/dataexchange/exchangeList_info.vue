@@ -1,5 +1,5 @@
 <template>
-    <div class="content content_rise">
+    <div class="content">
         <crumb :crumbs="crumbs"></crumb>
         <TableInfo :data="table"></TableInfo>
         <div class="row">
@@ -78,15 +78,15 @@ export default {
                 {
                     name: '内网业务库',
                     stream: 1122,
-                    time: '2019-01-17 13:25'
+                    subtitle: '2019-01-17 13:25'
                 },{
                     name: '政务网前置机',
                     type: 'type2',
                     stream: 34211,
-                    time: '2019-01-17 13:25'
+                    subtitle: '2019-01-17 13:25'
                 },{
                     name: '内网业务库',
-                    time: '2019-01-17 13:25'
+                    subtitle: '2019-01-17 13:25'
                 }
             ],
             listName: {

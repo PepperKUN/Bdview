@@ -21,6 +21,7 @@ import memorabilia from '../components/datashow/memorabilia.vue'
 import exchangeList from '../components/dataexchange/exchangeList.vue'
 import exchangeList_info from '../components/dataexchange/exchangeList_info.vue'
 import exchangeTrace from '../components/dataexchange/exchangeTrace.vue'
+import exchangeTrace_info from '../components/dataexchange/exchangeTrace_info.vue'
 import exchangeStatics from '../components/dataexchange/exchangeStatics.vue'
 
 const router = new Router({
@@ -73,6 +74,10 @@ const router = new Router({
     {
       path: '/service/exchangeTrace',
       component: exchangeTrace
+    },
+    {
+      path: '/service/exchangeTrace/info',
+      component: exchangeTrace_info
     },
     {
       path: '/service/exchangeStatics',

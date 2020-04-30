@@ -1,3 +1,4 @@
+
 <template>
     <ul class="dataBase_list">
         <template v-for="(dataBase, index2) in data">
@@ -6,16 +7,17 @@
                     <span class="dataBase_name">
                         <span>{{dataBase.name}}</span>
                     </span>
-                    <template v-if="dataBase.time">
+                    <template v-if="dataBase.subtitle">
                         <br>
-                        <span class="dataBase_time">
-                            <span>{{dataBase.time}}</span>
+                        <span class="dataBase_subtitle">
+                            <span>{{dataBase.subtitle}}</span>
                         </span>
                     </template>
                 </div>
             </li>
-            <li class="dataStream" :key="'stream_'+index2" v-if="dataBase.stream">
-                <span>{{dataBase.stream}}</span>
+            <li :class="['dataStream',dataBase.isTrace?'green':'pink']" :key="'stream_'+index2" v-if="dataBase.stream||(dataBase.isTrace!==undefined)">
+                <span v-if="dataBase.isTrace===undefined">{{dataBase.stream}}</span>
+                <span v-else><i :class="['iconfont', dataBase.isTrace?'icon-pass':'icon-reject']"></i></span>
             </li>
         </template>
     </ul>

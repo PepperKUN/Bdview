@@ -3691,13 +3691,15 @@ table.form_complex{
     width: 220px;
     height: 30px;
     background-image: url(../images/arrow.png);
+    background-position-y: center;
     background-repeat: repeat-x;
     text-align: center;
     animation: arrow2 2s linear infinite;
+    position: relative;
 }
 @keyframes arrow2{
     from{background-position-x: 0;}
-    to{background-position: 168px;}
+    to{background-position-x: 168px;}
 }
 li.dataStream>span{
     display: inline-block;
@@ -3748,7 +3750,7 @@ span.dataBase_name::before{
 span.dataBase_name::after{
     right: 0;
 }
-span.dataBase_time{
+span.dataBase_subtitle{
     color: #fff;
     font-size: 14px;
 }
@@ -3811,4 +3813,138 @@ span.dataBase_time{
 
 .checkGroup input[type=checkbox]:checked + label{
     background-image: url(data:image/svg+xml;base64,PHN2ZyAKIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgogd2lkdGg9IjE2cHgiIGhlaWdodD0iMTVweCI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgIGZpbGw9InJnYigwLCAyNDYsIDI1NSkiCiBkPSJNNS43MDcsMTEuNzA3IEw0LjI5MywxMC4yOTMgTDQuNTg2LDEwLjAwMCBMMi4yOTMsNy43MDcgTDMuNzA3LDYuMjkzIEw2LjAwMCw4LjU4NiBMMTQuMjkzLDAuMjkzIEwxNS43MDcsMS43MDcgTDUuNzA3LDExLjcwNyBaTTEuMjgxLDMuMjgxIEwxLjI4MSwxMy43MTkgTDExLjcxOSwxMy43MTkgTDExLjcxOSw4LjY2NyBMMTMuMDAwLDcuNjQyIEwxMy4wMDAsMTUuMDAwIEwtMC4wMDAsMTUuMDAwIEwtMC4wMDAsMi4wMDAgTDEwLjQ0OCwyLjAwMCBMOC44NDYsMy4yODEgTDEuMjgxLDMuMjgxIFoiLz4KPC9zdmc+);
+}
+
+.traceList{
+    margin: 0 14px;
+
+}
+.traceList .title{
+    border-bottom: 1px solid #1366e6;
+    text-align: center;
+    position: relative;
+    margin: 40px 0;
+}
+.traceList .title>span{
+    height: 30px;
+    display: inline-block;
+    line-height: 30px;
+    background-color: #1366e6;
+    padding: 0 10px;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+
+    top: -16px;
+    font-size: 14px;
+    color: #fff;
+}
+.traceList .title>span::before, .traceList .title>span::after{
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -20px;
+    width: 20px;
+    height: 30px;
+    background-image: url(../images/listTitle_edge.png);
+}
+.traceList .title>span::after{
+    left: initial;
+    right: -20px;
+    transform: scaleX(-1);
+}
+.traceList .dataBase_list>li.dataBase{
+    margin: 0 100px;
+}
+.traceList .dataBase>div{
+    left: -20px;
+    transform: translateX(-100%);
+    top: 38px;
+    bottom: initial;
+}
+.traceList .dataBase .dataBase_name>span::before{
+    content: '节点名称: ';
+}
+.traceList .dataBase .dataBase_subtitle{
+    position: absolute;
+    left: -20px;
+    transform: translateX(-100%);
+    top: 4px;
+}
+.traceList .dataBase .dataBase_subtitle>span::before{
+    content: '交换时间: ';
+}
+.traceList .dType2>div{
+    left: initial;
+    right: -20px;
+    transform: translateX(100%);
+}
+.traceList .dType2 .dataBase_subtitle{
+    left: initial;
+    right: -20px;
+    transform: translateX(100%);
+}
+.traceList .dataStream>span::before{
+    content: none;
+}
+.traceList li.dataStream{
+    width: 350px;
+    background-image: url(../images/arrow_green.png);
+    background-position-y: center;
+    animation: arrow3 2s linear infinite;
+}
+@keyframes arrow3{
+    from{background-position-x: 0;}
+    to{background-position-x: 350px;}
+}
+.traceList li.dataStream>span{
+    padding: 10px;
+    font-size: 12px;
+}
+.traceList li.dataStream.green>span{
+    background-color: #8dd317;
+}
+.traceList li.dataStream.pink>span{
+    background-color: #fc3e80;
+}
+.traceList li.dataStream.pink{
+    background-image: url(../images/arrow_pink.png);
+    animation: none;
+}
+
+
+.traceInfoList{
+    width: 1828px;
+    margin: 30px auto;
+}
+.traceInfoList>li{
+    height: 36px;
+    margin-bottom: 10px;
+    background-image: url(../images/Trace_list_bg.png);
+}
+.traceInfoList>li>span{
+    line-height: 36px;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+}
+.traceInfoList .time{
+    width: 166px;
+    margin-right: 10px;
+}
+.traceInfoList .origin{
+    width: 496px;
+    margin-right: 50px;
+}
+.traceInfoList .tool{
+    width: 170px;
+    margin-right: 54px;
+}
+.traceInfoList .target{
+    width: 490px;
+    margin-right: 8px;
+}
+.traceInfoList .log{
+    width: 380px;
 }
