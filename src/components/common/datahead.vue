@@ -114,7 +114,7 @@ export default {
                             url: '/service/perspetive_port',
                         },{
                             title: '数据共享情况',
-                            url: '#',
+                            url: '/service/portInfo',
                         },{
                             title: '数据使用情况',
                             url: '/service/perspetive_user',
