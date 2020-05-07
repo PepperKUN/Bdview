@@ -24,7 +24,7 @@
             </table>
         </div>
         <div class="search_submit">
-            <button class="reset" v-if="withAdd">新增</button>
+            <button class="reset" v-if="withAdd" @click="addBtn">新增</button>
             <button class="submit" @click="getFormValue">查询</button>
             <button class="reset" v-if="withReset">重置</button>
             <button class="reset" v-if="withExport">导出</button>
@@ -40,6 +40,10 @@ export default {
         withReset: Boolean,
         withAdd: Boolean,
         withExport: Boolean,
+        addFunc: {
+            type: Function,
+            default: null
+        }
     },
     data() {
         return {
@@ -69,6 +73,9 @@ export default {
                 }
             }
             console.log(this.formVal);
+        },
+        addBtn(){
+            this.addFunc();
         }
     },
     components: {

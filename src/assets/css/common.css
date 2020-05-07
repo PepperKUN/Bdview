@@ -3977,6 +3977,7 @@ table.singleColumForm th{
 table.singleColumForm td{
     text-align: left;
     padding: 10px;
+    color: #00fceb;
 }
 
 table.singleColumForm td>input[type='text']{

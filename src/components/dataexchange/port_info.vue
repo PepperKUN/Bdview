@@ -1,7 +1,7 @@
 <template>
     <div class="content content_rise">
         <crumb :crumbs="crumbs"></crumb>
-        <FilterForm :form='form' withAdd></FilterForm>
+        <FilterForm :form='form' withAdd :addFunc="portAdd"></FilterForm>
         <div class="normal_result">
             <div class="result_title">
                 <span>查询结果</span>
@@ -19,16 +19,16 @@
                             <td :key="index4" v-if="object !== item.operation">{{object}}</td>
                         </template>
                         <td style="width:240px">
-                            <a class="table_operation" href="#" @click="addShow=true"><i class="iconfont icon-modify"></i><span>修改</span></a>
+                            <a class="table_operation" href="#" @click="modifyShow=true"><i class="iconfont icon-modify"></i><span>修改</span></a>
                             <a class="table_operation delete" href="#"><i class="iconfont icon-delete"></i><span>删除</span></a>
-                            <a class="table_operation portInfo" href="#"><i class="iconfont icon-info"></i><span>详情</span></a>
+                            <a class="table_operation portInfo" href="#" @click="infoShow=true"><i class="iconfont icon-info"></i><span>详情</span></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <el-pagination background layout="total, prev, pager, next" :total="1000" :pager-count="17"></el-pagination>
         </div>
-        <Pop v-model="addShow" title="接口新增" width="600px" height="700px">
+        <Pop v-model="addShow" title="接口新增" width="600px" height="600px">
             <el-scrollbar :native="false" style="height:100%">
                 <table class="singleColumForm">
                     <colgroup>
@@ -43,7 +43,7 @@
                                 <option v-for="option in line.select" :key="option.id" value="option.value">{{option.text}}</option>
                             </select>
                             <input type="text" :placeholder="'请输入'+line.name" v-if="line.input!==undefined" :value="line.input">
-                            <textarea rows="10" :placeholder="'请输入'+line.name" v-if="line.textarea!==undefined" :value="line.textarea"></textarea>
+                            <textarea rows="5" :placeholder="'请输入'+line.name" v-if="line.textarea!==undefined" :value="line.textarea"></textarea>
                             <el-date-picker v-if="line.datePicker" v-model="line.model" :type="line.datePicker" placeholder="选择日期"></el-date-picker>
                         </td>
                     </tr>
@@ -54,11 +54,49 @@
                 </div>
             </el-scrollbar>
         </Pop>
-        <Pop v-model="modifyShow" title="接口修改" width="600px" height="700px">
-            
+        <Pop v-model="modifyShow" title="接口修改" width="600px" height="600px">
+            <el-scrollbar :native="false" style="height:100%">
+                <table class="singleColumForm">
+                    <colgroup>
+                        <col width="100">
+                        <col>
+                    </colgroup>
+                    <tr v-for="line in addForm" :key="line.id">
+                        <th>{{line.name}}</th>
+                        <td>
+                            <select v-if="line.select">
+                                <option value="">请选择{{line.name}}</option>
+                                <option v-for="option in line.select" :key="option.id" value="option.value">{{option.text}}</option>
+                            </select>
+                            <input type="text" :placeholder="'请输入'+line.name" v-if="line.input!==undefined" :value="line.input">
+                            <textarea rows="5" :placeholder="'请输入'+line.name" v-if="line.textarea!==undefined" :value="line.textarea"></textarea>
+                            <el-date-picker v-if="line.datePicker" v-model="line.model" :type="line.datePicker" placeholder="选择日期"></el-date-picker>
+                        </td>
+                    </tr>
+                </table>
+                <div class="search_submit">
+                    <button class="submit">保存</button>
+                    <button class="reset">取消</button>
+                </div>
+            </el-scrollbar>
         </Pop>
-        <Pop v-model="infoShow" title="接口详情" width="930px" height="650px">
-            
+        <Pop v-model="infoShow" title="接口详情" width="600px" height="600px">
+            <el-scrollbar :native="false" style="height:100%">
+                <table class="singleColumForm">
+                    <colgroup>
+                        <col width="100">
+                        <col>
+                    </colgroup>
+                    <tr v-for="line in infoForm" :key="line.id">
+                        <th>{{line.name}}</th>
+                        <td>{{line.value}}</td>
+                    </tr>
+                </table>
+                <div class="search_submit">
+                    <button class="submit">保存</button>
+                    <button class="reset">取消</button>
+                </div>
+            </el-scrollbar>
         </Pop>
     </div>
 </template>
@@ -283,6 +321,24 @@ export default {
                     name: '接口编号',
                     textarea: ''
                 }
+            ],
+            infoForm: [
+                {
+                    name: '业务类型',
+                    value: '登记'
+                },{
+                    name: '业务类型',
+                    value: '登记'
+                },{
+                    name: '业务类型',
+                    value: '登记'
+                },{
+                    name: '业务类型',
+                    value: '登记'
+                },{
+                    name: '业务类型',
+                    value: '登记'
+                }
             ]
         };
     },
@@ -300,7 +356,7 @@ export default {
     },
     methods: {
         portAdd(){
-
+            this.addShow=true;
         }
     },
     components: {
