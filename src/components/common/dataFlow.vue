@@ -53,14 +53,15 @@ export default {
             return e;
         },
         flow(){
-            const maskWidth = document.getElementsByClassName('flow')[0].offsetWidth;
-            const stripe = document.getElementsByClassName('stripe')[0];
+            const flow = this.$el.getElementsByClassName('flow')[0];
+            const maskWidth = flow.offsetWidth;
+            const stripe = flow.getElementsByClassName('stripe')[0];
             const stripeWidth = stripe.offsetWidth + this.dataGap - 11;
             const a = this.flowData.slice();
             const newData = a.concat(a).concat(a);
             let i = 0;
             let flowAn;
-
+            
             function animate(){
                 stripe.style.left = "calc(50% - "+ i + "px)";
                 if(i>stripeWidth){

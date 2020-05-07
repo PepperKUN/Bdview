@@ -389,7 +389,7 @@ table{
     position: relative;
     z-index: 1;
     width: calc(100% - 8px);
-    height: calc(100% - 41px);
+    height: calc(100% - 42px);
     margin: 0 4px;
     font-size: 16px;
 }

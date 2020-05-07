@@ -10,10 +10,11 @@
             </DataFrame>
         </div>
         <div class="colum">
-            <DataFrame :width='936' :height='166' frameTitle="资源目录总览" rightFunc>
-                <DataFlow :flowData="flow" @update-data='update' :dataGap='100'></DataFlow>
+            <DataFrame :width='936' :height='186' frameTitle="资源目录总览" rightFunc>
+                <DataFlow :flowData="flow1" @update-data='update' :dataGap='60'></DataFlow>
+                <DataFlow :flowData="flow2" @update-data='update' :dataGap='100'></DataFlow>
             </DataFrame><br>
-            <DataFrame :width='936' :height='700' frameTitle="按单位需求量统计" rightFunc>
+            <DataFrame :width='936' :height='680' frameTitle="按单位需求量统计" rightFunc>
                 <v-chart :options="graph1" :autoresize='true'/>
             </DataFrame>
         </div>
@@ -487,7 +488,7 @@ export default {
                     info: '新增资源目录XX个，新增资源项XX个，其中国别XX个，省表XX个'
                 }
             ],
-            flow: [
+            flow1: [
                 {
                     name: '资源目录',
                     color: 'cyan',
@@ -496,22 +497,29 @@ export default {
                     unit: '个'
                 },{
                     name: '资源项总数',
+                    isHead: true,
                     gap: '1',
                     color: 'yellow',
                     amount: '123561',
                     unit: '个'
                 },{
                     name: '国标',
+                    isHead: true,
                     color: 'blue',
                     amount: '82360',
                     unit: '个'
-                },{
+                }
+            ],
+            flow2: [
+                {
                     name: '省标 ',
+                    isHead: true,
                     color: 'pink',
                     amount: '31201',
                     unit: '个'
                 },{
                     name: '外单位提供资源项',
+                    isHead: true,
                     color: 'green',
                     amount: '524',
                     unit: '个'
@@ -653,6 +661,9 @@ export default {
 </script>
 
 <style scoped>
+    .data-block>>>.flow_wrap{
+        height: 38px;
+    }
     .row>.colum>div:first-child{
         margin-top: 4px;
     }
