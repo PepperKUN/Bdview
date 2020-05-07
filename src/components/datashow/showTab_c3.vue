@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<DataFrame :width='1272' :height='284' frameTitle="各市州（区县）许可证数量分析" rightFunc>
+			<DataFrame :width='1272' :height='284' frameTitle="各市州（区县）许可证数量分析" rightFunc class="arrowRight">
 			</DataFrame>
 			<DataFrame :width='600' :height='284' frameTitle="各类许可证数量分析" rightFunc>
 			</DataFrame>
