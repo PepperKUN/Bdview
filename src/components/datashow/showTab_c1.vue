@@ -16,7 +16,7 @@
         <div class="colum">
             <SearchInput v-model="inputText" inputName="一门式查询" placeholder="请输入统一码或主体名称或设备编号或许可证编号查询"></SearchInput>
             <DataFrame :width='956' :height='804' rightFunc>
-                <v-chart class="chart_hl_top" :options="map" :autoresize='true'/>
+                <v-chart class="chart_hl_top" :options="map" :autoresize='true' @click="areaInfo"/>
                 <div class="chart_hl_btm">
                     <div class="chart_hl_btm_lf">
                         <div class="chart_option">
@@ -1020,12 +1020,15 @@ export default {
 
     },
     mounted() {
-        
     },
     watch: {
-
+        
     },
     methods: {
+        areaInfo(params){
+            console.log(params.name);
+            
+        }
     },
     components: {
         SearchInput,
