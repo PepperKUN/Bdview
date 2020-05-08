@@ -4058,3 +4058,29 @@ table.singleColumForm td>textarea::placeholder{
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent #ffeb3b;
 }
+.complexTable{
+    width: calc(100% - 28px);
+    margin: 0 14px;
+    color: #e1ebff;
+}
+.complexTable table{
+    width: 100% !important;
+}
+.el-table thead.is-group th{
+    background-color: #004098;
+}
+.el-table, .el-table td, .el-table th.is-leaf, .el-table--border th, .el-table__fixed-right-patch, .el-table--border td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed{
+    border-color: #0863e1;
+}
+.el-table--border::after, .el-table--group::after, .el-table::before{
+    background-color: #0863e1;
+}
+.el-table th, .el-table tr{
+    background-color: #051954;
+}
+.el-table--enable-row-hover .el-table__body tr:hover>td{
+    background-color: #0d256b;
+}
+.el-table thead{
+    color: #b2d2ff;
+}

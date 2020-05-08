@@ -16,7 +16,7 @@
         <div class="colum">
             <SearchInput v-model="inputText" inputName="一门式查询" placeholder="请输入统一码或主体名称或设备编号或许可证编号查询"></SearchInput>
             <DataFrame :width='956' :height='804' rightFunc>
-                <v-chart class="chart_hl_top" :options="map" :autoresize='true' @click="areaInfo"/>
+                <v-chart class="chart_hl_top" :options="temp" ref="dataMap" :autoresize='true' @click="areaInfo"/>
                 <div class="chart_hl_btm">
                     <div class="chart_hl_btm_lf">
                         <div class="chart_option">
@@ -161,6 +161,7 @@ export default {
         ]
         return {
             inputText: '',
+            area: ['迪庆','怒江','丽江', '大理','保山','德宏','临沧','楚雄州','昆明','昭通','曲靖','玉溪','普洱','西双版纳','红河','文山'],
             bar1: {
                 dataset: {
                     source: bar1_data,
@@ -651,6 +652,7 @@ export default {
                     }
                 ]
             },
+            temp: {},
             map: {
                 tooltip: {
                     trigger: 'item',
@@ -876,6 +878,101 @@ export default {
                     }
                 ]
             },
+            areaBar: {
+                title: {
+                    text: '< 返回全省地图',
+                    top: '10',
+                    left: '10',
+                    textStyle: {
+                        fontSize: '14',
+                        width: '100',
+                        fontWeight: 'normal',
+                        color: '#a3fff7',
+                    },
+                    backgroundColor: 'rgba(255,255,255,0.1)',
+                    triggerEvent: true
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: '20',
+                    right: '20',
+                    bottom: '40',
+                    top: '60',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['area1', 'area2', 'area3', 'area4', 'area5', 'area6', 'area7', 'area8', 'area9', 'area10'],
+                        axisTick: {
+                            show: false
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#a3fff7'
+                            }
+                        },
+                        axisLabel: {
+                            color: '#a3fff7',
+                            fontSize: 12
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        axisTick: {
+                            show: false
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                type: 'dashed',
+                                color: 'rgba(82, 157,255, 0.35)'
+                            }
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#a3fff7'
+                            }
+                        },
+                        axisLabel: {
+                            color: '#a3fff7',
+                            fontSize: 12
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '直接访问',
+                        type: 'bar',
+                        barWidth: '30%',
+                        itemStyle: {
+                            normal: {
+                                color: {
+                                    type: 'linear',
+                                    x: 0,
+                                    y: 0,
+                                    x2: 0,
+                                    y2: 1,
+                                    colorStops: [{
+                                        offset: 0, color: '#fd3e81' // 0% 处的颜色
+                                    }, {
+                                        offset: 1, color: '#ffe66d' // 100% 处的颜色
+                                    }],
+                                    global: false // 缺省为 false
+                                }
+                            }
+                        },
+                        data: [10, 52, 200, 334, 390, 330, 220, 200, 334, 390],
+                        
+                    }
+                ]
+            },
             bar6: {
                 dataset:{
                     source: bar6_data
@@ -1020,13 +1117,20 @@ export default {
 
     },
     mounted() {
+        this.temp = this.map;
     },
     watch: {
         
     },
     methods: {
-        areaInfo(params){
-            console.log(params.name);
+        areaInfo(params){ 
+            if(this.area.includes(params.name)){
+                this.temp = this.areaBar;
+                this.$refs.dataMap.$el.classList.add("removeBg")
+            }else if(params.componentType==='title'){
+                 this.temp = this.map;
+                 this.$refs.dataMap.$el.classList.remove("removeBg")
+            }
             
         }
     },
@@ -1040,6 +1144,9 @@ export default {
     .chart_hl_top{
         background-image: url(../../assets/images/map_glow.png);
         background-position: 0 38%;
+    }
+    .removeBg{
+        background: none;
     }
     
 </style>

@@ -2,7 +2,7 @@ import 'core-js'
 import Vue from 'vue'
 import ECharts from 'vue-echarts'
 import App from './App.vue'
-import { Pagination, Scrollbar, DatePicker} from 'element-ui'
+import { Pagination, Scrollbar, DatePicker, Table, TableColumn} from 'element-ui'
 import store from "./store";
 import router from "./router";
 
@@ -18,6 +18,8 @@ ECharts.registerMap('yunnan', yunnan)
 Vue.use(Pagination)
 Vue.use(Scrollbar)
 Vue.use(DatePicker)
+Vue.use(Table)
+Vue.use(TableColumn)
 Vue.config.productionTip = false
 Vue.component('DataFrame', dataFrame);
 Vue.component('v-chart', ECharts);

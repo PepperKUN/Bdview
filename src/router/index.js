@@ -24,6 +24,7 @@ import exchangeList_info from '../components/dataexchange/exchangeList_info.vue'
 import exchangeTrace from '../components/dataexchange/exchangeTrace.vue'
 import exchangeTrace_info from '../components/dataexchange/exchangeTrace_info.vue'
 import exchangeStatics from '../components/dataexchange/exchangeStatics.vue'
+import complexTable from '../components/datashow/complexTable.vue'
 
 const router = new Router({
   mode:"history", //路由模式，无#
@@ -103,6 +104,10 @@ const router = new Router({
     {
       path: '/showreel/searchCombination',
       component: searchCombination
+    },
+    {
+      path: '/showreel/complexTable',
+      component: complexTable
     },
     {
       path: '/showreel/memorabilia',

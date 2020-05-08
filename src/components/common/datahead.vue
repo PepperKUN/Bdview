@@ -210,7 +210,7 @@ export default {
                                 url: '/showreel/memorabilia',
                             },{
                                 title: '数据报表展示',
-                                url: '#',
+                                url: '/showreel/complexTable',
                             },
                     ]
                 }
