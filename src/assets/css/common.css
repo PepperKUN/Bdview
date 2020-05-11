@@ -1470,6 +1470,9 @@ table.simple td{
     text-align: center;
     margin-top: 24px;
 }
+.pop_wrap .search_submit{
+    padding-bottom: 20px;
+}
 .search_submit button{
     font-size: 16px;
     color: #fbe26f;
@@ -3972,12 +3975,15 @@ table.singleColumForm tr:nth-child(2n-1){
 table.singleColumForm th{
     color: #fff;
     text-align: right;
-    padding-right: 10px;
+    padding: 10px;
+    padding-left: 0;
 }
 table.singleColumForm td{
     text-align: left;
     padding: 10px;
     color: #00fceb;
+    word-break: break-all;
+    white-space: normal;
 }
 
 table.singleColumForm td>input[type='text']{
@@ -4067,7 +4073,7 @@ table.singleColumForm td>textarea::placeholder{
     width: 100% !important;
 }
 .el-table thead.is-group th{
-    background-color: #004098;
+    background-color: #003680;
 }
 .el-table, .el-table td, .el-table th.is-leaf, .el-table--border th, .el-table__fixed-right-patch, .el-table--border td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed{
     border-color: #0863e1;
@@ -4083,4 +4089,51 @@ table.singleColumForm td>textarea::placeholder{
 }
 .el-table thead{
     color: #b2d2ff;
+}
+
+.port_add>button{
+    font-size: 16px;
+    background-color: #fbe26f;
+    color: #001032;
+    padding: 6px 20px;
+    text-align: center;
+    border-radius: 100px;
+    border: 1px solid #fbe26f;
+    cursor: pointer;
+    outline: none;
+    margin-left: 14px;
+}
+.table_delete{
+    width: 30px;
+    text-align: center;
+    background-color: #fd3e81;
+    border: none;
+    padding: 14px 8px;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+table.tableAdd{
+    margin-top: 40px;
+}
+.tableEnd{
+    border: 1px solid #fd3e81;
+    border-left: none;
+    border-right: none;
+    position: relative;
+}
+.tableEnd::after{
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background-color: #fd3e81;
+}
+
+table.tabAdd_head{
+    margin-top: 0;
 }

@@ -48,6 +48,34 @@
                         </td>
                     </tr>
                 </table>
+                <div class="port_add">
+                    <button @click="tableAdd"><i class="iconfont icon-add"></i>点击增加接口关联</button>
+                    <table class="singleColumForm tableAdd" v-for=" (table, index5) in portAdd_lists" :key="index5" :class="index5>0?'':'tabAdd_head'">
+                        <colgroup>
+                            <col width="140">
+                            <col>
+                            <col width="20">
+                        </colgroup>
+                        <tr v-for="(tr, index6) in table" :key="index6">
+                            <th>{{tr.name}}</th>
+                            <td>
+                                <select v-if="tr.select">
+                                    <option value="">请选择{{tr.name}}</option>
+                                    <option v-for="option in tr.select" :key="option.id" value="option.value">{{option.text}}</option>
+                                </select>
+                                <input type="text" :placeholder="'请输入'+tr.name" v-if="tr.input!==undefined" :value="tr.input">
+                                <textarea rows="5" :placeholder="'请输入'+tr.name" v-if="tr.textarea!==undefined" :value="tr.textarea"></textarea>
+                                <el-date-picker v-if="tr.datePicker" v-model="tr.model" :type="tr.datePicker" placeholder="选择日期"></el-date-picker>
+                            </td>
+                            <td :rowspan="table.length" v-if="index6<1" class="tableEnd">
+                                <button class="table_delete" @click="tableDelete(index6)">
+                                    <i class="iconfont icon-close"></i>
+                                    删除接口关联
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 <div class="search_submit">
                     <button class="submit">保存</button>
                     <button class="reset">取消</button>
@@ -92,10 +120,6 @@
                         <td>{{line.value}}</td>
                     </tr>
                 </table>
-                <div class="search_submit">
-                    <button class="submit">保存</button>
-                    <button class="reset">取消</button>
-                </div>
             </el-scrollbar>
         </Pop>
     </div>
@@ -325,10 +349,10 @@ export default {
             infoForm: [
                 {
                     name: '业务类型',
-                    value: '登记'
+                    value: '{"message":"操作成功","result":{"xDateStrList":["05-03","05-04","05-05","05-06","05-07","05-08","05-09"],"infoMap":{"y0":{"infoList":[{"dataAllCount":"","dataCount":"0","dataId":"04160112","dataName":"","dataPercent":"","dateDate":"05-03","lastUpdateDate":null},{"dataAllCount":"","dataCount":"0","dataId":"04160112","dataName":"","dataPercent":"","dateDate":"05-04","lastUpdateDate":null},{"dataAllCount":"","dataCount":"4","dataId":"04160112","dataName":"","dataPercent":"","dateDate":"05-05","lastUpdateDate":null},{"dataAllCount":"","dataCount":"504","dataId":"04160112","dataName":"","dataPercent":"","dateDate":"05-06","lastUpdateDate":null},{"dataAllCount":"","dataCount":"192","dataId":"04160112","dataName":"","dataPercent":"","dateDate":"05-07","lastUpdateDate":null},{"dataAllCount":"","dataCount":"127","dataId":"04160112","dataName":"","dataPercent":"","dateDate":"05-08","lastUpdateDate":null},{"dataAllCount":"","dataCount":"79","dataId":"04160112","dataName":"","dataPercent":"","dateDate'
                 },{
                     name: '业务类型',
-                    value: '登记'
+                    value: '登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记登记'
                 },{
                     name: '业务类型',
                     value: '登记'
@@ -339,7 +363,56 @@ export default {
                     name: '业务类型',
                     value: '登记'
                 }
-            ]
+            ],
+            portAdd_sample: [
+                {
+                    name: '业务类型',
+                    select: [
+                        {
+                            text: '登记',
+                            value: 1,
+                        },{
+                            text: '许可',
+                            value: 2,
+                        },{
+                            text: '政务',
+                            value: 3,
+                        }
+                    ]
+                },{
+                    name: '业务系统',
+                    select: [
+                        {
+                            text: '名称登记',
+                            value: 1,
+                        },{
+                            text: '许可',
+                            value: 2,
+                        },{
+                            text: '政务',
+                            value: 3,
+                        }
+                    ]
+                },{
+                    name: '接口名称',
+                    select: [
+                        {
+                            text: '登记',
+                            value: 1,
+                        },{
+                            text: '许可',
+                            value: 2,
+                        },{
+                            text: '政务',
+                            value: 3,
+                        }
+                    ]
+                },{
+                    name: '单日访问量阈值',
+                    input: ''
+                }
+            ],
+            portAdd_lists: []
         };
     },
     computed: {
@@ -357,6 +430,22 @@ export default {
     methods: {
         portAdd(){
             this.addShow=true;
+        },
+        tableAdd(){
+            
+            let data = this.portAdd_lists;
+            const L = data.length;
+            let list;
+            if(L===0){
+                list = this.portAdd_sample;
+            }else{
+                list = JSON.parse(JSON.stringify(data[L-1]));
+            }
+            data.push(list);
+            this.portAdd_lists = data;
+        },
+        tableDelete(index){
+            this.portAdd_lists.splice(index,1);
         }
     },
     components: {
