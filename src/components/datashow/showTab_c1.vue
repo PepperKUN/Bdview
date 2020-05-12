@@ -6,7 +6,7 @@
             </DataFrame><br>
 
             <DataFrame :width='452' :height='276' frameTitle="2019年案件办理情况分析（单位：件）" rightFunc>
-                <v-chart :options="bar2" :autoresize='true'/>
+                <v-chart :options="bar2_2" :autoresize='true'/>
             </DataFrame><br>
 
             <DataFrame :width='452' :height='284' frameTitle="近5年投诉举报量趋势分析" rightFunc>
@@ -55,7 +55,7 @@ import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/map'
 import 'echarts/lib/component/visualMap'
 import 'echarts/lib/component/geo'
-
+import 'echarts/lib/chart/pictorialBar'
 export default {
     props: {
 
@@ -327,6 +327,100 @@ export default {
                         }
                     }
                 ]
+            },
+            bar2_2: {
+                dataset: {
+                    source: bar2_data
+                },
+                encode: {
+                    x: 0,
+                    y: 1
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    },
+                    formatter: function(params){
+                        return params[1].seriesName+'<br/>'+params[1].value[0]+':'+params[1].value[1]
+                    },
+                    textStyle: {
+                        fontWeight: 'bold',
+                        fontSize: 12
+                    }
+                },
+                grid: {
+                    left: 60,
+                    right: 20,
+                    bottom: 60,
+                    top: 20,
+                },
+                xAxis: {
+                    type: 'category',
+                    offset: 20,
+                    axisTick: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#a3fff7'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#a3fff7',
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    splitNumber: 4,
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        color: '#a3fff7',
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'dashed',
+                            color: 'rgba(82, 157,255, 0.35)'
+                        }
+                    }
+                },
+                series: [{
+                    name: '案件办理情况分析2',
+                    type: 'pictorialBar',
+                    symbolSize: [40, 20],
+                    symbolOffset: [0, -10],
+                    symbolPosition: 'end',
+                    z: 12,
+                    itemStyle: {
+                        normal: {
+                            color: '#14b1eb'
+                        }
+                    },
+                }, {
+                    name: '案件办理情况分析',
+                    type: 'pictorialBar',
+                    symbolSize: [40, 20],
+                    symbolOffset: [0, 10],
+                    z: 12,
+                    itemStyle: {
+                        normal: {
+                            color: '#14b1eb'
+                        }
+                    },
+                }, {
+                    type: 'bar',
+                    itemStyle: {
+                        normal: {
+                            color: '#14b1eb',
+                            opacity: .7
+                        }
+                    },
+                    silent: true,
+                    barWidth: 40,
+                    barGap: '-100%', // Make series be overlap
+                }]
             },
             line1: {
                 color: ['#68a8ff', '#f582ab'],
