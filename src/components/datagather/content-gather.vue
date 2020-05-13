@@ -1,12 +1,12 @@
 <template>
   <div class="content content_rise">
       <div class="row">
-          <DataFrame :width='1892' :height='165' frameTitle="数据汇聚总览" rightFunc>
+          <DataFrame :width='1892' :height='165' frameTitle="数据汇聚总览" :rightFunc="frameSet2">
               <DataBulbs :data='bulbs'></DataBulbs>
           </DataFrame>
       </div>
       <div class="row">
-          <div class="colum">
+          <!-- <div class="colum">
               <DataFrame :width='442' :height='398' frameTitle="实时汇聚信息展示" :rightFunc="frameSet">
                     <table class="normal_table">
                         <thead>
@@ -32,9 +32,9 @@
                         </li>
                     </ul>
               </DataFrame>
-          </div>
+          </div> -->
           <div class="colum">
-              <DataFrame :width='980' :height='750' >
+              <DataFrame :width='1436' :height='750' >
                     <div class="data_block type1">
                         <div class="block_name">{{data_block[0].name}}</div>
                         <ul class="block_list" :class="{direction:data_block[0].direct}">
@@ -84,11 +84,21 @@
               </DataFrame>
           </div>
           <div class="colum">
-              <DataFrame :width='442' :height='398' frameTitle="汇聚数据分析" :rightFunc="frameSet1">
+              <DataFrame :width='442' :height='328' frameTitle="汇聚数据分析" :rightFunc="frameSet1">
                   <v-chart :options="pie" :autoresize='true'/>
               </DataFrame><br>
-              <DataFrame :width='442' :height='338' frameTitle="数据汇聚趋势" rightFunc>
+              <DataFrame :width='442' :height='308' frameTitle="数据汇聚趋势" :rightFunc="frameSet3">
                   <v-chart :options="line" :autoresize='true'/>
+              </DataFrame><br>
+              <DataFrame :width='442' :height='86'  rightFunc>
+                  <div class="alert_mask">
+                      <ul class="alert_list">
+                          <li v-for="item in alert" :key="item.id">
+                              <span class="alert_time">{{item.date}}</span>
+                              <span class="alert_info">{{item.info}}</span>
+                          </li>
+                      </ul>
+                  </div>
               </DataFrame>
           </div>
       </div>
@@ -120,6 +130,34 @@ export default {
                     optionVal: '2',
                 },{
                     optionText: '变化',
+                    optionVal: '3',
+                }
+            ]
+        },
+        frameSet2: {
+            drops: [
+                {
+                    optionText: '今日',
+                    optionVal: '1',
+                },{
+                    optionText: '昨日',
+                    optionVal: '2',
+                },{
+                    optionText: '上周',
+                    optionVal: '3',
+                }
+            ]
+        },
+        frameSet3: {
+            drops: [
+                {
+                    optionText: '近期',
+                    optionVal: '1',
+                },{
+                    optionText: '昨日',
+                    optionVal: '2',
+                },{
+                    optionText: '上周',
                     optionVal: '3',
                 }
             ]
@@ -189,7 +227,7 @@ export default {
                 ]
             },{
                 name: '清洗入库',
-                spec: ['数据 准确性','数据 完整性','数据 冗余性'],
+                spec: ['数据\n准确性','数据\n完整性','数据\n冗余性'],
                 greenCase: '数据清洗',
                 blueCase: '数据转换',
 
@@ -526,7 +564,16 @@ export default {
                     }
                 }
             ]
-        }
+        },
+        alert: [
+            {
+                date: '04-16\n16:40:33',
+                info: '预警信息预警信息预警信息预警信息预警信息预警信息预警信息预警信息'
+            },{
+                date: '04-16\n16:40:33',
+                info: '预警信息预警信息预警信息预警信息预警信息预警信息预警信息预警信息'
+            }
+        ]
     };
   },
   mounted() {
@@ -549,9 +596,10 @@ export default {
     .data_block{
         margin-right: 0;
     }
-    
+    .block_list>li{
+        padding: 13px 10px;
+    }
     .block_list>li.list_name{
         cursor: default;
     }
-
 </style>
