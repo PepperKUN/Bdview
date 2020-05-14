@@ -571,15 +571,33 @@ export default {
                 info: '预警信息预警信息预警信息预警信息预警信息预警信息预警信息预警信息'
             },{
                 date: '04-16\n16:40:33',
-                info: '预警信息预警信息预警信息预警信息预警信息预警信息预警信息预警信息'
+                info: '预警信息预警信息预警信息预警信'
             }
-        ]
+        ],
+        timer: {}
     };
   },
   mounted() {
-
+      this.alertShow();
   },
   methods: {
+      alertShow(){
+        const firstList = this.alert[0];
+        this.alert.push(firstList);
+        const el = document.querySelector('.alert_list');
+        let i = 0;
+        clearInterval(this.timer);
+        this.timer = setInterval(() => {
+            if(i<this.alert.length-1){
+                i++;
+                el.style.transitionDuration = 400 + 'ms';
+            }else{
+                el.style.transitionDuration = 0 + 'ms';
+                i = 0;
+            }
+            el.style.top = -i*56 + 'px';
+        }, 2000)
+      },
   },
   components: {
       'DataBulbs': dataBulbs,

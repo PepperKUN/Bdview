@@ -4147,7 +4147,9 @@ table.tabAdd_head{
     position: relative;
 }
 .alert_list{
-    /* height: 100%; */
+    position: absolute;
+    top: 0;
+    transition: top 400ms ease-out;
 }
 .alert_list>li{
     display: block;
