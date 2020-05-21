@@ -25,103 +25,111 @@ import exchangeTrace from '../components/dataexchange/exchangeTrace.vue'
 import exchangeTrace_info from '../components/dataexchange/exchangeTrace_info.vue'
 import exchangeStatics from '../components/dataexchange/exchangeStatics.vue'
 import complexTable from '../components/datashow/complexTable.vue'
+import addLabel from "../components/datacontrol/addLabel.vue";
+import labelSearch from "../components/datacontrol/labelSearch.vue";
 
 const router = new Router({
-  mode:"history", //路由模式，无#
+  mode: "history", //路由模式，无#
   routes: [
     {
-      path: '',
-      redirect: '/index'
+      path: "",
+      redirect: "/index",
     },
     {
-      path: '/index',
-      component: contentIndex
+      path: "/index",
+      component: contentIndex,
     },
     {
-      path: '/cataglory',
+      path: "/cataglory",
       component: contentCataglory,
     },
     {
-      path: '/cataglory/dataInfo',
-      component: dataInfo
+      path: "/cataglory/dataInfo",
+      component: dataInfo,
     },
     {
-      path: '/gather',
-      component: contentGather
+      path: "/gather",
+      component: contentGather,
     },
     {
-      path: '/cultivation',
-      component: contentCultivation
+      path: "/cultivation",
+      component: contentCultivation,
     },
     {
-      path: '/service',
-      component: contentService
+      path: "/cultivation/labelSearch",
+      component: labelSearch,
     },
     {
-      path: '/service/perspetive_user',
-      component: perspectiveUser
+      path: "/cultivation/addLabel",
+      component: addLabel,
     },
     {
-      path: '/service/perspetive_port',
-      component: perspectivePort
+      path: "/service",
+      component: contentService,
     },
     {
-      path: '/service/exchangeList',
-      component: exchangeList
+      path: "/service/perspetive_user",
+      component: perspectiveUser,
     },
     {
-      path: '/service/exchangeList/info',
-      component: exchangeList_info
+      path: "/service/perspetive_port",
+      component: perspectivePort,
     },
     {
-      path: '/service/exchangeTrace',
-      component: exchangeTrace
+      path: "/service/exchangeList",
+      component: exchangeList,
     },
     {
-      path: '/service/exchangeTrace/info',
-      component: exchangeTrace_info
+      path: "/service/exchangeList/info",
+      component: exchangeList_info,
     },
     {
-      path: '/service/portInfo',
-      component: portInfo
+      path: "/service/exchangeTrace",
+      component: exchangeTrace,
     },
     {
-      path: '/service/exchangeStatics',
-      component: exchangeStatics
+      path: "/service/exchangeTrace/info",
+      component: exchangeTrace_info,
     },
     {
-      path: '/showreel',
-      component: contentShowreel
+      path: "/service/portInfo",
+      component: portInfo,
     },
     {
-      path: '/showreel/searchBasic',
-      component: searchBasic
+      path: "/service/exchangeStatics",
+      component: exchangeStatics,
     },
     {
-      path: '/showreel/searchOverall',
-      component: searchOverall
+      path: "/showreel",
+      component: contentShowreel,
     },
     {
-      path: '/showreel/searchCombination',
-      component: searchCombination
+      path: "/showreel/searchBasic",
+      component: searchBasic,
     },
     {
-      path: '/showreel/complexTable',
-      component: complexTable
+      path: "/showreel/searchOverall",
+      component: searchOverall,
     },
     {
-      path: '/showreel/memorabilia',
-      component: memorabilia
+      path: "/showreel/searchCombination",
+      component: searchCombination,
     },
     {
-      path: '/errorRouter',
-      name: 'errorRouter',
-      component: errorRouter
+      path: "/showreel/complexTable",
+      component: complexTable,
     },
-   
-    
+    {
+      path: "/showreel/memorabilia",
+      component: memorabilia,
+    },
+    {
+      path: "/errorRouter",
+      name: "errorRouter",
+      component: errorRouter,
+    },
   ],
   // base: '/vue-demo'
-})
+});
 
 export default router

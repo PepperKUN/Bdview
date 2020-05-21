@@ -18,6 +18,11 @@
                                 <label :for="'rd2_'+index1+'_'+index2">{{item.radio[1]}}</label>
                             </template>
                             <el-date-picker v-if="item.datePicker" v-model="item.model" :type="item.datePicker" placeholder="选择日期"></el-date-picker>
+                            <template v-if="item.amount">
+                                <input type="number">
+                                <span class="number_gap">到</span>
+                                <input type="number">
+                            </template>
                         </td>
                     </template>
                 </tr>

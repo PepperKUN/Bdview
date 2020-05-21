@@ -96,6 +96,12 @@ export default {
                         },{
                             title: '数据标签',
                             url: '/cultivation/label',
+                            childs: [
+                                {
+                                    title: '手动打标签',
+                                    url: '/cultivation/addLabel',
+                                },
+                            ]
                         },{
                             title: '新增工单',
                             url: '#',
