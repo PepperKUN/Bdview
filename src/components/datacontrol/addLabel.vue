@@ -16,8 +16,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item, index3) in table.tbody" :key="index3" :class="classToggle(item.checkModel)">
-                        <td><input type="checkbox" :id="'check_'+index3" v-model="item.checkModel"><label :for="'check_'+index3"></label></td>
+                    <tr v-for="(item, index3) in table.tbody" :key="index3" >
+                        <td><input type="checkbox" :id="'check_'+index3" v-model="item.checkModel" @change="classToggle"><label :for="'check_'+index3"></label></td>
                         <td>{{index3+1}}</td>
                         <template v-for="(object, index4) in item">
                             <td :key="index4" v-if="object !== item.operation&&object !== item.checkModel">{{object}}</td>
@@ -230,14 +230,24 @@ export default {
     },
     methods: {
         toggle(){
+            const tr = this.$el.querySelectorAll(".normal_table tr");
             for(let i=0; i<this.table.tbody.length; i++){
-                this.table.tbody[i].checkModel = this.totalModel
-            } 
-        },
-        classToggle(model){
-            console.log(model);
+                this.table.tbody[i].checkModel = this.totalModel;
+                if(this.totalModel){
+                    tr[i+1].classList.add("selected");
+                }else{
+                    tr[i+1].classList.remove("selected");
+                }
+            }
             
-            return model?'selected':'';
+        },
+        classToggle(e){
+            console.log(e.path[0].checked);
+            if(e.path[0].checked){
+                e.path[2].classList.add("selected")
+            }else{
+                e.path[2].classList.remove("selected")
+            }
         }
     },
     components: {
