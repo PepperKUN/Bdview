@@ -1805,6 +1805,7 @@ table.simple td {
 
 .normal_table tr.selected>td {
     background-color: rgba(122, 166, 255, 0.5);
+    border-color: #0e2e67;
 }
 
 .normal_table td:last-child {
@@ -4925,6 +4926,14 @@ table.tabAdd_head {
     margin-bottom: 10px;
     background-color: rgba(110, 173, 255, 0.2);
     border-left: 2px solid #6ae5fe;
+}
+
+.company_list>li.title {
+    border: none;
+    background-color: rgba(255, 230, 109, 0.2);
+    text-align: center;
+    padding: 4px 0;
+    color: #fbe26f;
 }
 
 .company_list>li>h4 {

@@ -4,6 +4,7 @@
         <div class="row">
             <DataFrame :width='316' :height='866' class="sidebar_tree"  rightFunc>
                 <ul class="company_list">
+                    <li class="title">已选中企业</li>
                     <li v-for="item in comList" :key="item.id">
                         <h4>{{item.name}}</h4>
                         <span class="code_class">统一社会信用代码</span>
