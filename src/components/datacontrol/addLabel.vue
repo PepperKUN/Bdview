@@ -23,7 +23,9 @@
                             <td :key="index4" v-if="object !== item.operation&&object !== item.checkModel">{{object}}</td>
                         </template>
                         <td>
-                            <router-link class="info" v-if="item.operation.info" to='/cataglory/dataInfo' target="_blank">查看</router-link>
+                            <router-link class="labelAdd" to='/cultivation/labelSearch'><i class="iconfont icon-label"></i>打标签</router-link>
+                            <router-link class="labelDelete" to='###'><i class="iconfont icon-delete"></i>删除标签</router-link>
+                            <router-link class="labelInfo" v-if="item.operation.info" to='/cataglory/dataInfo' target="_blank"><i class="iconfont icon-info"></i>详情</router-link>
                         </td>
                     </tr>
                 </tbody>
@@ -214,6 +216,7 @@ export default {
                 ]
             },
             totalModel: '',
+            checkedAmount: 0,
         };
     },
     computed: {
@@ -232,22 +235,33 @@ export default {
         toggle(){
             const tr = this.$el.querySelectorAll(".normal_table tr");
             for(let i=0; i<this.table.tbody.length; i++){
-                this.table.tbody[i].checkModel = this.totalModel;
+                // this.table.tbody[i].checkModel = this.totalModel;
                 if(this.totalModel){
                     tr[i+1].classList.add("selected");
+                    tr[i+1].querySelector("input[type='checkbox']").checked = true;
+                    this.checkedAmount = this.table.tbody.length;
                 }else{
                     tr[i+1].classList.remove("selected");
+                    tr[i+1].querySelector("input[type='checkbox']").checked = false;
+                    this.checkedAmount = 0;
                 }
             }
-            
+            console.log(this.checkedAmount);
         },
         classToggle(e){
-            console.log(e.path[0].checked);
             if(e.path[0].checked){
                 e.path[2].classList.add("selected")
+                this.checkedAmount++;
             }else{
                 e.path[2].classList.remove("selected")
+                this.checkedAmount--;
             }
+            if(this.checkedAmount===this.table.tbody.length){
+                document.getElementById("totalCheck").checked=true;
+            }else{
+                document.getElementById("totalCheck").checked=false;
+            }
+            // console.log(this.checkedAmount);
         }
     },
     components: {

@@ -3,27 +3,37 @@
         <crumb :crumbs="crumbs"></crumb>
         <div class="row">
             <DataFrame :width='316' :height='866' class="sidebar_tree"  rightFunc>
+                <ul class="company_list">
+                    <li v-for="item in comList" :key="item.id">
+                        <h4>{{item.name}}</h4>
+                        <span class="code_class">统一社会信用代码</span>
+                        <span class="code">{{item.code}}</span>
+                    </li>
+                </ul>
             </DataFrame>
             <div class="colum" style="width:calc(100% - 350px)">
-                <FilterForm :form='form' withReset></FilterForm>
+                <FilterForm :form='form'></FilterForm>
                 <div class="search_result">
                     <div class="result_title">
                         <span>查询结果</span>
+                        <button class="btn_addLabel"><i class="iconfont icon-label"></i> 打标签</button>
                     </div>
                     <table class="normal_table">
                         <thead>
                             <tr>
+                                <th><input type="checkbox" id="totalCheck" v-model="totalModel" @change="toggle"><label for="totalCheck"></label></th>
                                 <th v-for="item in table.thead" :key="item.id">{{item}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index3) in table.tbody" :key="index3">
+                            <tr v-for="(item, index3) in table.tbody" :key="index3" >
+                                <td><input type="checkbox" :id="'check_'+index3" v-model="item.checkModel" @change="classToggle"><label :for="'check_'+index3"></label></td>
                                 <td>{{index3+1}}</td>
                                 <template v-for="(object, index4) in item">
-                                    <td :key="index4" v-if="object !== item.operation">{{object}}</td>
+                                    <td :key="index4" v-if="object !== item.operation&&object !== item.checkModel">{{object}}</td>
                                 </template>
                                 <td>
-                                    <router-link class="info" v-if="item.operation.info" to='/cataglory/dataInfo' target="_blank">查看</router-link>
+                                    <router-link class="labelInfo" v-if="item.operation.info" to='/cataglory/dataInfo' target="_blank"><i class="iconfont icon-info"></i>详情</router-link>
                                 </td>
                             </tr>
                         </tbody>
@@ -45,7 +55,7 @@ export default {
     },
     data() {
         return {
-            crumbs: ['数据治理','数据标签','手动打标签'],
+            crumbs: ['数据治理','数据标签','手动打标签','标签查询'],
             form: [
                 {
                     line:[
@@ -104,26 +114,6 @@ export default {
                         }
                     },{
                         name: '企业名称',
-                        cataglory: '主体登记',
-                        isLegal: '是',
-                        type: '字符串',
-                        source: '名称登记',
-                        application: '内资登记',
-                        operation: {
-                            info: true,
-                        }
-                    },{
-                        name: '注册号',
-                        cataglory: '主体登记',
-                        isLegal: '是',
-                        type: '字符串',
-                        source: '名称登记',
-                        application: '内资登记',
-                        operation: {
-                            info: true,
-                        }
-                    },{
-                        name: '企业类型',
                         cataglory: '主体登记',
                         isLegal: '是',
                         type: '字符串',
@@ -214,7 +204,21 @@ export default {
                         }
                     }
                 ]
-            }
+            },
+            totalModel: false,
+            comList: [
+                {
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                }
+            ],
+            checkedAmount: 0,
         };
     },
     computed: {
@@ -230,7 +234,37 @@ export default {
 
     },
     methods: {
-
+        toggle(){
+            const tr = this.$el.querySelectorAll(".normal_table tr");
+            for(let i=0; i<this.table.tbody.length; i++){
+                // this.table.tbody[i].checkModel = this.totalModel;
+                if(this.totalModel){
+                    tr[i+1].classList.add("selected");
+                    tr[i+1].querySelector("input[type='checkbox']").checked = true;
+                    this.checkedAmount = this.table.tbody.length;
+                }else{
+                    tr[i+1].classList.remove("selected");
+                    tr[i+1].querySelector("input[type='checkbox']").checked = false;
+                    this.checkedAmount = 0;
+                }
+            }
+            console.log(this.checkedAmount);
+        },
+        classToggle(e){
+            if(e.path[0].checked){
+                e.path[2].classList.add("selected")
+                this.checkedAmount++;
+            }else{
+                e.path[2].classList.remove("selected")
+                this.checkedAmount--;
+            }
+            if(this.checkedAmount===this.table.tbody.length){
+                document.getElementById("totalCheck").checked=true;
+            }else{
+                document.getElementById("totalCheck").checked=false;
+            }
+            // console.log(this.checkedAmount);
+        }
     },
     components: {
         Crumb,
