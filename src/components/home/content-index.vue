@@ -40,53 +40,27 @@
           </DataFrame>
         </div>
         <div class="colum">
-          <DataFrame :width='825' :height='650' frameTitle="数据生命周期" :rightFunc='frameSet3'>
-            <div class="row" style="height: 335px; text-align:center">
-              <div class="data_block">
-                <div class="block_name">{{data_block[0].name}}</div>
+          <DataFrame :width='825' :height='650' frameTitle="中心库数据总览" :rightFunc='frameSet3'>
+            <div class="row" style="height: 300px; text-align:center">
+              <div class="data_block" v-for="(block, index2) in data_block" :key="index2">
+                <div class="block_name" @click="changeChart(block.name)">{{block.name}}</div>
                 <ul class="block_list">
-                  <li :class="['list_name',{current: liveTitle===list.name}]" v-for="list in data_block[0].lists" :key="list.id" @click="changeChart(list.name)">{{list.name}}</li>
+                  <li class="list_name" v-for="list in block.lists" :key="list.id" @click="changeChart2(index2,list.name)">{{list.name}}</li>
                 </ul>
                 <ul class="block_list">
-                  <li class="list_data" v-for="list in data_block[0].lists" :key="list.id">{{list.value}}</li>
+                  <li class="list_data" v-for="list in block.lists" :key="list.id">{{list.value}}</li>
                 </ul>
                 <ul class="block_list">
-                  <li class="list_unit" v-for="list in data_block[0].lists" :key="list.id">{{list.unit}}</li>
-                </ul>
-              </div>
-              <div class="data_arrow"></div>
-              <div class="data_block">
-                <div class="block_name">{{data_block[1].name}}</div>
-                <ul class="block_list">
-                  <li class="list_name" v-for="list in data_block[1].lists" :key="list.id">{{list.name}}</li>
+                  <li class="list_unit" v-for="list in block.lists" :key="list.id">{{list.unit}}</li>
                 </ul>
               </div>
-              <div class="data_arrow" style="animation-delay: -1s;"></div>
-              <div class="colum">
-                <div class="data_block">
-                  <div class="block_name">{{data_block[2].name}}</div>
-                  <ul class="block_list">
-                    <li class="list_name" v-for="list in data_block[2].lists" :key="list.id">{{list.name}}</li>
-                  </ul>
-                  <ul class="block_list">
-                    <li class="list_data" v-for="list in data_block[2].lists" :key="list.id">{{list.value}}</li>
-                  </ul>
-                  <ul class="block_list">
-                    <li class="list_unit" v-for="list in data_block[2].lists" :key="list.id">{{list.unit}}</li>
-                  </ul>
-                </div>
-                <div class="data_block block_inline">
-                  <div class="block_name">{{data_block[3].name}}</div>
-                  <span class="block_data">{{data_block[3].value}}</span>
-                  <span class="block_unit">{{data_block[3].unit}}</span>
-                </div>
-              </div>
+              <el-pagination small background layout="prev, pager, next" :total="1000" :pager-count="11"></el-pagination>
             </div>
             <div class="row">
               <div class="chart_option">
                 <span class="chart_title">{{liveTitle}}</span>
                 <span class="chart_line"></span>
-                <select class="frame_option">
+                <select class="frame_option" style="position: absolute; right:0; top: 2px">
                   <option value="">近期</option>
                   <option value="">一个月内</option>
                   <option value="">一年内</option>
@@ -300,7 +274,7 @@ export default {
       ],
       data_block: [
         {
-          name: '数据产生',
+          name: '行政许可',
           lists: [
             {
               name: '登记数据',
@@ -322,46 +296,83 @@ export default {
               name: '诉求数据',
               value: '1511',
               unit: '条'
+            }
+          ]
+        },{
+          name: '行政处罚',
+          lists: [
+            {
+              name: '登记数据',
+              value: '2142',
+              unit: '条'
             },{
-              name: '其他',
-              value: '229',
+              name: '许可数据',
+              value: '301',
+              unit: '条'
+            },{
+              name: '处罚数据',
+              value: '112',
+              unit: '条'
+            },{
+              name: '监管数据',
+              value: '2034',
+              unit: '条'
+            },{
+              name: '诉求数据',
+              value: '1511',
               unit: '条'
             }
           ]
         },{
-          name: '数据存储',
-          lists: [
-            { name: '主体库', },{ name: '证照库', },{ name: '案件库', },{ name: '监管库', },{ name: '其他库', }
-          ]
-        },{
-          name: '数据应用',
+          name: '综合监管',
           lists: [
             {
-              name: '查询应用',
-              value: '1.123',
-              unit: '万条'
+              name: '登记数据',
+              value: '2142',
+              unit: '条'
             },{
-              name: '接口服务',
-              value: '1.021',
-              unit: '万条'
+              name: '许可数据',
+              value: '301',
+              unit: '条'
             },{
-              name: '数据上报',
-              value: '3.125',
-              unit: '万条'
+              name: '处罚数据',
+              value: '112',
+              unit: '条'
             },{
-              name: '数据共享',
-              value: '1.192',
-              unit: '万条'
+              name: '监管数据',
+              value: '2034',
+              unit: '条'
             },{
-              name: '数据落地',
-              value: '1.396',
-              unit: '万条'
+              name: '诉求数据',
+              value: '1511',
+              unit: '条'
             }
           ]
         },{
-          name: '数据清理及归档',
-          value: '8021',
-          unit: '条'
+          name: '特种设备',
+          lists: [
+            {
+              name: '登记数据',
+              value: '2142',
+              unit: '条'
+            },{
+              name: '许可数据',
+              value: '301',
+              unit: '条'
+            },{
+              name: '处罚数据',
+              value: '112',
+              unit: '条'
+            },{
+              name: '监管数据',
+              value: '2034',
+              unit: '条'
+            },{
+              name: '诉求数据',
+              value: '1511',
+              unit: '条'
+            }
+          ]
         }
       ],
       liveTitle: '',
@@ -668,7 +679,7 @@ export default {
               x:10,
           top:25,
           width: '780',
-              height: '200',
+          bottom: 20,
           containLabel: true
           },
         xAxis: {
@@ -742,7 +753,7 @@ export default {
     }
   },
   mounted(){
-    this.liveTitle = this.data_block[0].lists[0].name;
+    this.liveTitle = this.data_block[0].name;
 
     const myChart = echarts.init(document.getElementsByClassName('worldcloud')[0]);//图表id
     const data = {
@@ -870,6 +881,28 @@ export default {
   methods: {
     changeChart(name){
       this.liveTitle = name;
+      const blocks = event.target.parentNode.parentNode.querySelectorAll(".data_block");
+      const lists = event.target.parentNode.querySelectorAll(".block_list li.list_name");
+      blocks.forEach(block => {
+        block.classList.remove("active");
+      });
+      event.target.parentNode.classList.add("active");
+      lists.forEach(li => {
+        li.classList.remove("current")
+      });
+    },
+    changeChart2(idx,name){
+      this.liveTitle = this.data_block[idx].name + " > " + name;
+      const blocks = event.target.parentNode.parentNode.parentNode.querySelectorAll(".data_block");
+      const lists = event.target.parentNode.querySelectorAll("li");
+      blocks.forEach(block => {
+        block.classList.remove("active");
+      });
+      event.target.parentNode.parentNode.classList.add("active");
+      lists.forEach(li => {
+        li.classList.remove("current")
+      });
+      event.target.classList.add("current");
     }
   },
   
@@ -880,5 +913,7 @@ export default {
   .bulb_list>>>li{
     width: calc((100% - 60px)/5);
   }
-
+  .el-pagination{
+    margin-top: 10px;
+  }
 </style>

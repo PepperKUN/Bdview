@@ -771,7 +771,7 @@ table.simple td {
 }
 
 .row>.data_block {
-    height: calc(100% - 34px);
+    /* height: calc(100% - 96px); */
 }
 
 .colum>.data_block {
@@ -790,12 +790,17 @@ table.simple td {
     font-size: 16px;
 }
 
+.data_block.active {
+    background: rgba(51, 137, 255, 0.3);
+}
+
 .data_block>.block_name {
     padding: 6px;
     background: rgba(253, 62, 129, 0.48);
     border-radius: 4px;
     color: #fff;
     text-align: center;
+    cursor: pointer;
 }
 
 .block_inline>.block_name {
@@ -831,7 +836,11 @@ table.simple td {
     position: relative;
 }
 
-.block_list>li.current {
+.active .block_name {
+    background-color: rgba(253, 62, 129, 0.82);
+}
+
+.active .block_list>li.current {
     font-weight: bold;
     color: #001032;
     background-color: #4ecdc4;
@@ -873,7 +882,10 @@ table.simple td {
     margin: 14px;
     margin-top: 8px;
     margin-bottom: 0;
-    text-align: center;
+    text-align: left;
+    position: relative;
+    height: 25px;
+    overflow: hidden;
 }
 
 .chart_title {
@@ -882,7 +894,7 @@ table.simple td {
 }
 
 .chart_line {
-    width: calc(100% - 200px);
+    width: calc(100% - 170px);
     height: 1px;
     display: inline-block;
     vertical-align: middle;
@@ -1062,7 +1074,7 @@ table.simple td {
 }
 
 .chart_wrap {
-    height: calc(100% - 366px);
+    height: calc(100% - 333px);
 }
 
 .worldcloud {
