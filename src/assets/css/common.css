@@ -4932,15 +4932,16 @@ table.tabAdd_head {
 
 .company_list {
     margin: 10px;
+    height: calc(100% - 20px);
 }
 
-.company_list>li {
+.company_list li {
     margin-bottom: 10px;
     background-color: rgba(110, 173, 255, 0.2);
     border-left: 2px solid #6ae5fe;
 }
 
-.company_list>li.title {
+.company_list li.title {
     border: none;
     background-color: rgba(255, 230, 109, 0.2);
     text-align: center;
@@ -4948,20 +4949,20 @@ table.tabAdd_head {
     color: #fbe26f;
 }
 
-.company_list>li>h4 {
+.company_list li>h4 {
     font-size: 18px;
     color: #6ae6ff;
     padding: 10px;
     border-bottom: 1px dashed #4f79c0;
 }
 
-.company_list>li>span {
+.company_list li>span {
     display: block;
     padding: 5px 10px;
     color: #fff;
 }
 
-.company_list>li>span.code_class {
+.company_list li>span.code_class {
     padding: 5px 10px;
     padding-bottom: 0;
     color: #376ec9;

@@ -5,11 +5,13 @@
             <DataFrame :width='316' :height='866' class="sidebar_tree"  rightFunc>
                 <ul class="company_list">
                     <li class="title">已选中企业</li>
-                    <li v-for="item in comList" :key="item.id">
-                        <h4>{{item.name}}</h4>
-                        <span class="code_class">统一社会信用代码</span>
-                        <span class="code">{{item.code}}</span>
-                    </li>
+                    <el-scrollbar :native="false" style="height:calc(100% - 39px)">
+                        <li v-for="item in comList" :key="item.id">
+                            <h4>{{item.name}}</h4>
+                            <span class="code_class">统一社会信用代码</span>
+                            <span class="code">{{item.code}}</span>
+                        </li>
+                    </el-scrollbar>
                 </ul>
             </DataFrame>
             <div class="colum" style="width:calc(100% - 350px)">
@@ -209,6 +211,48 @@ export default {
             totalModel: false,
             comList: [
                 {
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
+                    name: '小鹏金融服务',
+                    code: '549741621876546213216'
+                },{
                     name: '小鹏金融服务',
                     code: '549741621876546213216'
                 },{
