@@ -30,7 +30,7 @@
         </div>
         <div class="search_submit">
             <button class="reset" v-if="withAdd" @click="addBtn">新增</button>
-            <button class="submit" @click="getFormValue">查询</button>
+            <button class="submit" @click="getFormValue" v-loading.fullscreen.lock="fullscreenLoading">查询</button>
             <button class="reset" v-if="withReset">重置</button>
             <button class="reset" v-if="withExport">导出</button>
         </div>
@@ -52,7 +52,8 @@ export default {
     },
     data() {
         return {
-            formVal: []
+            formVal: [],
+            fullscreenLoading: false
         };
     },
     computed: {
@@ -78,9 +79,20 @@ export default {
                 }
             }
             console.log(this.formVal);
+            this.openFullScreen();
         },
         addBtn(){
             this.addFunc();
+        },
+        openFullScreen() {
+            const loading = this.$loading({
+            lock: true,
+            text: '正在加载，请稍等...',
+            background: 'rgba(0, 0, 0, 0.7)'
+            });
+            setTimeout(() => {
+                loading.close();
+            }, 2000);
         }
     },
     components: {

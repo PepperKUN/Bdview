@@ -1,7 +1,9 @@
 <template>
     <div class="row">
         <DataFrame :width='316' :height='866' class="sidebar_tree"  rightFunc>
-             <tree class="side_tree" :nodes="nodes" :setting="setting"/>
+            <el-scrollbar :native="false" style="height:100%">
+                <tree class="side_tree" :nodes="nodes" :setting="setting"/>
+            </el-scrollbar>
         </DataFrame>
         <div class="colum" style="width:calc(100% - 350px)">
             <FilterForm :form='form' withReset></FilterForm>

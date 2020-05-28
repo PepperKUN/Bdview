@@ -2,7 +2,14 @@ import 'core-js'
 import Vue from 'vue'
 import ECharts from 'vue-echarts'
 import App from './App.vue'
-import { Pagination, Scrollbar, DatePicker, Table, TableColumn} from 'element-ui'
+import {
+  Pagination,
+  Scrollbar,
+  DatePicker,
+  Table,
+  TableColumn,
+  Loading
+} from "element-ui";
 import store from "./store";
 import router from "./router";
 
@@ -21,6 +28,11 @@ Vue.use(Scrollbar)
 Vue.use(DatePicker)
 Vue.use(Table)
 Vue.use(TableColumn)
+
+Vue.use(Loading.directive);
+
+Vue.prototype.$loading = Loading.service;
+
 Vue.config.productionTip = false
 Vue.component('DataFrame', dataFrame);
 Vue.component('v-chart', ECharts);

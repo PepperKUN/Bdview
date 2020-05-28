@@ -4683,7 +4683,7 @@ table.singleColumForm td {
     white-space: normal;
 }
 
-table.singleColumForm td>input[type='text'] {
+table.singleColumForm td>input[type='text'], table.singleColumForm td .treeSelect>input {
     font-size: 14px;
     color: #00fded;
     height: 40px;
@@ -4695,7 +4695,7 @@ table.singleColumForm td>input[type='text'] {
     min-width: 300px;
 }
 
-table.singleColumForm td>input[type='text']::placeholder {
+table.singleColumForm td>input[type='text']::placeholder, table.singleColumForm td .treeSelect>input::placeholder {
     color: #00fded;
 }
 
@@ -4967,4 +4967,80 @@ table.tabAdd_head {
     padding-bottom: 0;
     color: #376ec9;
     font-size: 12px;
+}
+
+.el-loading-parent--relative {
+    position: initial !important;
+}
+
+.el-loading-mask {
+    font-size: 24px;
+}
+
+.el-loading-spinner .el-loading-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #03fded;
+}
+
+.el-loading-spinner .path {
+    stroke: #03fded;
+    stroke-width: 4px;
+}
+
+.treeSelect {
+    position: relative;
+}
+
+.treeSelect .icon-reject {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+}
+
+.drop_wrap {
+    left: 0;
+    top: 46px;
+    position: absolute;
+    width: calc(100% - 2px);
+    background-color: #112c66;
+    border: 1px solid #03fded;
+}
+
+table.singleColumForm td .treeSelect>input.treeInput {
+    padding-right: 30px;
+    width: calc(100% - 42px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.treeSelect .ztree {
+    padding: 10px;
+}
+
+.treeSelect .ztree li a {
+    color: #fff;
+}
+
+.treeSelect .ztree .button.bottom_close:before, .treeSelect .ztree .button.bottom_open:before, .treeSelect .ztree .button.center_close:before, .treeSelect .ztree .button.center_open:before, .treeSelect .ztree .button.noline_close:before, .treeSelect .ztree .button.noline_open:before, .treeSelect .ztree .button.root_close:before, .treeSelect .ztree .button.root_open:before, .treeSelect .ztree .button.roots_close:before, .treeSelect .ztree .button.roots_open:before {
+    border-color: transparent transparent transparent #fbe26f;
+}
+
+.treeSelect .ztree .button.chk {
+    border-color: #00fded;
+    background-color: transparent;
+}
+
+.treeSelect .ztree .button.chk.checkbox_true_part, .treeSelect .ztree .button.chk.checkbox_true_part_focus, .treeSelect .ztree .button.chk.checkbox_true_full, .treeSelect .ztree .button.chk.checkbox_true_full_focus {
+    background-color: #00fded;
+}
+
+.treeSelect .ztree .button.chk:after {
+    border-color: #000;
+}
+
+.treeSelect .ztree .bottom_docu:after, .treeSelect .ztree .bottom_docu:before, .treeSelect .ztree .center_docu:after, .treeSelect .ztree .center_docu:before, .treeSelect .ztree .roots_docu:after, .treeSelect .ztree .roots_docu:before, .treeSelect .ztree .line:before {
+    border-color: #00fded;
 }

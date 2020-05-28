@@ -45,6 +45,7 @@
                             <input type="text" :placeholder="'请输入'+line.name" v-if="line.input!==undefined" :value="line.input">
                             <textarea rows="5" :placeholder="'请输入'+line.name" v-if="line.textarea!==undefined" :value="line.textarea"></textarea>
                             <el-date-picker v-if="line.datePicker" v-model="line.model" :type="line.datePicker" placeholder="选择日期"></el-date-picker>
+                            <TreeSelect v-if="line.tree!==undefined" :Tnodes="line.tree"></TreeSelect>
                         </td>
                     </tr>
                 </table>
@@ -129,6 +130,7 @@
 import FilterForm from '../common/searchFilter'
 import Pop from '../common/pop'
 import Crumb from '../common/crumb'
+import TreeSelect from '../common/treeSelect'
 export default {
     props: {
 
@@ -308,6 +310,21 @@ export default {
             infoShow: false,
             addForm: [
                 {
+                    name: '资源名称',
+                    tree: [
+                        { id:1, pid:0, name:"目录", open:true},
+                        { id:11, pid:1, name:"随意勾选 1-1", open:false},
+                        { id:111, pid:11, name:"随意勾选 1-1-1"},
+                        { id:112, pid:11, name:"随意勾选 1-1-2"},
+                        { id:12, pid:1, name:"随意勾选 1-2", open:true},
+                        { id:121, pid:12, name:"随意勾选 1-2-1"},
+                        { id:122, pid:12, name:"随意勾选 1-2-2"},
+                        { id:123, pid:12, name:"随意勾选 1-2-3"},
+                        { id:124, pid:12, name:"随意勾选 1-2-4"},
+                    ],
+                    model: ''
+                },
+                {
                     name: '业务类型',
                     select: [
                         {
@@ -412,7 +429,7 @@ export default {
                     input: ''
                 }
             ],
-            portAdd_lists: []
+            portAdd_lists: [],
         };
     },
     computed: {
@@ -451,7 +468,8 @@ export default {
     components: {
         FilterForm,
         Crumb,
-        Pop
+        Pop,
+        TreeSelect
     },
 };
 </script>
