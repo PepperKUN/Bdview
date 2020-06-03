@@ -44,15 +44,17 @@
             <div class="row" style="height: 300px; text-align:center">
               <div class="data_block" v-for="(block, index2) in data_block" :key="index2">
                 <div class="block_name" @click="changeChart(block.name)">{{block.name}}</div>
-                <ul class="block_list">
-                  <li class="list_name" v-for="list in block.lists" :key="list.id" @click="changeChart2(index2,list.name)">{{list.name}}</li>
-                </ul>
-                <ul class="block_list">
-                  <li class="list_data" v-for="list in block.lists" :key="list.id">{{list.value}}</li>
-                </ul>
-                <ul class="block_list">
-                  <li class="list_unit" v-for="list in block.lists" :key="list.id">{{list.unit}}</li>
-                </ul>
+                <el-scrollbar :native="false" style="height:calc(100% - 33px)">
+                  <ul class="block_list">
+                    <li class="list_name" v-for="list in block.lists" :key="list.id" @click="changeChart2(index2,list.name)">{{list.name}}</li>
+                  </ul>
+                  <ul class="block_list">
+                    <li class="list_data" v-for="list in block.lists" :key="list.id">{{list.value}}</li>
+                  </ul>
+                  <ul class="block_list">
+                    <li class="list_unit" v-for="list in block.lists" :key="list.id">{{list.unit}}</li>
+                  </ul>
+                </el-scrollbar>
               </div>
               <el-pagination small background layout="prev, pager, next" :total="1000" :pager-count="11"></el-pagination>
             </div>
@@ -293,8 +295,16 @@ export default {
               value: '2034',
               unit: '条'
             },{
-              name: '诉求数据',
-              value: '1511',
+              name: '监管数据',
+              value: '2034',
+              unit: '条'
+            },{
+              name: '监管数据',
+              value: '2034',
+              unit: '条'
+            },{
+              name: '监管数据',
+              value: '2034',
               unit: '条'
             }
           ]
@@ -317,10 +327,6 @@ export default {
               name: '监管数据',
               value: '2034',
               unit: '条'
-            },{
-              name: '诉求数据',
-              value: '1511',
-              unit: '条'
             }
           ]
         },{
@@ -333,18 +339,6 @@ export default {
             },{
               name: '许可数据',
               value: '301',
-              unit: '条'
-            },{
-              name: '处罚数据',
-              value: '112',
-              unit: '条'
-            },{
-              name: '监管数据',
-              value: '2034',
-              unit: '条'
-            },{
-              name: '诉求数据',
-              value: '1511',
               unit: '条'
             }
           ]
@@ -366,10 +360,6 @@ export default {
             },{
               name: '监管数据',
               value: '2034',
-              unit: '条'
-            },{
-              name: '诉求数据',
-              value: '1511',
               unit: '条'
             }
           ]

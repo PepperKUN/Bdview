@@ -110,13 +110,27 @@ export default {
 
     },
     mounted() {
-
+        this.pathWidth(100);
     },
     watch: {
 
     },
     methods: {
-
+        pathWidth(gap){
+            const a = document.querySelector(".tree_wrap").querySelectorAll(".tree_block");
+            let totalWidth = 0;
+            let offest_1 = a[0].offsetWidth/2;
+            let offest_2 = a[a.length - 1].offsetWidth/2;
+            a.forEach(el => {
+                totalWidth = totalWidth + el.offsetWidth + 2*gap;
+                el.style.marginLeft = gap +'px';
+                el.style.marginRight = gap + 'px';
+            })
+            totalWidth = totalWidth - offest_1 - offest_2 - 2*gap;
+            document.querySelector(".tree_path").style.width = totalWidth + 'px' 
+            console.log(a);
+            
+        }
     },
     components: {
 
