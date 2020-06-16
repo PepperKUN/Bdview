@@ -12,10 +12,19 @@
                                 </el-option>
                             </el-select>
                             <template v-if="item.radio">
-                                <input type="radio" :value="item.radio[0]" :id="'rd1_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model">
-                                <label :for="'rd1_'+index1+'_'+index2">{{item.radio[0]}}</label>
-                                <input type="radio" :value="item.radio[1]" :id="'rd2_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model">
-                                <label :for="'rd2_'+index1+'_'+index2">{{item.radio[1]}}</label>
+                                <template v-if="typeof(item.model)==='object'">
+                                    <input type="radio" :value="item.radio[0]" :id="'rd1_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model[0]" @change="radioChange">
+                                    <label :for="'rd1_'+index1+'_'+index2">{{item.radio[0]}}</label>
+                                    <input type="radio" :value="item.radio[1]" :id="'rd2_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model[0]" @change="radioChange">
+                                    <label :for="'rd2_'+index1+'_'+index2">{{item.radio[1]}}</label>
+                                    <slot name="radio_content"></slot>
+                                </template>
+                                <template v-else>
+                                    <input type="radio" :value="item.radio[0]" :id="'rd1_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model">
+                                    <label :for="'rd1_'+index1+'_'+index2">{{item.radio[0]}}</label>
+                                    <input type="radio" :value="item.radio[1]" :id="'rd2_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model">
+                                    <label :for="'rd2_'+index1+'_'+index2">{{item.radio[1]}}</label>
+                                </template>
                             </template>
                             <el-date-picker v-if="item.datePicker" v-model="item.model" :type="item.datePicker" placeholder="选择日期"  start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker>
                             <template v-if="item.amount">
@@ -53,7 +62,8 @@ export default {
     data() {
         return {
             formVal: [],
-            fullscreenLoading: false
+            fullscreenLoading: false,
+            radioStats: false,
         };
     },
     computed: {
@@ -93,6 +103,10 @@ export default {
             setTimeout(() => {
                 loading.close();
             }, 2000);
+        },
+        radioChange(){
+            this.radioStats = !this.radioStats;
+            this.$emit("showDate", this.radioStats)
         }
     },
     components: {

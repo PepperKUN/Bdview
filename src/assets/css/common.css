@@ -3297,6 +3297,9 @@ ol.tree_wrap>li::before {
 .search_filter>table .el-date-editor.el-input, .el-date-editor.el-input__inner {
     width: 100%;
 }
+.inline_picker {
+    display: inline-block;
+}
 
 .search_filter>table input.el-input__inner {
     width: 100%;
@@ -3365,7 +3368,7 @@ ol.tree_wrap>li::before {
     color: #00fdeb;
 }
 
-.el-range-editor .el-range-input::placeholder{
+.el-range-editor .el-range-input::placeholder {
     color: #00fdeb;
 }
 
@@ -5094,6 +5097,10 @@ table.singleColumForm td .treeSelect>input.treeInput {
 }
 
 .el-select-dropdown__item {
+    color: #006efd;
+}
+
+.el-select-dropdown__item.selected {
     color: #00fded;
 }
 
