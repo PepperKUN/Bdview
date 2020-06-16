@@ -7,17 +7,17 @@
                         <th :key="'th_'+index2">{{item.name}}：</th>
                         <td :key="'td_'+index2">
                             <input type="text" v-if="item.input" :placeholder="item.input" v-model="item.model">
-                            <select v-if="item.select" v-model="item.model">
-                                <option value="">请选择{{item.name}}</option>
-                                <option v-for="opt in item.select" :key="opt.id" :value="opt.key">{{opt.value}}</option>
-                            </select>
+                            <el-select v-if="item.select" v-model="item.model" :placeholder="'请选择'+item.name">
+                                <el-option v-for="opt in item.select" :key="opt.id" :label="opt.value" :value="opt.key">
+                                </el-option>
+                            </el-select>
                             <template v-if="item.radio">
                                 <input type="radio" :value="item.radio[0]" :id="'rd1_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model">
                                 <label :for="'rd1_'+index1+'_'+index2">{{item.radio[0]}}</label>
                                 <input type="radio" :value="item.radio[1]" :id="'rd2_'+index1+'_'+index2" :name="index1+'_'+index2" v-model="item.model">
                                 <label :for="'rd2_'+index1+'_'+index2">{{item.radio[1]}}</label>
                             </template>
-                            <el-date-picker v-if="item.datePicker" v-model="item.model" :type="item.datePicker" placeholder="选择日期"></el-date-picker>
+                            <el-date-picker v-if="item.datePicker" v-model="item.model" :type="item.datePicker" placeholder="选择日期"  start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker>
                             <template v-if="item.amount">
                                 <input type="number">
                                 <span class="number_gap">到</span>

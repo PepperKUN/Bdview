@@ -880,15 +880,16 @@ export default {
       lists.forEach(li => {
         li.classList.remove("current")
       });
+      
     },
     changeChart2(idx,name){
       this.liveTitle = this.data_block[idx].name + " > " + name;
-      const blocks = event.target.parentNode.parentNode.parentNode.querySelectorAll(".data_block");
+      const blocks = event.target.offsetParent.offsetParent.parentNode.querySelectorAll(".data_block");
       const lists = event.target.parentNode.querySelectorAll("li");
       blocks.forEach(block => {
         block.classList.remove("active");
       });
-      event.target.parentNode.parentNode.classList.add("active");
+      event.target.offsetParent.offsetParent.classList.add("active");
       lists.forEach(li => {
         li.classList.remove("current")
       });
@@ -905,5 +906,8 @@ export default {
   }
   .el-pagination{
     margin-top: 10px;
+  }
+  .data_block{
+    height: 197px;
   }
 </style>

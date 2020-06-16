@@ -4,11 +4,13 @@ import ECharts from 'vue-echarts'
 import App from './App.vue'
 import {
   Pagination,
+  Select,
+  Option,
   Scrollbar,
   DatePicker,
   Table,
   TableColumn,
-  Loading
+  Loading,
 } from "element-ui";
 import store from "./store";
 import router from "./router";
@@ -25,6 +27,8 @@ ECharts.registerMap('yunnan', yunnan)
 
 Vue.use(Pagination)
 Vue.use(Scrollbar)
+Vue.use(Select)
+Vue.use(Option)
 Vue.use(DatePicker)
 Vue.use(Table)
 Vue.use(TableColumn)

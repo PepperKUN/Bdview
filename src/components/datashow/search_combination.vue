@@ -46,13 +46,13 @@
             <button class="reset">保存查询模板</button>
             <button class="reset">导出</button>
         </div>
-        <Pop v-model="show" :title="title" width="930px" height="650px">
+        <Pop v-model="show" :title="title" width="930px" height="540px">
             <div class="drag_wrap">
                 <ul class="dragList">
                     <li class="title">待选择</li>
                     <el-scrollbar :native="false" style="height:calc(100% - 40px)">
                         <draggable :list="originArray" :group="{ name: 'people'}" class="drag_content">
-                            <li v-for="element in originArray" :key="element.id">{{element.name}}</li>
+                            <li v-for="element in originArray" :key="element.id"><span>{{element.name}}</span></li>
                         </draggable>
                     </el-scrollbar>
                 </ul>
@@ -62,7 +62,7 @@
                     <el-scrollbar :native="false" style="height:calc(100% - 40px)">
                         <draggable :list="resultArray" group="people" class="drag_content">
                             <li v-for="(element, index3) in resultArray" :key="index3">
-                                {{element.name}}
+                                <span>{{element.name}}</span>
                                 <i class="iconfont icon-close" @click="removeAt(index3)"></i>
                             </li>
                         </draggable>

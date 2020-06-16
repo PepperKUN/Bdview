@@ -749,9 +749,12 @@ table {
     transform: scaleX(-1);
 }
 
+.simple_wrap {
+    height: calc(100% - 20px);
+}
+
 table.simple {
     width: calc(100% - 20px);
-    height: calc(100% - 20px);
     margin: 10px;
     margin-bottom: 0;
 }
@@ -762,6 +765,10 @@ table.simple th {
     text-align: center;
     padding-bottom: 4px;
     border-bottom: 1px solid #00fdeb;
+}
+
+table.simple tbody>tr {
+    height: 26px;
 }
 
 table.simple td {
@@ -789,7 +796,6 @@ table.simple td {
     margin-bottom: 0;
     margin-top: 30px;
     font-size: 16px;
-    height: 197px;
 }
 
 .data_block.active {
@@ -2098,15 +2104,20 @@ button.close {
 .block_arrow {
     position: relative;
     text-align: center;
+    vertical-align: text-top;
     display: inline-block;
     width: 90px;
-    height: 67px;
+    height: 740px;
     background-image: url(../images/arrow_right_mini.png);
 }
 
 .block_arrow>span {
     color: #52ffe7;
     font-size: 14px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: calc(50% - 40px);
 }
 
 .grid {
@@ -3354,6 +3365,10 @@ ol.tree_wrap>li::before {
     color: #00fdeb;
 }
 
+.el-range-editor .el-range-input::placeholder{
+    color: #00fdeb;
+}
+
 .el-input__inner, .el-input__inner:hover {
     border-color: #00fdeb;
     background-color: #112c66;
@@ -4100,13 +4115,18 @@ table.form_complex {
 }
 
 .dragList div>li {
-    padding: 10px 20px;
-    padding-right: 10px;
+    /* padding-right: 10px; */
     color: #5cfaeb;
     background-color: rgba(96, 124, 183, 0.25);
     border-radius: 6px;
     margin: 4px;
     cursor: default;
+    overflow: hidden;
+}
+
+.dragList div>li>span {
+    display: inline-block;
+    padding: 10px 20px;
 }
 
 .dragList li.title {
@@ -4126,11 +4146,12 @@ table.form_complex {
 }
 
 .dragList .icon-close {
-    font-size: 8px;
+    font-size: 12px;
     float: right;
-    padding: 4px;
+    padding: 13px;
     cursor: pointer;
     color: #6e90ef;
+    border-left: 1px solid #011948;
 }
 
 .topData_wrap {
@@ -5041,4 +5062,42 @@ table.singleColumForm td .treeSelect>input.treeInput {
 
 .treeSelect .ztree .bottom_docu:after, .treeSelect .ztree .bottom_docu:before, .treeSelect .ztree .center_docu:after, .treeSelect .ztree .center_docu:before, .treeSelect .ztree .roots_docu:after, .treeSelect .ztree .roots_docu:before, .treeSelect .ztree .line:before {
     border-color: #00fded;
+}
+
+/*-滚动条样式-*/
+
+.el-scrollbar__bar {
+    border-radius: 100px;
+}
+
+.el-scrollbar__bar.is-vertical {
+    width: 14px;
+}
+
+.el-scrollbar__bar.is-horizontal {
+    height: 14px;
+}
+
+/*-下拉选择样式-*/
+
+.el-select {
+    width: 100%;
+}
+
+.el-select .el-input .el-select__caret {
+    color: #00fded;
+}
+
+.el-select-dropdown {
+    border-color: #00fded;
+    background-color: #112c65;
+}
+
+.el-select-dropdown__item {
+    color: #00fded;
+}
+
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+    background-color: #00fded;
+    color: #000;
 }

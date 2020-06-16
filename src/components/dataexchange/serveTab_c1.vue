@@ -5,26 +5,28 @@
                 <DataFlow :flowData="flow" @update-data='update' :dataGap='100'></DataFlow>
             </DataFrame><br>
             <DataFrame :width='518' :height='376' frameTitle="今日各类业务交换情况" :rightFunc="frameSet2">
-                <table class="simple">
-                    <thead>
-                    <tr>
-                        <th style="text-align:left;">交换名称</th>
-                        <th style="text-align:right;">发送量 </th>
-                        <th style="text-align:left;">/ 接收量</th>
-                        <th>频率</th>
-                        <th style="text-align:right">最近更新</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="item in table_simple" :key="item.id">
-                        <td style="text-align:left; color:#fff">{{item.name}}</td>
-                        <td style="text-align:right; font-weight:bold; color:#00fdeb">{{item.send}} </td>
-                        <td style="text-align:left; color:#ff487f"><span style="color:#fff">/</span> {{item.receive}}</td>
-                        <td>{{item.frequency}}</td>
-                        <td style="text-align:right">{{item.time}}</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="simple_wrap">
+                    <table class="simple">
+                        <thead>
+                        <tr>
+                            <th style="text-align:left;">交换名称</th>
+                            <th style="text-align:right;">发送量 </th>
+                            <th style="text-align:left;">/ 接收量</th>
+                            <th>频率</th>
+                            <th style="text-align:right">最近更新</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="item in table_simple" :key="item.id">
+                            <td style="text-align:left; color:#fff">{{item.name}}</td>
+                            <td style="text-align:right; font-weight:bold; color:#00fdeb">{{item.send}} </td>
+                            <td style="text-align:left; color:#ff487f"><span style="color:#fff">/</span> {{item.receive}}</td>
+                            <td>{{item.frequency}}</td>
+                            <td style="text-align:right">{{item.time}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <el-pagination small background layout="prev, pager, next" :total="1000" :pager-count="13"></el-pagination>
             </DataFrame><br>
             <DataFrame :width='518' :height='370' frameTitle="今日与外部单位的数据交换总量" :rightFunc="frameSet3">
@@ -68,30 +70,32 @@
                 <v-chart :options="pie" :autoresize='true'/>
             </DataFrame><br>
             <DataFrame :width='518' :height='286' frameTitle="今日与委办局交换数据统计" :rightFunc="frameSet">
-                <table class="simple">
-                    <thead>
-                    <tr>
-                        <th style="text-align:left;">单位</th>
-                        <th>双告知</th>
-                        <th>多证合一</th>
-                        <th>简易注销</th>
-                        <th>一窗通</th>
-                        <th>数据归集</th>
-                        <th style="text-align:right">合计</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="item in table_simple2" :key="item.id">
-                        <td style="text-align:left; color:#fff">{{item[0]}}</td>
-                        <td>{{item[1]}} </td>
-                        <td>{{item[2]}}</td>
-                        <td>{{item[3]}}</td>
-                        <td>{{item[4]}}</td>
-                        <td>{{item[5]}}</td>
-                        <td style="text-align:right">{{item[6]}}</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="simple_wrap">
+                    <table class="simple">
+                        <thead>
+                        <tr>
+                            <th style="text-align:left;">单位</th>
+                            <th>双告知</th>
+                            <th>多证合一</th>
+                            <th>简易注销</th>
+                            <th>一窗通</th>
+                            <th>数据归集</th>
+                            <th style="text-align:right">合计</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="item in table_simple2" :key="item.id">
+                            <td style="text-align:left; color:#fff">{{item[0]}}</td>
+                            <td>{{item[1]}} </td>
+                            <td>{{item[2]}}</td>
+                            <td>{{item[3]}}</td>
+                            <td>{{item[4]}}</td>
+                            <td>{{item[5]}}</td>
+                            <td style="text-align:right">{{item[6]}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <el-pagination small background layout="prev, pager, next" :total="1000" :pager-count="13"></el-pagination>
             </DataFrame><br>
             <DataFrame :width='518' :height='242' frameTitle="昨日数据落地统计" rightFunc>
@@ -228,24 +232,6 @@ export default {
                     send: '200',
                     receive: '90',
                     frequency: '5分钟',
-                    time: '24:00',
-                },{
-                    name: '多证合一',
-                    send: '2700',
-                    receive: '2',
-                    frequency: '2小时',
-                    time: '24:00',
-                },{
-                    name: '联合惩戒',
-                    send: '1',
-                    receive: '4',
-                    frequency: '2小时',
-                    time: '24:00',
-                },{
-                    name: '简易注销',
-                    send: '20',
-                    receive: '20',
-                    frequency: '2小时',
                     time: '24:00',
                 }
             ],
@@ -573,7 +559,7 @@ export default {
         width: 100px;
         z-index: 2;
     }
-    table.simple{
+    .simple_wrap{
         height: calc(100% - 45px);
     }
 </style>
