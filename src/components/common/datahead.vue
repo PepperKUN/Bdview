@@ -83,7 +83,7 @@ export default {
                         },
                     ]
                 },{
-                    name: '数据治理',
+                    name: '数据服务',
                     icon: 'menuIcon_4',
                     url: '/cultivation',
                     sheet:[
@@ -111,7 +111,7 @@ export default {
                         },
                     ]
                 },{
-                    name: '数据服务',
+                    name: '运行监控',
                     icon: 'menuIcon_5',
                     url: '/service',
                     sheet:[
