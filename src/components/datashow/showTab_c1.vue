@@ -847,11 +847,24 @@ export default {
                         aspectScale: 0.98,
                         label: {
                             normal: {
-                                color: '#fff',
                                 show: true,
-                                fontSize: 14,
                                 textBorderColor: '#000',
                                 textBorderWidth: 3,
+                                formatter:function(params){
+                                    return '{a|'+params.name+'}\n{b|'+params.value+'万}';
+                                },
+                                rich: {
+                                    a:{
+                                        color: '#fff',
+                                        fontSize: 14,
+                                    },
+                                    b:{
+                                        padding: 4,
+                                        color: '#ffe76d',
+                                        fontWeight: 'bold',
+                                        fontSize: 16,
+                                    }
+                                }
                             },
                             emphasis: {
                                 color: '#fff',
