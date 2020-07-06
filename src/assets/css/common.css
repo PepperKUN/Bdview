@@ -5185,7 +5185,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     top: 100px;
     left: 180px;
     white-space: normal;
-    padding-top: 110px;
+    padding-top: 146px;
 }
 .arrow_list::after{
     content: '';
@@ -5206,16 +5206,16 @@ table.singleColumForm td .treeSelect>input.treeInput {
     width: 33%;
 }
 .arrow_list>li.a_yellow{
-    height: 110px;
+    height: 80px;
     background-image: url(../images/arrow_yellow.png);
     background-repeat: repeat-y;
     background-position: center;
-    animation: arrow_down 3s linear -2.35s infinite;
+    animation: arrow_down 3s linear -1.7s infinite;
     position: relative;
     z-index: 2;
 }
 .arrow_list>li.a_blue{
-    height: 110px;
+    height: 80px;
     background-image: url(../images/arrow_blue.png);
     background-repeat: repeat-y;
     background-position: center;
