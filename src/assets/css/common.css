@@ -5474,6 +5474,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     border-radius: 100px;
     overflow: hidden;
     border: 1px solid #359ebe;
+    min-width: 155px;
 }
 .serve_child_list>li>span{
     vertical-align: middle;
@@ -5485,6 +5486,8 @@ table.singleColumForm td .treeSelect>input.treeInput {
     background-color: #359ebe;
     font-weight: bold;
     font-size: 14px;
+    min-width: 42px;
+    text-align: right;
 }
 .serve_child_list>li>span.number{
     padding: 0 6px;

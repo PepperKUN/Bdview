@@ -196,8 +196,8 @@ export default {
                 number: '344,460',
                 children: [
                     {
-                        name: '昆明市',
-                        number: '126,295',
+                        name: '昆明',
+                        number: '0',
                     },{
                         name: '曲靖市',
                         number: '126,295',
@@ -291,5 +291,5 @@ export default {
   }
 }
 </script>
-<style lang="css" scoped>
+<style lang="css" >
 </style>
