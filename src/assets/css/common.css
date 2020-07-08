@@ -1806,11 +1806,11 @@ table.simple td {
 
 .normal_table th {
     color: #a3fff7;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     border-bottom: 1px solid #3260b2;
     background-color: #1f4493;
-    padding: 10px;
+    padding: 8px;
 }
 
 .normal_table td {
@@ -5097,7 +5097,8 @@ table.singleColumForm td .treeSelect>input.treeInput {
 }
 
 .el-select-dropdown__item {
-    color: #006efd;
+    color: #fff;
+    font-size: 16px;
 }
 
 .el-select-dropdown__item.selected {
@@ -5733,7 +5734,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
 
 .source_block>li{
     display: inline-block;
-    padding: 7px 0 ;
+    padding: 5px 0 ;
     text-align: center;
     font-size: 16px;
     border: 1px dashed #f8e277;
@@ -5744,7 +5745,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .source_data_1>li{
     width: calc(50% - 7px);
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 .source_data_1>li:nth-child(2n){
     margin-right: 0;
@@ -5755,7 +5756,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .source_data_2>li{
     width: calc(33% - 9px);
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     vertical-align: top;
 }
 .source_data_2>li:nth-child(3n){
@@ -5764,27 +5765,22 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .source_data_2>li:nth-child(n+3){
     margin-bottom: 0;
 }
-.source_data_3>li, .source_data_4>li, .source_data_5>li{
+.source_data_3>li{
+    width: 100%;
+}
+.source_data_4>li, .source_data_5>li, .source_data_6>li{
     display: block;
     margin-left: 140px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 .source_data_3>li:last-child, .source_data_4>li:last-child, .source_data_5>li:last-child{
     margin-bottom: 0;
 }
 
-.source_data_2>li:nth-child(3){
-    padding: 2px 0;
+.source_data_2>li:nth-child(4), .source_data_2>li:nth-child(5){
+    width: calc(50% - 12px);
 }
-.source_data_2>li:nth-child(3)>span{
-    line-height: 16px;
-}
-.source_data_2>li:nth-child(3)>span:after{
-    content: '（初食品、药品）';
-    display: block;
-    font-size: 12px;
-    line-height: 12px;
-}
+
 
 .source_block>.block_title{
     width: 140px;
@@ -5865,19 +5861,22 @@ table.singleColumForm td .treeSelect>input.treeInput {
     vertical-align: middle;
 }
 .source_stream_list>li:nth-child(1){
-    top: 64px;
+    top: 58px;
 }
 .source_stream_list>li:nth-child(2){
-    top: 180px;
+    top: 162px;
 }
 .source_stream_list>li:nth-child(3){
-    top: 316px;
+    top: 242px;
 }
 .source_stream_list>li:nth-child(4){
-    top: 452px;
+    top: 343px;
 }
 .source_stream_list>li:nth-child(5){
-    top: 566px;
+    top: 466px;
+}
+.source_stream_list>li:nth-child(6){
+    top: 570px;
 }
 
 
