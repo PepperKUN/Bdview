@@ -1805,9 +1805,9 @@ table.simple td {
 }
 
 .normal_table th {
-    color: #a3fff7;
+    color: #fff;
     font-size: 16px;
-    font-weight: normal;
+    font-weight: bold;
     border-bottom: 1px solid #3260b2;
     background-color: #1f4493;
     padding: 8px;
