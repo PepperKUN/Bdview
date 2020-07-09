@@ -2,7 +2,11 @@
   <div class="content content_rise">
       <dateFilter groupName="dateRadio" :radioList="['今日','近周','近月','累计']" @timeSelect="passModel"/>
       <div class="serve_center_wrap">
-          <div class="serve_center"></div>
+          <div class="serve_center">
+              <div class="center_line-wrap">
+                <div class="center_line"></div>
+              </div>
+          </div>
           <div class="serve_department" v-for="(serve, index) in serve_department_list" :key="index" :class="'departmentBlock_'+(index+1)">
             <h4>
                 <span class="name">{{serve.name}}</span>

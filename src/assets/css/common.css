@@ -5560,31 +5560,31 @@ table.singleColumForm td .treeSelect>input.treeInput {
     margin-left: 20px;
 }
 .stream_line_1{
-    top: -24px;
+    top: -54px;
     left: 810px;
 }
 .stream_line_2{
-    top: 154px;
+    top: 124px;
     left: 670px;
 }
 .stream_line_3{
-    top: 496px;
+    top: 466px;
     left: 700px;
 }
 .stream_line_4{
-    top: -24px;
+    top: -54px;
     right: 810px;
 }
 .stream_line_5{
-    top: 154px;
+    top: 124px;
     right: 700px;
 }
 .stream_line_6{
-    top: 324px;
+    top: 294px;
     right: 610px;
 }
 .stream_line_7{
-    top: 496px;
+    top: 466px;
     right: 690px;
 }
 .stream_line_8{
@@ -6133,4 +6133,34 @@ table.singleColumForm td .treeSelect>input.treeInput {
     color: #78b1ff;
     vertical-align: middle;
     margin-left: 6px;
+}
+.center_line-wrap{
+    position: relative;
+    top: -29px;
+    left: -16px;
+    width: 788px;
+    height: 684px;
+    overflow: hidden;
+}
+.center_line{
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+    width: 804px;
+    height: 684px;
+    background-image: url(../images/spritesheet_line.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 0;
+    animation: sprite2 1.5s steps(89) infinite;
+}
+
+@keyframes sprite2{
+    0% {
+        background-position-y: 0px;
+    }
+    100% {
+        background-position-y: -60876px;
+    }
 }
