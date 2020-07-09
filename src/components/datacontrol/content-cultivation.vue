@@ -177,21 +177,6 @@ export default {
                     }
                 ]
             },{
-                name: '协同监管',
-                number: '328,635',
-                children: [
-                    {
-                        name: '市场准入',
-                        number: '126,295',
-                    },{
-                        name: '市场监管',
-                        number: '126,295',
-                    },{
-                        name: '行政执法',
-                        number: '126,295',
-                    }
-                ]
-            },{
                 name: '数据落地',
                 number: '344,460',
                 children: [
@@ -266,9 +251,6 @@ export default {
             },{
                 cycle: '2小时',
                 type: '接口'
-            },{
-                cycle: '2小时',
-                type: '数据库'
             },{
                 cycle: '2小时',
                 type: '数据库'

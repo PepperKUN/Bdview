@@ -5523,17 +5523,13 @@ table.singleColumForm td .treeSelect>input.treeInput {
 }
 .departmentBlock_6{
     right: 14px;
-    top: 240px;
+    top: 310px;
 }
 .departmentBlock_7{
     right: 14px;
-    top: 360px;
-}
-.departmentBlock_8{
-    right: 14px;
     top: 480px;
 }
-.serve_department.departmentBlock_9{
+.serve_department.departmentBlock_8{
     width: 1368px;
     transform: translateX(-50%);
     left: 50%;
@@ -5556,10 +5552,10 @@ table.singleColumForm td .treeSelect>input.treeInput {
     font-size: 18px;
     color: #ffe66d;
 }
-.stream_line_list>li.stream_line_9>span.cycle{
+.stream_line_list>li.stream_line_8>span.cycle{
     display: inline-block;
 }
-.stream_line_list>li.stream_line_9>span.type{
+.stream_line_list>li.stream_line_8>span.type{
     display: inline-block;
     margin-left: 20px;
 }
@@ -5584,18 +5580,14 @@ table.singleColumForm td .treeSelect>input.treeInput {
     right: 700px;
 }
 .stream_line_6{
-    top: 236px;
+    top: 324px;
     right: 610px;
 }
 .stream_line_7{
-    top: 376px;
-    right: 610px;
+    top: 496px;
+    right: 690px;
 }
 .stream_line_8{
-    top: 496px;
-    right: 700px;
-}
-.stream_line_9{
     top: 564px;
     left: 913px;
 }
