@@ -36,41 +36,14 @@
             </DataFrame>
         </div>
         <div class="colum">
-            <DataFrame :width='452' :height='276' frameTitle="各类许可证数量" rightFunc>
-                <ul class="certify_list">
-                    <li v-for="cert in certify_list" :key="cert.id">
-                        <i class="iconfont" :class="cert.icon"></i>
-                        <div class="cert_text">
-                            <h6>{{cert.name}}</h6>
-                            <p><span class="number">{{cert.number}}</span><span class="unit">{{cert.unit}}</span></p>
-                        </div>
-                    </li>
-                </ul>
+            <DataFrame :width='452' :height='276' frameTitle="各类食品许可证数量分析" rightFunc>
+                <v-chart :options="bar3" :autoresize='true'/>
             </DataFrame><br>
-            <DataFrame :width='452' :height='276' frameTitle="监督检查" rightFunc>
-                <table class="simple">
-                    <thead>
-                    <tr>
-                        <th style="text-align: left;padding-left: 10px">检查分类</th>
-                        <th>检查次数</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="item in table_simple2" :key="item.id">
-                        <td style="color:#fff;text-align: left; padding-left: 10px">{{item[0]}}</td>
-                        <td>{{item[1]}}</td>
-                    </tr>
-                    </tbody>
-                </table>
+            <DataFrame :width='452' :height='276' frameTitle="各类特种设备数量分布" rightFunc>
+                <v-chart :options="bar4" :autoresize='true'/>
             </DataFrame><br>
-            <DataFrame :width='452' :height='284' frameTitle="抽检情况" rightFunc>
-                <ul class="sample_list">
-                    <li v-for="sample in sample_list" :key="sample.id">
-                        <span class="name">{{sample.name}}</span>
-                        <span class="number">{{sample.number}}</span>
-                        <span class="percent">{{sample.percent}}</span>
-                    </li>
-                </ul>  
+            <DataFrame :width='452' :height='284' frameTitle="2019年双随机抽查检查结果分析" rightFunc>
+                <v-chart :options="pie1" :autoresize='true'/>
             </DataFrame>
         </div>
     </div>
@@ -107,6 +80,33 @@ export default {
             ['name', '2015', '2016', '2017', '2018', '2019'],
             ['投诉量', 3004, 4559, 6287, 6833, 13551],
             ['举报量', 25747, 32899, 38802, 43204, 54310],
+        ]
+        const bar3_data = [
+            ['name', 'value'],
+            ['食品储存，服务经营者备案', 27700],
+            ['食品经营许可', 270346],
+            ['食品生产证许可核发(除特殊食品)', 92000],
+            ['食品生产证许可核发(特殊食品)', 35000],
+        ]
+        const bar4_data = [
+            ['name', 'value'],
+            ['锅炉', 17072],
+            ['压力容器', 154378],
+            ['电梯', 223786],
+            ['起重机械', 179775],
+            ['场内\n机动车辆', 70997],
+            ['压力管道', 75969],
+            ['大型\n游乐设施', 847],
+            ['索道', 4],
+        ]
+        const pie1_data = [
+            ['name', 'value'],
+            ['发现问题已责令改正', 14],
+            ['发现问题\n待后续处理', 12],
+            ['公示信息隐瞒真实\n情况、弄虚作假', 3],
+            ['不予配合检查\n情节严重', 7],
+            ['未按规定公示\n应当公示的信息', 12],
+            ['未发现问题', 52],
         ]
         const mapData = [
             {name: '普洱', value: 199},
@@ -525,6 +525,226 @@ export default {
                     smooth: true, 
                     seriesLayoutBy: 'row'
                 }]
+            },
+            bar3: {
+                dataset:{
+                    source: bar3_data
+                },
+                encode: {
+                    x: 'value',
+                    y: 'name'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: 200,
+                    right: 50,
+                    bottom: 40,
+                    top: 20,
+                },
+                yAxis: {
+                    type: 'category',
+                    axisTick: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#a3fff7'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#fff',
+                        fontSize: 12
+                    }
+                },
+                xAxis: {
+                    type: 'value',
+                    splitNumber: 3,
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        color: '#a3fff7',
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'dashed',
+                            color: 'rgba(82, 157,255, 0.35)'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '直接访问',
+                        type: 'bar',
+                        barWidth: 20,
+                        itemStyle: {
+                            normal: {
+                                color: {
+                                    type: 'linear',
+                                    x: 0,
+                                    y: 0,
+                                    x2: 1,
+                                    y2: 0,
+                                    colorStops: [{
+                                        offset: 0, color: '#fd3e81' // 0% 处的颜色
+                                    }, {
+                                        offset: 1, color: '#ffe66d' // 100% 处的颜色
+                                    }],
+                                    global: false // 缺省为 false
+                                }
+                            }
+                        },
+                        label: {
+                            show: true,
+                            color: '#fff',
+                            position: 'right'
+                        }
+                    }
+                ]
+            },
+            bar4: {
+                dataset: {
+                    source: bar4_data
+                },
+                encode: {
+                    x: 0,
+                    y: 1
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: 20,
+                    right: 20,
+                    bottom: 50,
+                    top: 20,
+                },
+                xAxis: {
+                    type: 'category',
+                    axisTick: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#a3fff7'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#a3fff7',
+                        interval: 0
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    splitNumber: 4,
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'dashed',
+                            color: 'rgba(82, 157,255, 0.35)'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '直接访问',
+                        type: 'bar',
+                        barWidth: 10,
+                        itemStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: '#4ecdc4' // 0% 处的颜色
+                                }, {
+                                    offset: 1,
+                                    color: '#0053c4' // 100% 处的颜色
+                                }], false),
+                            }
+                        },
+                        label: {
+                            show: true,
+                            color: '#a3fff7',
+                            position: 'top'
+                        }
+                    }
+                ]
+            },
+            pie1: {
+                color: ['#fbe26f', '#9f4cf9', '#4180fa', '#f03877', '#5dc7bd', {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 1,
+                        y2: 0,
+                        colorStops: [{
+                            offset: 0, color: '#3393ff' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: '#004fbb' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false
+                    }, ],
+                dataset: {
+                    source: pie1_data
+                },
+                grid: {
+                    left: 20,
+                    right: 20,
+                    bottom: 20,
+                    top: 20,
+                },
+                encode: {
+                    name: 'name',
+                    value: 'value'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b} :{d}%'
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        startAngle: -180,  
+                        radius: ['35%', '50%'],
+                        center: ['50%', '50%'],
+                        label: {
+                            align: 'center',
+                            formatter: function(params){
+                                return '{b|'+params.data[0]+'}\n{white|'+params.data[1]+'%}'
+                            },
+                            rich:{
+                                b:{
+                                    color: '#6ebff9',
+                                    lineHeight: 16,
+                                },
+                                white: {
+                                    color: '#fff',
+                                    fontWeight: 'bold',
+                                }
+                            }
+                        },
+                        labelLine: {
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.5)',
+                            },
+                            length: 20,
+                            length2: 20
+                        }
+                    }
+                ]
             },
             temp: {},
             map: {
@@ -995,91 +1215,6 @@ export default {
                     }
                 ]
             },
-            certify_list: [
-                {
-                    icon: 'icon-icon1',
-                    name: '食品生产单位',
-                    number: '1,519',
-                    unit: '户'
-                },
-                {
-                    icon: 'icon-icon2',
-                    name: '食品经营单位',
-                    number: '289,442',
-                    unit: '户'
-                },
-                {
-                    icon: 'icon-icon3',
-                    name: '重要工业品生产单位',
-                    number: '3,598',
-                    unit: '户'
-                },
-                {
-                    icon: 'icon-icon4',
-                    name: '特种设备',
-                    number: '967,134',
-                    unit: '户'
-                },
-                {
-                    icon: 'icon-icon5',
-                    name: '特种设备许可单位',
-                    number: '14,359',
-                    unit: '户'
-                },
-                {
-                    icon: 'icon-icon6',
-                    name: '执业注册经纪人',
-                    number: '38,052',
-                    unit: '户'
-                },
-                {
-                    icon: 'icon-icon7',
-                    name: '广告发布登记单位',
-                    number: '204',
-                    unit: '户'
-                },
-                {
-                    icon: 'icon-icon8',
-                    name: '检验检测机构',
-                    number: '1083',
-                    unit: '户'
-                },
-            ],
-            table_simple2: [
-                ['食品生成', 485],
-                ['食品经营', 1245],
-                ['餐饮', 2451],
-                ['特种设备', 357],
-                ['计量', 245],
-                ['重要工业产品', 152],
-            ],
-            sample_list:[
-                {
-                    name: '食品抽检',
-                    number: 415,
-                    percent: 87.15,
-                },
-                {
-                    name: '特种设备检验',
-                    number: 7828,
-                    percent: 98.36,
-                },
-                {
-                    name: '计量产品冲渐渐',
-                    number: 1521,
-                    percent: 86.39,
-                },
-                {
-                    name: '工业产品抽检',
-                    number: 985,
-                    percent: 97.15,
-                },
-                {
-                    name: '流通领域商品抽检',
-                    number: 415,
-                    percent: 86.38,
-                },
-            ]
         };
     },
     computed: {
@@ -1120,28 +1255,5 @@ export default {
     .removeBg{
         background: none;
     }
-    table.simple{
-        height: calc(100% - 20px);
-    }
-    table.simple th{
-        font-size: 14px;
-        background-color: rgba(0, 253, 235, 0.2);
-    }
-    table.simple th:last-child{
-        border-left: 1px solid #0a55c4;
-    }
-    table.simple td{
-        font-size: 14px;
-        font-weight: bold;
-        border-bottom: 1px solid #003788;
-    }
-    table.simple td:last-child{
-        border-left: 1px solid #0a55c4;
-    }
-    table.simple tr:nth-child(2n)>td{
-        background-color: rgba(0, 99, 253, 0.2);
-    }
-    table.simple tr:last-child>td{
-        border-bottom: none;
-    }
+    
 </style>
