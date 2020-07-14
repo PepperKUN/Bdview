@@ -113,7 +113,7 @@ export default {
             {name: '红河', value: 39},
             {name: '文山', value: 152},
             {name: '曲靖', value: 299},
-            {name: '楚雄州', value: 89},
+            {name: '楚雄', value: 89},
             {name: '大理', value: 52},
             {name: '临沧', value: 9},
             {name: '迪庆', value: 352},
@@ -161,7 +161,7 @@ export default {
         ]
         return {
             inputText: '',
-            area: ['迪庆','怒江','丽江', '大理','保山','德宏','临沧','楚雄州','昆明','昭通','曲靖','玉溪','普洱','西双版纳','红河','文山'],
+            area: ['迪庆','怒江','丽江', '大理','保山','德宏','临沧','楚雄','昆明','昭通','曲靖','玉溪','普洱','西双版纳','红河','文山'],
             bar1: {
                 dataset: {
                     source: bar1_data,
