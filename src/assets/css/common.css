@@ -5599,7 +5599,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
 }
 .rect_list>li{
     display: inline-block;
-    width: calc((100% - 20px * 6) / 7 );
+    width: calc((100% - 20px * 6) / 6 );
     margin-right: 20px;
     text-align: center;
     color: #fff;
