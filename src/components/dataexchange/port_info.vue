@@ -29,59 +29,57 @@
             <el-pagination background layout="total, prev, pager, next" :total="1000" :pager-count="17"></el-pagination>
         </div>
         <Pop v-model="addShow" title="接口新增" width="600px" height="600px">
-            <el-scrollbar :native="false" style="height:100%">
-                <table class="singleColumForm">
+            <table class="singleColumForm">
+                <colgroup>
+                    <col width="100">
+                    <col>
+                </colgroup>
+                <tr v-for="line in addForm" :key="line.id">
+                    <th>{{line.name}}</th>
+                    <td>
+                        <select v-if="line.select">
+                            <option value="">请选择{{line.name}}</option>
+                            <option v-for="option in line.select" :key="option.id" value="option.value">{{option.text}}</option>
+                        </select>
+                        <input type="text" :placeholder="'请输入'+line.name" v-if="line.input!==undefined" :value="line.input">
+                        <textarea rows="5" :placeholder="'请输入'+line.name" v-if="line.textarea!==undefined" :value="line.textarea"></textarea>
+                        <el-date-picker v-if="line.datePicker" v-model="line.model" :type="line.datePicker" placeholder="选择日期"></el-date-picker>
+                        <TreeSelect v-if="line.tree!==undefined" :Tnodes="line.tree"></TreeSelect>
+                    </td>
+                </tr>
+            </table>
+            <div class="port_add">
+                <button @click="tableAdd"><i class="iconfont icon-add"></i>点击增加接口关联</button>
+                <table class="singleColumForm tableAdd" v-for=" (table, index5) in portAdd_lists" :key="index5" :class="index5>0?'':'tabAdd_head'">
                     <colgroup>
-                        <col width="100">
+                        <col width="140">
                         <col>
+                        <col width="20">
                     </colgroup>
-                    <tr v-for="line in addForm" :key="line.id">
-                        <th>{{line.name}}</th>
+                    <tr v-for="(tr, index6) in table" :key="index6">
+                        <th>{{tr.name}}</th>
                         <td>
-                            <select v-if="line.select">
-                                <option value="">请选择{{line.name}}</option>
-                                <option v-for="option in line.select" :key="option.id" value="option.value">{{option.text}}</option>
+                            <select v-if="tr.select">
+                                <option value="">请选择{{tr.name}}</option>
+                                <option v-for="option in tr.select" :key="option.id" value="option.value">{{option.text}}</option>
                             </select>
-                            <input type="text" :placeholder="'请输入'+line.name" v-if="line.input!==undefined" :value="line.input">
-                            <textarea rows="5" :placeholder="'请输入'+line.name" v-if="line.textarea!==undefined" :value="line.textarea"></textarea>
-                            <el-date-picker v-if="line.datePicker" v-model="line.model" :type="line.datePicker" placeholder="选择日期"></el-date-picker>
-                            <TreeSelect v-if="line.tree!==undefined" :Tnodes="line.tree"></TreeSelect>
+                            <input type="text" :placeholder="'请输入'+tr.name" v-if="tr.input!==undefined" :value="tr.input">
+                            <textarea rows="5" :placeholder="'请输入'+tr.name" v-if="tr.textarea!==undefined" :value="tr.textarea"></textarea>
+                            <el-date-picker v-if="tr.datePicker" v-model="tr.model" :type="tr.datePicker" placeholder="选择日期"></el-date-picker>
+                        </td>
+                        <td :rowspan="table.length" v-if="index6<1" class="tableEnd">
+                            <button class="table_delete" @click="tableDelete(index6)">
+                                <i class="iconfont icon-close"></i>
+                                删除接口关联
+                            </button>
                         </td>
                     </tr>
                 </table>
-                <div class="port_add">
-                    <button @click="tableAdd"><i class="iconfont icon-add"></i>点击增加接口关联</button>
-                    <table class="singleColumForm tableAdd" v-for=" (table, index5) in portAdd_lists" :key="index5" :class="index5>0?'':'tabAdd_head'">
-                        <colgroup>
-                            <col width="140">
-                            <col>
-                            <col width="20">
-                        </colgroup>
-                        <tr v-for="(tr, index6) in table" :key="index6">
-                            <th>{{tr.name}}</th>
-                            <td>
-                                <select v-if="tr.select">
-                                    <option value="">请选择{{tr.name}}</option>
-                                    <option v-for="option in tr.select" :key="option.id" value="option.value">{{option.text}}</option>
-                                </select>
-                                <input type="text" :placeholder="'请输入'+tr.name" v-if="tr.input!==undefined" :value="tr.input">
-                                <textarea rows="5" :placeholder="'请输入'+tr.name" v-if="tr.textarea!==undefined" :value="tr.textarea"></textarea>
-                                <el-date-picker v-if="tr.datePicker" v-model="tr.model" :type="tr.datePicker" placeholder="选择日期"></el-date-picker>
-                            </td>
-                            <td :rowspan="table.length" v-if="index6<1" class="tableEnd">
-                                <button class="table_delete" @click="tableDelete(index6)">
-                                    <i class="iconfont icon-close"></i>
-                                    删除接口关联
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="search_submit">
-                    <button class="submit">保存</button>
-                    <button class="reset">取消</button>
-                </div>
-            </el-scrollbar>
+            </div>
+            <div class="search_submit">
+                <button class="submit">保存</button>
+                <button class="reset">取消</button>
+            </div>
         </Pop>
         <Pop v-model="modifyShow" title="接口修改" width="600px" height="600px">
             <el-scrollbar :native="false" style="height:100%">

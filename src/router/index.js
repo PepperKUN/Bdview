@@ -27,6 +27,8 @@ import exchangeStatics from '../components/dataexchange/exchangeStatics.vue'
 import complexTable from '../components/datashow/complexTable.vue'
 import addLabel from "../components/datacontrol/addLabel.vue";
 import labelSearch from "../components/datacontrol/labelSearch.vue";
+import simpleSearch from "../components/datashow/search_simple.vue";
+import dataTransfer from "../components/datashow/dataTransfer.vue";
 
 const router = new Router({
   mode: "history", //路由模式，无#
@@ -122,6 +124,14 @@ const router = new Router({
     {
       path: "/showreel/memorabilia",
       component: memorabilia,
+    },
+    {
+      path: "/showreel/simpleSearch",
+      component: simpleSearch,
+    },
+    {
+      path: "/showreel/dataTransfer",
+      component: dataTransfer,
     },
     {
       path: "/errorRouter",

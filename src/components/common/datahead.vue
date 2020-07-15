@@ -143,10 +143,10 @@ export default {
                                 childs:[
                                     {
                                         title: '市场主体查询',
-                                        url: '#',
+                                        url: '/showreel/simpleSearch',
                                     },{
                                         title: '行政许可查询',
-                                        url: '#',
+                                        url: '/showreel/dataTransfer',
                                     },{
                                         title: '作业人员信息查询',
                                         url: '#',

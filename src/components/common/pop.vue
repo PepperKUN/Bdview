@@ -6,7 +6,9 @@
                 <template v-slot:title_corner>
                     <i class="iconfont icon-close pop_close" @click="hidePop"></i>
                 </template>
-                <slot></slot>
+                <el-scrollbar :native="false" style="height:100%">
+                    <slot></slot>
+                </el-scrollbar>
             </DataFrame>
         </div>
     </div>

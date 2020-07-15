@@ -5758,7 +5758,12 @@ table.singleColumForm td .treeSelect>input.treeInput {
     margin-bottom: 0;
 }
 .source_data_3>li{
-    width: 100%;
+    width: calc(50% - 6px);
+    font-size: 14px;
+    margin-right: 8px;
+}
+.source_data_3>li:last-child{
+    margin-right: 0;
 }
 .source_data_4>li, .source_data_5>li, .source_data_6>li{
     display: block;
@@ -6257,4 +6262,143 @@ table.singleColumForm td .treeSelect>input.treeInput {
 }
 .sample_list>li>span.percent::after{
     content: '%';
+}
+
+.simple_search_wrap{
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.holder_list{
+    width: 1000px;
+    margin: 50px auto;
+    color: #fff;
+}
+.holder_list>li{
+    margin-bottom: 50px;
+}
+.holder_list>li>i{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 200px;
+}
+.holder_list>li>span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.holder_list>li>span.list_name{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 10px;
+    width: 120px;
+}
+.holder_list>li>span.list_des{
+    width: calc(100% - 244px);
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.holder_list>li:nth-child(1)>span.list_des{
+    background: linear-gradient(80deg, rgba(253,62,129,0.4) 0%, rgba(253,62,129,0) 100%);
+}
+.holder_list>li:nth-child(2)>span.list_des{
+    background: linear-gradient(80deg, rgba(51,137,255,0.4) 0%, rgba(51,137,255,0) 100%);
+}
+.holder_list>li:nth-child(3)>span.list_des{
+    background: linear-gradient(80deg, rgba(255,230,109,0.4) 0%, rgba(255,230,109,0) 100%);
+}
+.holder_list>li:nth-child(4)>span.list_des{
+    background: linear-gradient(80deg, rgba(78,205,196,0.4) 0%, rgba(78,205,196,0) 100%);
+}
+.holder_list>li:nth-child(5)>span.list_des{
+    background: linear-gradient(80deg, rgba(172,82,255,0.4) 0%, rgba(172,82,255,0) 100%);
+}
+.holder_list>li:nth-child(1)>i{
+    background-color: #fc3e80;
+}
+.holder_list>li:nth-child(2)>i{
+    background-color: #3389ff;
+}
+.holder_list>li:nth-child(3)>i{
+    background-color: #ffe66d;
+    color: #000;
+}
+.holder_list>li:nth-child(4)>i{
+    background-color: #4ecdc4;
+    color: #000;
+}
+.holder_list>li:nth-child(5)>i{
+    background-color: #ac52ff;
+}
+
+.dataTransfer_list{
+    
+}
+.dataTransfer_list>li{
+    padding-bottom: 40px;
+    margin: 20px 80px;
+}
+.transfer_type{
+    color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    right: 40px;
+}
+.db_unit, .transfer_stats{
+    display: inline-block;
+    vertical-align: middle;
+}
+.db_unit{
+    width: 237px;
+    height: 112px;
+    text-align: center;
+    background-image: url(../images/dbase.png);
+}
+.db_unit>span{
+    display: block;
+    text-align: center;
+}
+.db_unit>span.dbname{
+    font-size: 18px;
+    color: #00ffc0;
+}
+.db_unit>span.db_subname{
+    display: inline-block;
+    font-size: 14px;
+    color: #000;
+    margin-top: 20px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: #00ffc0;
+}
+.db_unit>span.db_address{
+    color: #fff;
+    margin-top: 10px;
+}
+.db_unit>span.db_time{
+    color: #57ffd5;
+    margin-top: 20px;
+}
+.db_unit>span.db_time::before{
+    content: '时间:';
+}
+.transfer_stats{
+    width: calc(100% - 514px);
+    margin: 0 20px;
+    height: 44px;
+    background-image: url(../images/arrow_green2.png);
+    background-repeat: repeat-x;
+    background-position: center;
+    text-align: center;
+    animation: arrow_right 2s linear infinite;
+}
+.transfer_stats>span{
+    color: #00ffc0;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top: 50px;
 }
