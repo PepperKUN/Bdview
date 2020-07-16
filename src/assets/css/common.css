@@ -5748,6 +5748,14 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .source_data_1>li:nth-child(n+2){
     margin-bottom: 0;
 }
+.source_data_1>li:nth-child(4){
+    width: calc(50% - 55px);
+    margin-right: 10px;
+}
+.source_data_1>li:nth-child(5){
+    margin-right: 0px;
+    width: 36px;
+}
 .source_data_2>li{
     width: calc(33% - 9px);
     margin-right: 10px;
@@ -5777,10 +5785,17 @@ table.singleColumForm td .treeSelect>input.treeInput {
     margin-bottom: 0;
 }
 
-.source_data_2>li:nth-child(4), .source_data_2>li:nth-child(5){
+.source_data_2>li:nth-child(4){
     width: calc(50% - 12px);
 }
-
+.source_data_2>li:nth-child(5){
+    margin-right: 10px;
+    width: calc(50% - 56px);
+}
+.source_data_2>li:nth-child(6){
+    margin-right: 0;
+    width: 36px;
+}
 
 .source_block>.block_title{
     width: 140px;
@@ -5814,7 +5829,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     display: inline-block;
     vertical-align: top;
     position: relative;
-    width: 200px;
+    width: 217px;
 }
 .source_stream_list>li{
     height: 72px;
@@ -6007,7 +6022,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     display: inline-block;
     vertical-align: top;
     margin-top: 230px;
-    width: 234px;
+    width: 217px;
     height: 200px;
     background-image: url(../images/arrow_green3.png);
     background-repeat: repeat-x;

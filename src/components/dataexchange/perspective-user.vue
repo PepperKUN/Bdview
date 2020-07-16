@@ -1,35 +1,40 @@
 <template>
     <div class="content content_rise">
         <div class="content_title"><span>{{contentTitle}}</span></div>
-        <div class="dataTree">
-            <div class="tree_block blue">
-                <div class="tree_name">{{dataTree.treeName}}</div>
-                <div class="tree_info" v-html="dataTree.des"></div>
+        <button @click="show=true">弹窗</button>
+        <pop v-model="show" title="title" width="1888px" height="800px">
+            <div class="dataTree">
+                <div class="tree_block blue">
+                    <div class="tree_name">{{dataTree.treeName}}</div>
+                    <div class="tree_info" v-html="dataTree.des"></div>
+                </div>
+                <div class="tree_path"></div>
+                <ul class="tree_wrap">
+                    <li class="tree_block cyan" v-for="block in dataTree.childTree" :key="block.id">
+                        <div class="tree_name">{{block.treeName}}</div>
+                        <div class="tree_info" v-html="block.des"></div>
+                        <ol class="tree_wrap" v-if="block.childTree">
+                            <li class="tree_bar" v-for="bar in block.childTree" :key="bar.id">
+                                <div class="tree_name">{{bar.treeName}}</div>
+                                <span class="call_times">{{bar.callTimes}}</span>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
             </div>
-            <div class="tree_path"></div>
-            <ul class="tree_wrap">
-                <li class="tree_block cyan" v-for="block in dataTree.childTree" :key="block.id">
-                    <div class="tree_name">{{block.treeName}}</div>
-                    <div class="tree_info" v-html="block.des"></div>
-                    <ol class="tree_wrap" v-if="block.childTree">
-                        <li class="tree_bar" v-for="bar in block.childTree" :key="bar.id">
-                            <div class="tree_name">{{bar.treeName}}</div>
-                            <span class="call_times">{{bar.callTimes}}</span>
-                        </li>
-                    </ol>
-                </li>
-            </ul>
-        </div>
+        </pop>
     </div>
 </template>
 
 <script>
+import pop from '../common/pop'
 export default {
     props: {
 
     },
     data() {
         return {
+            show: true,
             contentTitle: '接口服务监控',
             dataTree: {
                 treeName: '一部手机办事通APP',
@@ -133,7 +138,7 @@ export default {
         }
     },
     components: {
-
+        pop,
     },
 };
 </script>
@@ -141,5 +146,21 @@ export default {
 <style scoped lang="css">
     div.content{
         overflow: initial;
+    }
+    div.pop_wrap>>>div.dataTree{
+        margin-top: 26px;
+    }
+    button{
+        font-size: 16px;
+        color: #fbe26f;
+        padding: 6px 0;
+        text-align: center;
+        min-width: 100px;
+        border-radius: 100px;
+        background: none;
+        border: 1px solid #fbe26f;
+        cursor: pointer;
+        margin: 0 10px;
+        outline: none;
     }
 </style>
