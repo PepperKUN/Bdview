@@ -13,6 +13,7 @@
                 <span class="unit">共</span>
                 <span class="number">{{serve.number}}</span>
                 <span class="unit">条</span>
+                <a :href="serve.showMore" v-if="serve.showMore" class="listMore">更多<i class="iconfont icon-more"></i></a>
             </h4>
             <ul class="serve_child_list">
                 <li v-for=" child in serve.children" :key="child.id">
@@ -60,6 +61,7 @@ export default {
             },{
                 name: '省级部门共享',
                 number: '344,460',
+                showMore: '###',
                 children: [
                     {
                         name: '省税务局',
@@ -111,6 +113,7 @@ export default {
             },{
                 name: '政银合作',
                 number: '328,635',
+                showMore: '###',
                 children: [
                     {
                         name: '工商银行',

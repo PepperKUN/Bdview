@@ -6,6 +6,12 @@
             <h4>{{caseTitle}}</h4>
           </div>
           <ul class="source_list">
+            <div class="block_addition">
+              <div class="block_public">
+                <i class="iconfont icon-gonggongfuwu"></i>
+                <span>公共服务平台</span>
+              </div>
+            </div>
             <li v-for="source in  source_list" :key="source.id">
               <i class="iconfont" :class="source.icon"></i>
               <span class="name">{{source.name}}</span>
@@ -41,6 +47,10 @@
               </div>
             </li>
           </ul>
+          <div class="total_data">
+            <!-- <span class="dataClass">数据总量</span> -->
+            <span class="dataNumber">{{total_data}}</span>
+          </div>
           <div class="case_wrap"></div>
           <lottie class="line-anime" :options="defaultOptions" :width="690" :height="324" v-on:animCreated="handleAnimation"/>
         </div>
@@ -93,7 +103,7 @@ export default {
       source_list: [
         {
           name: '市场监管业务平台',
-          icon: 'icon-shiju',
+          icon: 'icon-platform',
           number: '12,314',
           unit: '条'
         },{
@@ -102,13 +112,8 @@ export default {
           number: '41,856',
           unit: '条'
         },{
-          name: '省法人库',
-          icon: 'icon-farenku',
-          number: '41,856',
-          unit: '条'
-        },{
           name: '协同监管平台',
-          icon: 'icon-platform',
+          icon: 'icon-shiju',
           number: '41,856',
           unit: '条'
         }
@@ -124,6 +129,7 @@ export default {
           unit: '条'
         }
       ],
+      total_data: '145,678',
       department_list: [
         {
           name: '总局',

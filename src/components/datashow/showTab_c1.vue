@@ -14,7 +14,7 @@
             </DataFrame>
         </div>
         <div class="colum">
-            <SearchInput v-model="inputText" inputName="一门式查询" placeholder="请输入统一码或主体名称或设备编号或许可证编号查询"></SearchInput>
+            <SearchInput v-model="inputText" inputName="一门式查询" placeholder="请输入统一码或主体名称或设备编号或许可证编号查询" :suggestList="searchObj"></SearchInput>
             <DataFrame :width='956' :height='804' rightFunc>
                 <v-chart class="chart_hl_top" :options="temp" ref="dataMap" :autoresize='true' @click="areaInfo"/>
                 <div class="chart_hl_btm">
@@ -1079,6 +1079,23 @@ export default {
                     number: 415,
                     percent: 86.38,
                 },
+            ],
+            searchObj:[
+                {dir:'市场准入-主体登记-名称预核-名称基本信息',dataName:'名称号'},
+                {dir:'市场准入-主体登记-内资企业登记-企业基本信息',dataName:'企业名称'},
+                {dir:'市场准入-主体登记-外资企业登记-主要成员信息',dataName:'名称类型'},
+                {dir:'市场准入-主体登记-外资企业登记-迁入信息',dataName:'迁入名称'},
+                {dir:'市场准入-主体登记-外资企业登记-迁出信息',dataName:'迁出名称'},
+                {dir:'市场准入-主体登记-名称预核-名称基本信息',dataName:'名称号'},
+                {dir:'市场准入-主体登记-内资企业登记-企业基本信息',dataName:'企业名称'},
+                {dir:'市场准入-主体登记-外资企业登记-主要成员信息',dataName:'名称类型'},
+                {dir:'市场准入-主体登记-外资企业登记-迁入信息',dataName:'迁入名称'},
+                {dir:'市场准入-主体登记-外资企业登记-迁出信息',dataName:'迁出名称'},
+                {dir:'市场准入-主体登记-名称预核-名称基本信息',dataName:'名称号'},
+                {dir:'市场准入-主体登记-内资企业登记-企业基本信息',dataName:'企业名称'},
+                {dir:'市场准入-主体登记-外资企业登记-主要成员信息',dataName:'名称类型'},
+                {dir:'市场准入-主体登记-外资企业登记-迁入信息',dataName:'迁入名称'},
+                {dir:'市场准入-主体登记-外资企业登记-迁出信息',dataName:'迁出名称'},
             ]
         };
     },

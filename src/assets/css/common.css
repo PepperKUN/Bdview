@@ -2529,9 +2529,12 @@ button.close {
     margin: 14px;
     margin-bottom: 0px;
     margin-right: 0;
+    position: relative;
+    z-index: 10;
 }
 
 .inputFrame {
+    position: relative;
     display: inline-block;
     height: 44px;
     border: 1px solid #538bd5;
@@ -5140,16 +5143,18 @@ table.singleColumForm td .treeSelect>input.treeInput {
     background-position: 0 0;
 }
 .source_list{
-    width: 978px;
+    width: 768px;
     margin-top: 50px;
-    margin-left: 56px;
+    margin-left: 266px;
     position: relative;
     z-index: 1;
 }
 .source_list>li{
     display: inline-block;
     text-align: center;
-    width: 25%;
+    width: 33%;
+    position: relative;
+    z-index: 2;
 }
 .source_list>li>i{
     display: block;
@@ -5184,10 +5189,10 @@ table.singleColumForm td .treeSelect>input.treeInput {
 }
 
 .arrow_list{
-    width: 740px;
+    width: 768px;
     position: absolute;
     top: 100px;
-    left: 180px;
+    left: 265px;
     white-space: normal;
     padding-top: 146px;
 }
@@ -5198,7 +5203,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     height: 54px;
     position: absolute;
     transform: translateX(-50%);
-    left: 50%;
+    left: 37%;
     top: 200px;
     background-image: url(../images/filter.png);
     background-repeat: no-repeat;
@@ -5454,6 +5459,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     color: #fff;
     font-weight: normal;
     text-align: center;
+    position: relative;
 }
 .serve_department>h4>span{
     vertical-align: middle;
@@ -5470,6 +5476,17 @@ table.singleColumForm td .treeSelect>input.treeInput {
     font-size: 16px;
     color: #6eadff;
     margin-left: 6px;
+}
+.serve_department>h4>a.listMore{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 6px;
+    background-color: #52ffe8;
+    border-radius: 4px;
+    color: #000;
+    text-decoration: none;
+    line-height: initial;
 }
 
 .serve_child_list>li{
@@ -5718,7 +5735,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .source_block{
     margin: 10px;
     margin-bottom: 0;
-    padding: 10px;
+    padding: 16px 10px;
     background-color: rgba(255, 230, 109, 0.24);
     border-radius: 6px;
     width: 400px;
@@ -5737,20 +5754,18 @@ table.singleColumForm td .treeSelect>input.treeInput {
     background-color: rgba(0, 0, 0, 0.32);
     color: #fff;
 }
+.source_data_1>li, .source_data_2>li, .source_data_3>li{
+    margin-bottom: 15px;
+}
 .source_data_1>li{
     width: calc(50% - 7px);
     margin-right: 10px;
-    margin-bottom: 6px;
 }
 .source_data_1>li:nth-child(2n){
     margin-right: 0;
 }
 .source_data_1>li:nth-child(n+2){
     margin-bottom: 0;
-}
-.source_data_1>li:nth-child(4){
-    width: calc(50% - 55px);
-    margin-right: 10px;
 }
 .source_data_1>li:nth-child(5){
     margin-right: 0px;
@@ -5759,7 +5774,6 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .source_data_2>li{
     width: calc(33% - 9px);
     margin-right: 10px;
-    margin-bottom: 6px;
     vertical-align: top;
 }
 .source_data_2>li:nth-child(3n){
@@ -5772,6 +5786,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     width: calc(50% - 6px);
     font-size: 14px;
     margin-right: 8px;
+    margin-bottom: 0;
 }
 .source_data_3>li:last-child{
     margin-right: 0;
@@ -5779,22 +5794,18 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .source_data_4>li, .source_data_5>li, .source_data_6>li{
     display: block;
     margin-left: 140px;
-    margin-bottom: 6px;
+    margin-bottom: 15px;
 }
 .source_data_3>li:last-child, .source_data_4>li:last-child, .source_data_5>li:last-child{
     margin-bottom: 0;
 }
 
 .source_data_2>li:nth-child(4){
-    width: calc(50% - 12px);
+    width: calc(50% - 8px);
 }
 .source_data_2>li:nth-child(5){
-    margin-right: 10px;
-    width: calc(50% - 56px);
-}
-.source_data_2>li:nth-child(6){
     margin-right: 0;
-    width: 36px;
+    width: calc(50% - 8px);
 }
 
 .source_block>.block_title{
@@ -5834,9 +5845,9 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .source_stream_list>li{
     height: 72px;
     background-image: url(../images/arrow_yellow2.png);
-    background-position: center bottom;
+    background-position: -32px bottom;
     background-repeat: repeat-x;
-    animation: arrow4 3s linear infinite;
+    /* animation: arrow4 3s linear infinite; */
     position: absolute;
     width: 100%;
 }
@@ -5876,23 +5887,23 @@ table.singleColumForm td .treeSelect>input.treeInput {
     vertical-align: middle;
 }
 .source_stream_list>li:nth-child(1){
-    top: 58px;
+    top: 70px;
 }
 .source_stream_list>li:nth-child(2){
-    top: 162px;
+    top: 194px;
 }
 .source_stream_list>li:nth-child(3){
-    top: 242px;
+    top: 290px;
 }
 .source_stream_list>li:nth-child(4){
-    top: 343px;
+    top: 410px;
 }
 .source_stream_list>li:nth-child(5){
-    top: 466px;
+    top: 560px;
 }
-.source_stream_list>li:nth-child(6){
+/* .source_stream_list>li:nth-child(6){
     top: 570px;
-}
+} */
 
 
 .data_filter{
@@ -6117,13 +6128,27 @@ table.singleColumForm td .treeSelect>input.treeInput {
     white-space: normal;
     padding-bottom: 20px;
     background-color: rgba(51, 137, 255, 0.2);
+    position: relative;
 }
+
+
 .sub_list>h6{
     font-size: 24px;
     color: #3389ff;
     font-weight: bold;
     margin-top: 10px;
     text-align: center;
+}
+
+.sub_list>.listMore{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 4px 6px;
+    background-color: #3389ff;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
 }
 .sub_list>li{
     display: inline-block;
@@ -6419,4 +6444,133 @@ table.singleColumForm td .treeSelect>input.treeInput {
     font-weight: bold;
     position: relative;
     top: 50px;
+}
+
+.inputFrame>.el-scrollbar{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(100%);
+    background-color: #002866;
+}
+.result_suggest{
+    border: 1px solid #538bd5;
+    max-height: 400px;
+}
+.result_suggest li{
+    font-size: 16px;
+    display: block;
+    margin: 10px;
+    padding: 6px ;
+    cursor: pointer;
+}
+.result_suggest li:nth-child(2n){
+    background-color:  rgba(255, 255, 255, 0.2);
+}
+.result_suggest li>span{
+    color: #73adff;
+}
+.result_suggest li>span.tagClass{
+    font-size: 14px;
+    color: #000;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: #00fded;
+    margin-right: 10px;
+}
+.result_suggest li>span.tagIndex{
+    background-color: #fbe26f;
+}
+.result_suggest li>span.name{
+    color: #fff;
+    margin-right: 20px;
+}
+.result_suggest li>span.index{
+    color: #fff;
+    font-size: 14px;
+}
+
+
+.block_addition{
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: -190px;
+    /* border: 1px solid #fbe26f; */
+    width: 440px;
+    height: 130px;
+    border-radius: 10px;
+    background-color: rgb(201, 172, 74, 21%);
+    padding: 1px;
+}
+.block_addition>.block_public{
+    margin: 20px;
+    width: 140px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #bcac5e;
+    border-radius: 6px;
+    background-color: rgb(0, 0, 0, 0.1);
+    position: relative;
+}
+.block_addition>.block_public>i{
+    font-size: 36px;
+    color: #fedc4b;
+    display: block;
+}
+.block_addition>.block_public::after{
+    position: absolute;
+    display: block;
+    content: '';
+    width: 66px;
+    height: 36px;
+    background-image: url(../images/arrow_yellow3.png);
+    background-position: center;
+    transform: translateY(-50%) translateX(100%);
+    right: 0;
+    top: 50%;
+    animation: arrow_right2 2s linear infinite;
+}
+@keyframes arrow_right2{
+    from{
+        background-position-x: -46px;
+    }
+    to{
+        background-position-x: 0;
+    }
+}
+
+.total_data{
+    position: absolute;
+    font-size: 24px;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 575px;
+    z-index: 10;
+    color: #fff;
+    background-color: rgba(0, 233, 255, 0.3);
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #00dbf2;
+}
+.total_data>span.dataNumber{
+    font-weight: bold;
+    vertical-align: middle;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+}
+.total_data>span.dataClass{
+    font-weight: normal;
+    font-size: 16px;
+    color: #00ccff;
+    margin-right: 10px;
+}
+.total_data::after{
+    color: #00ccff;
+    font-size: 14px;
+    content: '条';
+    vertical-align: middle;
+    margin-left: 10px;
+    font-weight: normal;
 }

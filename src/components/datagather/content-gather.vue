@@ -71,6 +71,7 @@
                         </ul>
                         <ul class="sub_list">
                             <h6>{{central_data.list2.name}}</h6>
+                            <a :href="central_data.list2.showMore" v-if="central_data.list2.showMore" class="listMore">更多<i class="iconfont icon-more"></i></a>
                             <li v-for="list in central_data.list2.list" :key="list.id">
                                 <span class="name">{{list.name}}</span>
                                 <div class="sub_list_data">
@@ -125,20 +126,16 @@ export default {
             name: '数据源',
             children:[
                 {
-                    list: ['主体登记','公示监管','行政执法','小微企业', '等']
+                    list: ['主体登记','公示监管','行政执法','小微企业']
                 },{
                     
-                    list: ['食品审批','药品审批','特种设备监管','标准化管理','计量监管','等']
+                    list: ['食品审批','药品审批','特种设备监管','标准化管理','计量监管']
                 },{
-                    list: ['行政审批平台(除食品, 药品)','特种设备作业人员考核等']
+                    list: ['行政审批平台(除食品, 药品)','特种设备作业人员考核']
                 },{
                     icon: 'icon-zongju',
                     title: '总局',
                     list: ['老赖黑名单','一人有限公司','禁用字号']
-                },{
-                    icon: 'icon-farenku',
-                    title: '法人库',
-                    list: ['法人基本信息','监管、处罚信息']
                 },{
                     icon: 'icon-platform',
                     title: '协同监管平台',
@@ -161,10 +158,6 @@ export default {
                 time: '12:45:03'
             },{
                 cycle: '一天',
-                number: '635',
-                time: '12:45:03'
-            },{
-                cycle: '2小时',
                 number: '635',
                 time: '12:45:03'
             },{
@@ -207,6 +200,7 @@ export default {
             ],
             list2: {
                 name: '异常数据',
+                showMore: '###',
                 list: [
                     {
                         name: '特种设备系统',

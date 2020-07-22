@@ -2,7 +2,16 @@
     <div class="search_wrap">
         <div class="inputFrame">
             <span class="input_name" v-if="inputName">{{inputName}}</span>
-            <input type="text" :placeholder="placeholder" v-model="valueText" :style="{width:input_width}">
+            <input type="text" :placeholder="placeholder" v-model="valueText" :style="{width:input_width}" @input="$emit('input', valueText)" @focus="resultBlur_show=true" @blur="resultBlur_show=false">
+            <el-scrollbar :native="false" :noresize='false' tag='ul' wrapClass="result_suggest" v-show="resultBlur_show" :style="{width:input_width}">
+                <li v-show="suggestList==undefined||valueText==''"><span>没有结果...</span></li>
+                <li v-for="(li, index) in suggestList" :key="index" v-show="valueText!==''">
+                    <span class="tagClass">资源项</span>
+                    <span class="name">{{li.dataName}}</span>
+                    <span class="tagClass tagIndex">目录</span>
+                    <span class="index">{{li.dir}}</span>
+                </li>
+            </el-scrollbar>
         </div>
         <button @click="$emit('input', valueText)">查询</button>
     </div>
@@ -12,17 +21,19 @@
 export default {
     name: 'search',
     model: {
-        prop: 'valueText',
+        data: 'valueText',
         event: 'input'
     },
     props: {
-        valueText: String,
         inputName: String,
-        placeholder: String
+        placeholder: String,
+        suggestList: Array,
     },
     data() {
         return {
             input_width: '',
+            valueText: '',
+            resultBlur_show: false,
         };
     },
     computed: {
