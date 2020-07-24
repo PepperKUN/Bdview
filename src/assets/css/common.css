@@ -5324,7 +5324,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .department_list>li>span.name{
     color: #fff;
     display: inline-block;
-    width: 85%;
+    width: 100%;
     font-size: 18px;
     border-bottom: 1px solid #0863e1;
     padding-bottom: 10px;
@@ -6510,7 +6510,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
 }
 .block_addition>.block_public{
     margin: 20px;
-    width: 140px;
+    width: 120px;
     font-size: 16px;
     color: #fff;
     text-align: center;
