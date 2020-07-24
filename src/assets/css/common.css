@@ -5350,7 +5350,12 @@ table.singleColumForm td .treeSelect>input.treeInput {
     bottom: -13px;
     transform: translateX(-50%);
     left: 50%;
+    height: 250px !important;
     z-index: 0;
+}
+.line-anime>svg{
+    height: initial !important;
+    transform: translateY(-74px) !important;
 }
 
 
@@ -5772,14 +5777,14 @@ table.singleColumForm td .treeSelect>input.treeInput {
     width: 36px;
 }
 .source_data_2>li{
-    width: calc(33% - 9px);
+    width: calc(50% - 7px);
     margin-right: 10px;
     vertical-align: top;
 }
-.source_data_2>li:nth-child(3n){
+.source_data_2>li:nth-child(2n){
     margin-right: 0;
 }
-.source_data_2>li:nth-child(n+3){
+.source_data_2>li:nth-child(n+2){
     margin-bottom: 0;
 }
 .source_data_3>li{
