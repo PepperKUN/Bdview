@@ -53,57 +53,69 @@ export default {
                             },{
                                 treeName: '企业基本信息查询接口',
                                 callTimes: 1235
-                            }
-                        ]
-                    },{
-                        treeName: '政务类',
-                        des: '<i>13</i><span>个接口，调用</span><i>12542</i><span>次</span>',
-                        childTree: [
-                            {
-                                treeName: '发文查询接口',
+                            },{
+                                treeName: '企业基本信息查询接口',
                                 callTimes: 1235
                             },{
-                                treeName: '收文查询接口',
+                                treeName: '企业基本信息查询接口',
                                 callTimes: 1235
                             },{
-                                treeName: '发文详情查询接口',
-                                callTimes: 1235
-                            },{
-                                treeName: '收文详情查询接口',
+                                treeName: '企业基本信息查询接口',
                                 callTimes: 1235
                             }
                         ]
-                    },{
-                        treeName: '监管类',
-                        des: '<i>13</i><span>个接口，调用</span><i>12542</i><span>次</span>',
-                        childTree: [
-                            {
-                                treeName: '年报信息查询接口',
-                                callTimes: 1235
-                            },{
-                                treeName: '年报详情查询接口',
-                                callTimes: 1235
-                            },{
-                                treeName: '经营异常名录查询接口',
-                                callTimes: 1235
-                            },{
-                                treeName: '小微企业查询接口',
-                                callTimes: 1235
-                            }
-                        ]
-                    },{
-                        treeName: '案件类',
-                        des: '<i>13</i><span>个接口，调用</span><i>12542</i><span>次</span>',
-                        childTree: [
-                            {
-                                treeName: '案件查询接口',
-                                callTimes: 1235
-                            },{
-                                treeName: '行政处罚决定书查询接口',
-                                callTimes: 1235
-                            }
-                        ]
-                    }
+                    },
+                    // {
+                    //     treeName: '政务类',
+                    //     des: '<i>13</i><span>个接口，调用</span><i>12542</i><span>次</span>',
+                    //     childTree: [
+                    //         {
+                    //             treeName: '发文查询接口',
+                    //             callTimes: 1235
+                    //         },{
+                    //             treeName: '收文查询接口',
+                    //             callTimes: 1235
+                    //         },{
+                    //             treeName: '发文详情查询接口',
+                    //             callTimes: 1235
+                    //         },{
+                    //             treeName: '收文详情查询接口',
+                    //             callTimes: 1235
+                    //         }
+                    //     ]
+                    // },
+                    // {
+                    //     treeName: '监管类',
+                    //     des: '<i>13</i><span>个接口，调用</span><i>12542</i><span>次</span>',
+                    //     childTree: [
+                    //         {
+                    //             treeName: '年报信息查询接口',
+                    //             callTimes: 1235
+                    //         },{
+                    //             treeName: '年报详情查询接口',
+                    //             callTimes: 1235
+                    //         },{
+                    //             treeName: '经营异常名录查询接口',
+                    //             callTimes: 1235
+                    //         },{
+                    //             treeName: '小微企业查询接口',
+                    //             callTimes: 1235
+                    //         }
+                    //     ]
+                    // },
+                    // {
+                    //     treeName: '案件类',
+                    //     des: '<i>13</i><span>个接口，调用</span><i>12542</i><span>次</span>',
+                    //     childTree: [
+                    //         {
+                    //             treeName: '案件查询接口',
+                    //             callTimes: 1235
+                    //         },{
+                    //             treeName: '行政处罚决定书查询接口',
+                    //             callTimes: 1235
+                    //         }
+                    //     ]
+                    // }
                 ]
             }
         };
