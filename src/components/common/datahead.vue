@@ -219,6 +219,10 @@ export default {
                                 url: '/showreel/complexTable',
                             },
                     ]
+                },{
+                    name: '主题展示',
+                    icon: 'menuIcon_6',
+                    url: '/dataTheme',
                 }
             ]
         }

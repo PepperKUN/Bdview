@@ -70,6 +70,7 @@
                 <v-chart :options="pie" :autoresize='true'/>
             </DataFrame><br>
             <DataFrame :width='518' :height='286' frameTitle="今日与委办局交换数据统计" :rightFunc="frameSet">
+                <span class="drop_name" slot="title_corner">下拉框:</span>
                 <div class="simple_wrap">
                     <table class="simple">
                         <thead>

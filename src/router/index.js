@@ -29,6 +29,7 @@ import addLabel from "../components/datacontrol/addLabel.vue";
 import labelSearch from "../components/datacontrol/labelSearch.vue";
 import simpleSearch from "../components/datashow/search_simple.vue";
 import dataTransfer from "../components/datashow/dataTransfer.vue";
+import dataTheme from "../components/datarpt/dataTheme.vue";
 
 const router = new Router({
   mode: "history", //路由模式，无#
@@ -132,6 +133,10 @@ const router = new Router({
     {
       path: "/showreel/dataTransfer",
       component: dataTransfer,
+    },
+    {
+      path: "/dataTheme",
+      component: dataTheme,
     },
     {
       path: "/errorRouter",
