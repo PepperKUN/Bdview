@@ -2973,7 +2973,7 @@ button.close {
     transform: translateX(-50%);
     display: block;
     height: 2px;
-    width: calc(100% - 84px);
+    width: calc(100% - 70px);
     background-color: rgb(26, 170, 146);
 }
 
@@ -3055,7 +3055,9 @@ ol.tree_wrap>li::before {
 
 .tree_bar>.call_times {
     display: inline-block;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 18px;
     font-weight: bold;
     color: #fff;
@@ -6014,12 +6016,13 @@ table.singleColumForm td .treeSelect>input.treeInput {
     margin-left: 100px;
     color: #fed217;
 }
-
+.stream_group{
+    text-align: center;
+}
 .source_stream_list span.cycle {
-    width: 60px;
+    margin-right: 10px;
     display: inline-block;
     vertical-align: middle;
-    margin-left: 40px;
     color: #fed217;
     font-size: 16px;
     font-weight: bold;
