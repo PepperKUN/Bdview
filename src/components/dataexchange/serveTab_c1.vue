@@ -70,7 +70,8 @@
                 <v-chart :options="pie" :autoresize='true'/>
             </DataFrame><br>
             <DataFrame :width='518' :height='286' frameTitle="今日与委办局交换数据统计" :rightFunc="frameSet">
-                <span class="drop_name" slot="title_corner">下拉框:</span>
+                <!-- <span class="drop_name" slot="title_corner">下拉框:</span> -->
+                <el-switch slot="title_corner" class="dropSwitch" v-model="switchValue" active-text="是" inactive-text="否"></el-switch>
                 <div class="simple_wrap">
                     <table class="simple">
                         <thead>
@@ -172,6 +173,7 @@ export default {
         return {
             health: 90,
             todayAmount: 386914,
+            switchValue: true,
             modules_name: ['名称数据交换','数据上报','省政务平台','一窗通','多证合一','联合惩戒','简易注销','双告知','数据归集','数据落地市州'],
             units_name: ['总局','市州局','委办局','银行','省政府'],
             frameSet: {

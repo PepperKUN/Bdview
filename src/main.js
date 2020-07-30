@@ -9,6 +9,7 @@ import {
   Scrollbar,
   DatePicker,
   Table,
+  Switch,
   TableColumn,
   Loading,
 } from "element-ui";
@@ -28,6 +29,7 @@ ECharts.registerMap('yunnan', yunnan)
 Vue.use(Pagination)
 Vue.use(Scrollbar)
 Vue.use(Select)
+Vue.use(Switch)
 Vue.use(Option)
 Vue.use(DatePicker)
 Vue.use(Table)
