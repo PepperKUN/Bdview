@@ -3280,6 +3280,10 @@ ol.tree_wrap>li::before {
     cursor: pointer;
     margin-right: 10px;
     border-radius: 4px 4px 0 0;
+    /* width: 180px; */
+    min-width : 60px;
+    max-width : 300px;
+    margin-top: 2px;
 }
 
 .normal_tab>li.current {
@@ -5973,7 +5977,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     background-image: url(../images/gear.png);
     background-position: center;
     background-repeat: no-repeat;
-    animation: gear 4s linear infinite;
+    animation: gear 8s linear infinite;
 }
 @keyframes gear {
     from {
@@ -6192,6 +6196,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     line-height: 28px;
     display: block;
     margin: 0 auto;
+    min-height: 28px;
     width: 80%;
     border-bottom: 1px solid #3389ff;
 }
@@ -6520,11 +6525,10 @@ table.singleColumForm td .treeSelect>input.treeInput {
 .block_addition{
     position: absolute;
     z-index: 1;
-    top: -10px;
+    top: -16px;
     left: -190px;
     /* border: 1px solid #fbe26f; */
     width: 440px;
-    height: 130px;
     border-radius: 10px;
     background-color: rgb(201, 172, 74, 21%);
     padding: 1px;
@@ -6540,6 +6544,17 @@ table.singleColumForm td .treeSelect>input.treeInput {
     border-radius: 6px;
     background-color: rgb(0, 0, 0, 0.1);
     position: relative;
+}
+.block_addition>.block_public>span.number{
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+.block_addition>.block_public>span.number::after{
+    content: '条';
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 4px;
 }
 .block_addition>.block_public>i{
     font-size: 36px;

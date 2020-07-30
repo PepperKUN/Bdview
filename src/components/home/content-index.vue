@@ -10,6 +10,7 @@
               <div class="block_public">
                 <i class="iconfont icon-gonggongfuwu"></i>
                 <span>公共服务平台</span>
+                <span class="number">{{source_list[0].from}}</span>
               </div>
             </div>
             <li v-for="source in  source_list" :key="source.id">
@@ -105,6 +106,7 @@ export default {
           name: '市场监管业务平台',
           icon: 'icon-platform',
           number: '12,314',
+          from: '123,456',
           unit: '条'
         },{
           name: '国家市场监管总局',
