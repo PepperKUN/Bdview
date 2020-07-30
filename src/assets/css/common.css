@@ -2936,6 +2936,7 @@ button.close {
     text-align: center;
     margin: 0 auto;
     font-size: 0;
+    white-space: normal;
 }
 
 .tree_path::before {
