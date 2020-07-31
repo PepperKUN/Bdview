@@ -6016,9 +6016,11 @@ table.singleColumForm td .treeSelect>input.treeInput {
     margin-left: 100px;
     color: #fed217;
 }
-.stream_group{
+
+.stream_group {
     text-align: center;
 }
+
 .source_stream_list span.cycle {
     margin-right: 10px;
     display: inline-block;
@@ -6342,6 +6344,7 @@ table.singleColumForm td .treeSelect>input.treeInput {
     border: 1px dashed #3389ff;
     text-align: center;
     border-radius: 4px;
+    vertical-align: top;
 }
 
 .sub_list>li>span.name {
@@ -6867,4 +6870,8 @@ table.singleColumForm td .treeSelect>input.treeInput {
 
 .el-switch.is-checked .el-switch__core:after {
     background-color: #003686;
+}
+
+.sub_list_data{
+    min-height: 36px;
 }

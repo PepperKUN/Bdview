@@ -16,7 +16,7 @@
                         <ol class="tree_wrap" v-if="block.childTree">
                             <li class="tree_bar" v-for="bar in block.childTree" :key="bar.id">
                                 <div class="tree_name">{{bar.treeName}}</div>
-                                <span class="call_times">{{bar.callTimes}}</span>
+                                <span class="call_times" v-if="bar.callTimes">{{bar.callTimes}}</span>
                             </li>
                         </ol>
                     </li>
@@ -60,8 +60,8 @@ export default {
                                 treeName: '企业基本信息查询接口',
                                 callTimes: 1235
                             },{
-                                treeName: '企业基本信息查询接口',
-                                callTimes: 1235
+                                treeName: '等',
+                                // callTimes: 1235
                             }
                         ]
                     },

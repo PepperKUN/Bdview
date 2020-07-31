@@ -76,7 +76,7 @@
                                 <span class="name">{{list.name}}</span>
                                 <div class="sub_list_data">
                                     <span class="number">{{list.number}}</span>
-                                    <span class="unit">条</span>
+                                    <span class="unit" v-if="list.number">条</span>
                                 </div>
                             </li>
                         </ul>
@@ -211,9 +211,10 @@ export default {
                     },{
                         name: '质监行政审批',
                         number: '42,349'
-                    },{
-                        name: '药品行政审批监管',
-                        number: '42,349'
+                    },
+                    {
+                        // name: '药品行政审批监管',
+                        // number: '42,349'
                     }
                 ]
             }
