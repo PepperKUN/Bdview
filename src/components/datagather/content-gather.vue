@@ -15,7 +15,7 @@
       </div>
       <div class="row">
           <div class="colum">
-              <DataFrame :width='1892' :height='750' frameTitle="数据汇聚总览" rightFunc>
+              <DataFrame :width='1892' :height='750' frameTitle="今日汇聚" rightFunc class="title_emphasis">
                   <div class="gather_process_wrap">
                       <div class="data_source process_block_bg">
                           <h4>{{source_data.name}}</h4>
@@ -126,10 +126,10 @@ export default {
             name: '数据源',
             children:[
                 {
-                    list: ['主体登记','公示监管','行政执法','小微企业']
+                    list: ['系统1','系统2','系统3','系统4','系统5','...']
                 },{
                     
-                    list: ['食品审批','药品审批','特种设备监管','计量监管']
+                    list: ['系统1','系统2','系统3','系统4','系统5','...']
                 },{
                     list: ['行政审批平台(除食品, 药品)','特种设备作业人员考核']
                 },{
@@ -230,6 +230,10 @@ export default {
   }
 }
 </script>
-<style lang="css" >
-    
+<style lang="css" scoped>
+    .title_emphasis>>>h4.frame_title{
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+    }
 </style>

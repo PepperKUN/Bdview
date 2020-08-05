@@ -5893,35 +5893,43 @@ table.singleColumForm td .treeSelect>input.treeInput {
     margin-bottom: 15px;
 }
 
+.source_data_1, .source_data_2 {
+    padding-top: 4px;
+}
+
+.source_data_1::before, .source_data_2::before {
+    content: '更多';
+    display: block;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
 .source_data_1>li {
-    width: calc(50% - 7px);
+    width: calc(33% - 8px);
     margin-right: 10px;
 }
 
-.source_data_1>li:nth-child(2n) {
+.source_data_1>li:nth-child(3n) {
     margin-right: 0;
 }
 
-.source_data_1>li:nth-child(n+2) {
+.source_data_1>li:nth-child(n+3) {
     margin-bottom: 0;
 }
 
-.source_data_1>li:nth-child(5) {
-    margin-right: 0px;
-    width: 36px;
-}
-
 .source_data_2>li {
-    width: calc(50% - 7px);
+    width: calc(33% - 10px);
     margin-right: 10px;
-    vertical-align: top;
 }
 
-.source_data_2>li:nth-child(2n) {
+.source_data_2>li:nth-child(3n) {
     margin-right: 0;
 }
 
-.source_data_2>li:nth-child(n+2) {
+.source_data_2>li:nth-child(n+3) {
     margin-bottom: 0;
 }
 
@@ -5944,15 +5952,6 @@ table.singleColumForm td .treeSelect>input.treeInput {
 
 .source_data_3>li:last-child, .source_data_4>li:last-child, .source_data_5>li:last-child {
     margin-bottom: 0;
-}
-
-.source_data_2>li:nth-child(4) {
-    width: calc(50% - 8px);
-}
-
-.source_data_2>li:nth-child(5) {
-    margin-right: 0;
-    width: calc(50% - 8px);
 }
 
 .source_block>.block_title {
@@ -6872,6 +6871,6 @@ table.singleColumForm td .treeSelect>input.treeInput {
     background-color: #003686;
 }
 
-.sub_list_data{
+.sub_list_data {
     min-height: 36px;
 }
