@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="row flag_wrap">
-                <DataFlag flag='历次变更' :width="flagWidth" color='pink' icon="icon-change">
+                <DataFlag flag='历次变更' :width="flagWidth" color='yellow2' icon="icon-change">
                     <ul class="info_list">
                         <li v-for="list in lists1" :key="list.id">
                             <router-link :to="list.url?list.url:'###'" :class="list.url?'':'disabled'">
@@ -39,7 +39,7 @@
                         </li>
                     </ul>
                 </DataFlag>
-                <DataFlag flag='资质信息' :width="flagWidth" color='blue' icon="icon-bh">
+                <DataFlag flag='资质信息' :width="flagWidth" color='cyan2' icon="icon-bh">
                     <ul class="info_list">
                         <li v-for="list in lists2" :key="list.id">
                             <router-link :to="list.url?list.url:'###'" :class="list.url?'':'disabled'">
@@ -49,7 +49,7 @@
                         </li>
                     </ul>
                 </DataFlag>
-                <DataFlag flag='信用状态' :width="flagWidth" color='yellow' icon="icon-xinyong">
+                <DataFlag flag='信用状态' :width="flagWidth" color='orange' icon="icon-xinyong">
                     <ul class="info_list">
                         <li v-for="list in lists3" :key="list.id">
                             <router-link :to="list.url?list.url:'###'" :class="list.url?'':'disabled'">
@@ -59,7 +59,7 @@
                         </li>
                     </ul>
                 </DataFlag>
-                <DataFlag flag='相关信息' :width="flagWidth" color='purple' icon="icon-xiaoxi">
+                <DataFlag flag='相关信息' :width="flagWidth" color='blue2' icon="icon-xiaoxi">
                     <ul class="info_list">
                         <li v-for="list in lists4" :key="list.id">
                             <router-link :to="list.url?list.url:'###'" :class="list.url?'':'disabled'">
@@ -69,7 +69,7 @@
                         </li>
                     </ul>
                 </DataFlag>
-                <DataFlag flag='自主公示信息' :width="flagWidth" color='cyan' icon="icon-gongshi">
+                <DataFlag flag='自主公示信息' :width="flagWidth" color='purple2' icon="icon-gongshi">
                     <ul class="info_list">
                         <li v-for="list in lists5" :key="list.id">
                             <router-link :to="list.url?list.url:'###'" :class="list.url?'':'disabled'">

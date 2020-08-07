@@ -1363,6 +1363,31 @@ table.simple td {
     color: #000;
 }
 
+.yellow2 .flag_icon {
+    background-color: #ffd300;
+    color: #000;
+}
+
+.cyan2 .flag_icon {
+    background-color: #3ab9b0;
+    color: #fff;
+}
+
+.orange .flag_icon {
+    background-color: #fd863e;
+    color: #fff;
+}
+
+.blue2 .flag_icon {
+    background-color: #3389ff;
+    color: #fff;
+}
+
+.purple2 .flag_icon {
+    background-color: #b86cff;
+    color: #000;
+}
+
 .flag_name {
     color: #3689fd;
     font-weight: bold;
@@ -1384,6 +1409,29 @@ table.simple td {
 
 .cyan .flag_name {
     color: #53dbd2;
+}
+
+.pink .flag_name {
+    color: #fc3e80;
+}
+
+.yellow2 .flag_name {
+    color: #ffd300;
+}
+.cyan2 .flag_name {
+    color: #3ab9b0;
+}
+
+.orange .flag_name {
+    color: #fd863e;
+}
+
+.blue2 .flag_name {
+    color: #3389ff;
+}
+
+.purple2 .flag_name {
+    color: #b86cff;
 }
 
 .flag_content {
@@ -1423,6 +1471,26 @@ table.simple td {
     background-image: url(../images/cyan_corner.png);
 }
 
+.yellow2 .flag_corner {
+    background-image: url(../images/yellow2_corner.png);
+}
+
+.cyan2 .flag_corner {
+    background-image: url(../images/cyan2_corner.png);
+}
+
+.orange .flag_corner {
+    background-image: url(../images/orange_corner.png);
+}
+
+.purple2 .flag_corner {
+    background-image: url(../images/purple2_corner.png);
+}
+
+.blue2 .flag_corner {
+    background-image: url(../images/blue2_corner.png);
+}
+
 .flag_corner.c_right {
     transform: scaleX(-1);
 }
@@ -1452,6 +1520,31 @@ table.simple td {
 
 .cyan .flag_border.b_top {
     background-color: #003947;
+    border-color: #47c6bd;
+}
+
+.yellow2 .flag_border.b_top {
+    background-color: #6d611e;
+    border-color: #c0a73c;
+}
+
+.cyan2 .flag_border.b_top {
+    background-color: #0e6173;
+    border-color: #47c5bc;
+}
+
+.orange .flag_border.b_top {
+    background-color: #8f5838;
+    border-color: #fa843f;
+}
+
+.purple2 .flag_border.b_top {
+    background-color: #4f2899;
+    border-color: #b97df4;
+}
+
+.blue2 .flag_border.b_top {
+    background-color: #224c86;
     border-color: #47c6bd;
 }
 
@@ -1485,6 +1578,26 @@ table.simple td {
     background-image: url(../images/cyan_tri.png);
 }
 
+.yellow2 .flag_border.b_top::after {
+    background-image: url(../images/yellow2_tri.png);
+}
+
+.cyan2 .flag_border.b_top::after {
+    background-image: url(../images/cyan2_tri.png);
+}
+
+.purple2 .flag_border.b_top::after {
+    background-image: url(../images/purple2_tri.png);
+}
+
+.orange .flag_border.b_top::after {
+    background-image: url(../images/orange_tri.png);
+}
+
+.blue2 .flag_border.b_top::after {
+    background-image: url(../images/blue2_tri.png);
+}
+
 .flag_border.b_left, .flag_border.b_right {
     width: 10px;
     height: 546px;
@@ -1507,6 +1620,26 @@ table.simple td {
 
 .cyan .flag_border.b_left, .cyan .flag_border.b_right {
     background-image: url(../images/cyan_border.png);
+}
+
+.yellow2 .flag_border.b_left, .yellow2 .flag_border.b_right {
+    background-image: url(../images/yellow2_border.png);
+}
+
+.cyan2 .flag_border.b_left, .cyan2 .flag_border.b_right {
+    background-image: url(../images/cyan2_border.png);
+}
+
+.orange .flag_border.b_left, .orange .flag_border.b_right {
+    background-image: url(../images/orange_border.png);
+}
+
+.blue2 .flag_border.b_left, .blue2 .flag_border.b_right {
+    background-image: url(../images/blue2_border.png);
+}
+
+.purple2 .flag_border.b_left, .purple2 .flag_border.b_right {
+    background-image: url(../images/purple2_border.png);
 }
 
 .flag_border.b_right {
@@ -1537,6 +1670,26 @@ table.simple td {
 
 .cyan .flag_border.b_wrap {
     background-image: url(../images/cyan_bg.png);
+}
+
+.yellow2 .flag_border.b_wrap {
+    background-image: url(../images/yellow2_bg.png);
+}
+
+.cyan2 .flag_border.b_wrap {
+    background-image: url(../images/cyan2_bg.png);
+}
+
+.orange .flag_border.b_wrap {
+    background-image: url(../images/orange_bg.png);
+}
+
+.blue2 .flag_border.b_wrap {
+    background-image: url(../images/blue2_bg.png);
+}
+
+.purple2 .flag_border.b_wrap {
+    background-image: url(../images/purple2_bg.png);
 }
 
 .flag_wrap>.flag {
@@ -3630,6 +3783,29 @@ ol.tree_wrap>li::before {
 
 .cyan .info_list span.num {
     background-color: #39b8af;
+    color: #000;
+}
+.yellow2 .info_list span.num {
+    background-color: #ffd300;
+    color: #000;
+}
+.cyan2 .info_list span.num {
+    background-color: #3ab9b0;
+    color: #fff;
+}
+
+.orange .info_list span.num {
+    background-color: #fd863e;
+    color: #fff;
+}
+
+.blue2 .info_list span.num {
+    background-color: #3389ff;
+    color: #fff;
+}
+
+.purple2 .info_list span.num {
+    background-color: #b86cff;
     color: #000;
 }
 
